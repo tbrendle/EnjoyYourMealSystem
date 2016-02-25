@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class User {
 	private final String firstName;
@@ -8,12 +9,14 @@ public class User {
 	private boolean spam;
 	private String preferedContactType;
 	private HashMap<String, String> contacts;
+	private HashSet<Meal> favoriteMeals;
 	
 	public User(String firstName, String lastName, String userName){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
 		this.contacts = new HashMap<String, String>();
+		this.favoriteMeals = new HashSet<Meal>();
 		this.spam = false;
 		this.preferedContactType="email";
 	}
@@ -61,6 +64,18 @@ public class User {
 	}
 	public String getHash(){
 		return this.hash;
+	}
+	public HashSet<Meal> getFavoriteMeals() {
+		return favoriteMeals;
+	}
+	public void setFavoriteMeals(HashSet<Meal> favoriteMeals) {
+		this.favoriteMeals = favoriteMeals;
+	}
+	public void addFavoriteMeal(Meal meal){
+		this.favoriteMeals.add(meal);
+	}
+	public void removeFavoriteMeal(Meal meal){
+		this.favoriteMeals.remove(meal);
 	}
 	
 }

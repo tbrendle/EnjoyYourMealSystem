@@ -15,6 +15,23 @@ public class TestScenario {
 		assertEquals("bob.red@gmail.com", user.getPreferedContact());
 		user.setPreferedContactType("phone");
 		assertEquals("0147200001", user.getPreferedContact());
+		Meal meal = testMealCreation();
+		user.addFavoriteMeal(meal);
+		assertEquals(1, user.getFavoriteMeals().size());
+		Meal meal2 = testMealCreation();
+		user.addFavoriteMeal(meal2);
+		assertEquals(1, user.getFavoriteMeals().size());
+
+		
+	}
+	
+	public Meal testMealCreation(){
+		Meal meal = new Meal("Tarte aux pommes");
+		assertEquals("Tarte aux pommes", meal.getName());
+		meal.putIngredient("Pomme", "5");
+		meal.putIngredient("Pâte", "200g");
+		assertEquals(2, meal.getIngredients().size());
+		return meal;
 	}
 
 }
