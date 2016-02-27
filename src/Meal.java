@@ -2,14 +2,14 @@ import java.util.HashMap;
 
 public class Meal {
 	private String name;
-	private HashMap<String, Integer> ingredients;
+	private HashMap<Ingredient, Integer> ingredients;
 	private float price;
 	private float specialPrice;
 	private boolean promotion;
 	
 	public Meal(String name){
 		this.setName(name);
-		this.setIngredients(new HashMap<String, Integer>());
+		this.setIngredients(new HashMap<Ingredient, Integer>());
 		this.price = 0;
 		this.specialPrice = 0;
 		this.promotion = false;
@@ -33,19 +33,23 @@ public class Meal {
 		return false;
 	}
 	
-	public HashMap<String, Integer> getIngredients() {
+	public HashMap<Ingredient, Integer> getIngredients() {
 		return ingredients;
 	}
+	
+	public Integer getIngredientQuantity(Ingredient i){
+		return (ingredients.get(i)==null ? 0 : ingredients.get(i)) ;
+	}
 
-	public void setIngredients(HashMap<String, Integer> ingredients) {
+	public void setIngredients(HashMap<Ingredient, Integer> ingredients) {
 		this.ingredients = ingredients;
 	}
 	
-	public void putIngredient(String ingredient, Integer quantity){
+	public void putIngredient(Ingredient ingredient, Integer quantity){
 		this.ingredients.put(ingredient, quantity);
 	}
 	
-	public void removeIngredient(String ingredient){
+	public void removeIngredient(Ingredient ingredient){
 		this.ingredients.remove(ingredient);
 	}
 
@@ -80,5 +84,14 @@ public class Meal {
 
 	public void setPromotion(boolean promotion) {
 		this.promotion = promotion;
+	}
+	
+	public void personalize(String ingredientName, String personalization){
+		Ingredient ingredient = new Ingredient(ingredientName, personalization);
+		Integer n = this.getIngredientQuantity(ingredient);
+		if(n>0){
+			this.ingredients.remove(ingredient);
+			this.ingredients.put(ingredient, n);
+		}
 	}
 }

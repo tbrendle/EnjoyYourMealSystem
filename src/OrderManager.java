@@ -25,30 +25,31 @@ public class OrderManager implements BasicManager{
 	}
 	public void askForMeal(){
 		ui.out("Add a meal to your order:");
-		for(Meal m : restaurant.getMeals()){
+		for(Meal m : restaurant.getMeals().values()){
 			ui.out(m.toString());
 		}
-		String mealName = ui.in(new SetChecker<Meal>(restaurant.getMeals(), true));
+		String mealName = ui.in(new MealChecker(restaurant, true));
 		if(mealName.equals("")){
 			finalize();
 		} else {
-			Meal meal = restaurant.getExistingMealByString(mealName);
+			Meal meal = restaurant.getMeal(mealName);
 			ui.out("How much");
 			int howmuch = 2;
 			for(int i = 0; i<howmuch; i++){
 				order.addMeal(personalize(meal));
 			}
 			ui.out("It will cost "+user.getFidelityCard().getPrice(order));
+			askForMeal();
 		}
 	}
 	public Meal personalize(Meal meal){
 		ui.out((order.getMeals().size()+1)+" - Which ingredient do you want to personalize in "+ meal.getName());
-		String ingredient = ui.in(new SetChecker<String>(meal.getIngredients().keySet(), true));
+		ui.out(meal.getIngredients().toString());
+		String ingredient = ui.in(new IngredientChecker(meal, true));
 		if(!ingredient.equals("")){
 			ui.out("Enter a personalization");
 			String personalization = ui.in();
-			//TODO: DO something with that
-			return personalize(meal);
+			meal.personalize(ingredient, personalization);
 		} 
 		return meal;
 	}
@@ -57,8 +58,9 @@ public class OrderManager implements BasicManager{
 		ui.out("Your ordered:");
 		for(Meal m : order.getMeals()){
 			ui.out(m.toString());
+			ui.out(m.getIngredients().toString());
 		}
-		ui.out("It cost"+ order.getPrice());
+		ui.out("It cost "+ order.getPrice()+"€");
 	}
 
 
