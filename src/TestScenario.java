@@ -7,7 +7,7 @@ public class TestScenario {
 	@Test
 	public void test(){
 		testWorkFlow();
-	
+		//testOrder();
 	}
 	@Test
 	public void testIntegerChecker(){

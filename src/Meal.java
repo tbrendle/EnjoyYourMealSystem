@@ -85,13 +85,15 @@ public class Meal {
 	public void setPromotion(boolean promotion) {
 		this.promotion = promotion;
 	}
-	
-	public void personalize(String ingredientName, String personalization){
-		Ingredient ingredient = new Ingredient(ingredientName, personalization);
+	public void personalize(Ingredient ingredient){
 		Integer n = this.getIngredientQuantity(ingredient);
 		if(n>0){
 			this.ingredients.remove(ingredient);
 			this.ingredients.put(ingredient, n);
 		}
+	}
+	public void personalize(String ingredientName, String personalization){
+		Ingredient ingredient = new Ingredient(ingredientName, personalization);
+		this.personalize(ingredient);
 	}
 }

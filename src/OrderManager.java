@@ -1,3 +1,5 @@
+
+//DEPRECATED
 public class OrderManager implements BasicManager{
 	private Order order;
 	private Restaurant restaurant;
@@ -34,7 +36,7 @@ public class OrderManager implements BasicManager{
 		} else {
 			Meal meal = restaurant.getMeal(mealName);
 			ui.out("How much");
-			int howmuch = 2;
+			int howmuch = Integer.parseInt(ui.in(new IntegerChecker(1, null)));
 			for(int i = 0; i<howmuch; i++){
 				order.addMeal(personalize(meal));
 			}
@@ -61,6 +63,10 @@ public class OrderManager implements BasicManager{
 			ui.out(m.getIngredients().toString());
 		}
 		ui.out("It cost "+ order.getPrice()+"€");
+	}
+	
+	public Order getOrder(){
+		return this.order;
 	}
 
 
