@@ -195,8 +195,11 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		notify("OMGTHISISYOURBIRTHDAY", customerList);
 	}
 	
-	public String showMeal(String orderingCriteria){
-		return "Ordering Criteria not found :///";
+	public ArrayList<Order> showMeal(String orderingCriteria){
+		SortingOrdersStrategy sorter = SorterFactory.create(orderingCriteria);
+		if( sorter == null)
+			throw new IllegalArgumentException("Can not sort this way : not yet implemented");
+		return sorter.sort(restaurant.getOrdersHistory());
 	}
 	public static void main(String[] args) {
 		Program p = new Program();
