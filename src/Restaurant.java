@@ -52,7 +52,5 @@ public class Restaurant {
 	public Meal getMeal(String str){
 		return this.meals.get(str);
 	}
-
-	
 	
 }

@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Set;
 
 public class Program implements MealCreationInterface, OrderCreationInterface {
 	private User loggedUser;
@@ -101,9 +104,100 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	@Override
 	public Order saveOrder() {
 		checkCustomer();
-		return orderCreator.saveOrder();
+		Order o = orderCreator.saveOrder();
+		restaurant.addOrder(o);
+		return o;
 	}
 	
+	public void insertOffer(String mealName, float mealPrice){
+		checkAdmin();
+		Meal meal = restaurant.getMeal(mealName);
+		if(meal==null){
+			throw new IllegalStateException("No meal...");
+		}
+		meal.setSpecialPrice(mealPrice);
+		meal.setPromotion(true);
+		//This meal will erase itself because it is the same
+		restaurant.addMeal(meal);
+	}
+	public void registerUser(boolean admin, String firstName, String lastName, String userName, String password){
+		//Check that user does not exist
+		if(restaurant.getAdmins().containsKey(userName))
+			throw new IllegalArgumentException("An admin already own this username");
+		if(restaurant.getUsers().containsKey(userName))
+			throw new IllegalArgumentException("A customer already own this username");
+		
+		User c = new User(firstName, lastName, userName);
+		c.setPassword(password);
+		if(admin)
+			restaurant.putAdmin(c);
+		else
+			restaurant.putUser((Customer)c);
+	}
+	public void registerClient(String firstName, String lastName, String userName, String password){
+		//TODO: check rights ? 
+		registerUser(false, firstName, lastName, userName, password);
+	}
+	
+	//TODO: Contact type ??
+	public void addContactInfo(String contact, String contactType){
+		checkCustomer();		
+		((Customer) this.loggedUser).putContact(contactType, contact);
+		restaurant.putUser((Customer) loggedUser);
+	}
+	
+	public void associateCard(String userName, String cardType){
+		//TODO: Check rights.. seems to be admin so...
+		checkAdmin();
+		Customer customer = restaurant.getUsers().get(userName);
+		if(customer==null)
+			throw new IllegalArgumentException("User not found...");
+		try{
+			customer.setFidelityCard(CardFactory.create(cardType));
+		} catch (Exception e){
+			throw new IllegalArgumentException("Invalid card type");
+		}
+	}
+	
+	public void associateAgreement(boolean agreement){
+		//TODO: check specs of this function
+		checkCustomer();
+		((Customer) loggedUser).setSpam(agreement);
+	}
+	
+	public void insertChef(String firstName, String lastName, String userName, String password){
+		registerUser(true, firstName, lastName, userName, password);
+	}
+	//TODO: MAYBE REFACTO TO FACTORY
+	public void notify(String message, Iterable<Customer> customerList){
+		//TODO: Check if specialPrice/mealName is not useless :/
+		checkAdmin();
+		for(Customer c : customerList){
+			if(c.isSpam()){
+				ContactSenderInterface csi = ContactFactory.create(c.getPreferedContactType());
+				if(csi!=null)
+					csi.sendMessage(c.getPreferedContact(), message);
+			}
+		}
+	}
+	public void notifyAd(String message, String mealName, float price){
+		//TODO: Check if specialPrice/mealName is not useless :/
+		notify(message, restaurant.getUsers().values());
+	}
+	@SuppressWarnings("deprecation")
+	public void notifyBirthday(){
+		ArrayList<Customer> customerList = new ArrayList<Customer>();
+		Date today = new Date();
+		for(Customer c : customerList){
+			if(c.getBirthDay().getDate() == today.getDate() && today.getMonth() == c.getBirthDay().getMonth())
+				customerList.add(c);
+		}
+		notify("OMGTHISISYOURBIRTHDAY", customerList);
+	}
+	
+	public String showMeal(String orderingCriteria){
+		return "Ordering Criteria not found :///";
+	}
 	public static void main(String[] args) {
 		Program p = new Program();
 	}

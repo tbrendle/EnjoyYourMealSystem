@@ -1,3 +1,4 @@
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -7,7 +8,7 @@ public class Customer extends User{
 	private HashMap<String, String> contacts;
 	private HashSet<Meal> favoriteMeals;
 	private FidelityStrategy fidelityCard;
-	
+	private Date birthDay;
 	public Customer(String firstName, String lastName, String userName) {
 		super(firstName, lastName, userName);
 		this.spam = false;
@@ -15,6 +16,8 @@ public class Customer extends User{
 		this.favoriteMeals = new HashSet<Meal>();
 		this.preferedContactType="email";
 		this.fidelityCard = new BasicCard();
+		//TODO: what is birthday, when will we ask the user ? 
+		this.birthDay = new Date();
 	}
 	
 	public boolean isSpam() {
@@ -60,6 +63,14 @@ public class Customer extends User{
 
 	public void setFidelityCard(FidelityStrategy fidelityCard) {
 		this.fidelityCard = fidelityCard;
+	}
+
+	public Date getBirthDay() {
+		return birthDay;
+	}
+
+	public void setBirthDay(Date birthDay) {
+		this.birthDay = birthDay;
 	}
 
 }
