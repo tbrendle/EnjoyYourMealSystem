@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Set;
 
 public class Program implements MealCreationInterface, OrderCreationInterface {
 	private User loggedUser;
@@ -195,13 +194,13 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		notify("OMGTHISISYOURBIRTHDAY", customerList);
 	}
 	
-	public ArrayList<Order> showMeal(String orderingCriteria){
+	public ArrayList<Scorable> showMeal(String orderingCriteria){
 		SortingOrdersStrategy sorter = SorterFactory.create(orderingCriteria);
 		if( sorter == null)
 			throw new IllegalArgumentException("Can not sort this way : not yet implemented");
 		return sorter.sort(restaurant.getOrdersHistory());
 	}
 	public static void main(String[] args) {
-		Program p = new Program();
+		//Program p = new Program();
 	}
 }
