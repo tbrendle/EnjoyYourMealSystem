@@ -5,9 +5,12 @@ public class Order {
 	private ArrayList<Meal> meals;
 	private Date date;
 	private float price;
-	public Order(){
+	private Customer customer;
+	
+	public Order(Customer c){
 		this.meals = new ArrayList<Meal>();
 		this.date = new Date();
+		this.customer = c;
 	}
 	public ArrayList<Meal> getMeals() {
 		return meals;
@@ -31,6 +34,12 @@ public class Order {
 	}
 	public void setPrice(float price) {
 		this.price = price;
+	}
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer c) {
+		this.customer = c;
 	}
 	
 }

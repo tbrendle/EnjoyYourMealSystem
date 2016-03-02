@@ -92,6 +92,14 @@ public class Meal {
 			this.ingredients.put(ingredient, n);
 		}
 	}
+	public boolean isPersonalized(){
+		for(Ingredient i : ingredients.keySet()){
+			if(i.getPersonalization()!=null && !i.getPersonalization().equals(""))
+				return true;
+		}
+		return false;
+	}
+	
 	public void personalize(String ingredientName, String personalization){
 		Ingredient ingredient = new Ingredient(ingredientName, personalization);
 		this.personalize(ingredient);

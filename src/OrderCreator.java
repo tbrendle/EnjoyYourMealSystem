@@ -12,7 +12,7 @@ public class OrderCreator implements OrderCreationInterface{
 	@Override
 	public void selectMeal(String mealName, Integer quantity) {
 		if(this.order == null)
-			this.order = new Order();
+			this.order = new Order(customer);
 		Meal meal = restaurant.getMeal(mealName);
 		if(meal==null){
 			throw new IllegalArgumentException(mealName+" not found :/");

@@ -6,7 +6,7 @@ public class OrderManager implements BasicManager{
 	private UserInterface ui;
 	private Customer user;
 	public OrderManager(Restaurant restaurant, Customer user, UserInterface ui){
-		this.order = new Order();
+		this.order = new Order(user);
 		this.restaurant = restaurant;
 		this.ui = ui;
 		this.user = user;
