@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class LotteryCard implements FidelityStrategy {
+public class LotteryCard implements FidelityStrategy, Serializable{
 
 	@Override
 	public float pay(Order o) {

@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Meal {
+public class Meal implements Serializable{
 	private String name;
 	private HashMap<Ingredient, Integer> ingredients;
 	private float price;

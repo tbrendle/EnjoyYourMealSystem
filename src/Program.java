@@ -1,3 +1,8 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,12 +18,53 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	}
 	
 	public void loadData(){
-		//TODO: Load Restaurant data from some db/file/...
-		this.restaurant = new Restaurant();
+		//TODO: Load Restaurant data from some db/file/
+		//TODO: Refacto this using loading / saving strategies ? 
+		    ObjectInputStream ois = null;
+
+		    try {
+		      System.out.println("BJRE");
+		      final FileInputStream fichier = new FileInputStream("restaurant.ser");
+		      ois = new ObjectInputStream(fichier);
+		      this.restaurant = (Restaurant) ois.readObject();
+		      System.out.println("Restaurant : ");
+		      System.out.println("Users : " + this.restaurant.getUsers());
+		      System.out.println("Meals : " + this.restaurant.getMeals());
+		    } catch (final java.io.IOException e) {
+		    	this.restaurant = new Restaurant();
+		    } catch (final ClassNotFoundException e) {
+		      e.printStackTrace();
+		    } finally {
+		      try {
+		        if (ois != null) {
+		          ois.close();
+		        }
+		      } catch (final IOException ex) {
+		    	ex.printStackTrace();
+		      }
+		    }
 	}
 	
 	public void saveData(){
 		//TODO: save Restaurant data from some db/file/...
+	    ObjectOutputStream oos = null;
+	    try {
+	      final FileOutputStream fichier = new FileOutputStream("restaurant.ser");
+	      oos = new ObjectOutputStream(fichier);
+	      oos.writeObject(this.restaurant);
+	      oos.flush();
+	    } catch (final java.io.IOException e) {
+	      e.printStackTrace();
+	    } finally {
+	      try {
+	        if (oos != null) {
+	          oos.flush();
+	          oos.close();
+	        }
+	      } catch (final IOException ex) {
+	        ex.printStackTrace();
+	      }
+	   }
 	}
 	
 	public void checkCustomer(){
@@ -131,7 +177,7 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		if(admin)
 			restaurant.putAdmin(c);
 		else
-			restaurant.putUser((Customer)c);
+			restaurant.putUser(new Customer(c));
 	}
 	public void registerClient(String firstName, String lastName, String userName, String password){
 		//TODO: check rights ? 
@@ -169,7 +215,6 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	}
 	//TODO: MAYBE REFACTO TO FACTORY
 	public void notify(String message, Iterable<Customer> customerList){
-		//TODO: Check if specialPrice/mealName is not useless :/
 		checkAdmin();
 		for(Customer c : customerList){
 			if(c.isSpam()){
@@ -199,8 +244,5 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		if( sorter == null)
 			throw new IllegalArgumentException("Can not sort this way : not yet implemented");
 		return sorter.sort(restaurant.getOrdersHistory());
-	}
-	public static void main(String[] args) {
-		//Program p = new Program();
 	}
 }

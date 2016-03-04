@@ -9,7 +9,8 @@ public class Customer extends User{
 	private HashSet<Meal> favoriteMeals;
 	private FidelityStrategy fidelityCard;
 	private Date birthDay;
-	public Customer(String firstName, String lastName, String userName) {
+	
+	public Customer(String firstName, String lastName, String userName, String password) {
 		super(firstName, lastName, userName);
 		this.spam = false;
 		this.contacts = new HashMap<String, String>();
@@ -17,6 +18,17 @@ public class Customer extends User{
 		this.preferedContactType="email";
 		this.fidelityCard = new BasicCard();
 		//TODO: what is birthday, when will we ask the user ? 
+		this.birthDay = new Date();
+		this.setPassword(password);
+	}
+	public Customer(User u){
+		super(u.getFirstName(), u.getLastName(), u.getUserName());
+		this.hash = u.getHash();
+		this.spam = false;
+		this.contacts = new HashMap<String, String>();
+		this.favoriteMeals = new HashSet<Meal>();
+		this.preferedContactType="email";
+		this.fidelityCard = new BasicCard();
 		this.birthDay = new Date();
 	}
 	

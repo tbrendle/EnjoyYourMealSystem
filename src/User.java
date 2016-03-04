@@ -1,8 +1,10 @@
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
 	private final String firstName;
 	private final String lastName;
 	private final String userName;
-	private String hash;
+	protected String hash;
 	
 	public User(String firstName, String lastName, String userName){
 		this.firstName = firstName;

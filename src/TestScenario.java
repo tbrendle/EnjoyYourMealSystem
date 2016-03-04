@@ -33,8 +33,7 @@ public class TestScenario {
 	}
 	
 	public Customer testCustomerCreation() {
-		Customer user = new Customer("Bob", "Red", "bobred");
-		user.setPassword("123456");
+		Customer user = new Customer("Bob", "Red", "bobred", "123456");
 		user.putContact("email","bob.red@gmail.com");
 		user.putContact("phone", "0147200001");
 		assertEquals("Bob Red", user.getFullName());

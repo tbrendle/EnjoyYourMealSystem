@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class PointCard implements FidelityStrategy{
+public class PointCard implements FidelityStrategy, Serializable{
 	private float points;
 	PointCard(){
 		this.points=0;

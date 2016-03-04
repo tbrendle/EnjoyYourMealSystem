@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Restaurant {
+public class Restaurant implements Serializable {
 	private HashMap<String,Customer> users;
 	private HashMap<String,User> admins;
 	private HashMap<String,Meal> meals;

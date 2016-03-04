@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class BasicCard implements FidelityStrategy {
+public class BasicCard implements FidelityStrategy, Serializable {
 	@Override
 	public float pay(Order o) {
 		return getPrice(o);
