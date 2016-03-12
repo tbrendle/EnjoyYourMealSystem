@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class JustOnSaleSorter implements SortingOrdersStrategy{
+public class JustOnSaleSorter extends SortingOrdersStrategy{
 
 	@Override
 	public ArrayList<Scorable> sort(ArrayList<Order> oList) {

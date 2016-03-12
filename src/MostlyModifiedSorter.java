@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MostlyModifiedSorter implements SortingOrdersStrategy{
+public class MostlyModifiedSorter extends SortingOrdersStrategy{
 
 	@Override
 	public ArrayList<Scorable> sort(ArrayList<Order> oList) {

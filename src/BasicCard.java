@@ -11,9 +11,9 @@ public class BasicCard implements FidelityStrategy, Serializable {
 		float price = 0;
 		for(Meal m : o.getMeals()){
 			if(m.isPromotion()){
-				price+=m.getSpecialPrice();
+				price+=m.getSpecialPrice()+m.getExtraPrice();
 			} else {
-				price+=m.getPrice();
+				price+=m.getPrice()+m.getExtraPrice();
 			}
 		}
 		return price;

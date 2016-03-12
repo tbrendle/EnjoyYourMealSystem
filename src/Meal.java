@@ -75,7 +75,16 @@ public class Meal implements Serializable{
 	public void setPrice(float price) {
 		this.price = price;
 	}
-
+	
+	public float getExtraPrice(){
+		float extraPrice = 0;
+		for(Ingredient i : ingredients.values()){
+			if(i.getPersonalization()>0)
+				extraPrice+=i.getCostPerUnit()*i.getPersonalization();
+		}
+		return extraPrice;
+	}
+	
 	public float getSpecialPrice() {
 		return specialPrice;
 	}
@@ -91,14 +100,7 @@ public class Meal implements Serializable{
 	public void setPromotion(boolean promotion) {
 		this.promotion = promotion;
 	}
-	/*public void personalize(Ingredient ingredient){
-		Integer n = this.getIngredientQuantity(ingredient);
-		if(n!=null && !n.equals(0)){
-			this.ingredients.put(ingredient.getName(), ingredient);
-		} else {
-			//TODO: THROW EXCEPTION: INGREDIENT NOT FOUND
-		}
-	}*/
+	
 	public boolean isPersonalized(){
 		for(Ingredient i : ingredients.values()){
 			if(i.getPersonalization()!=null && !i.getPersonalization().equals(0))

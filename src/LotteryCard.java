@@ -13,7 +13,7 @@ public class LotteryCard implements FidelityStrategy, Serializable{
 	public float getPrice(Order o) {
 		float price = 0;
 		for(Meal m : o.getMeals()){
-			price+=m.getPrice();
+			price+=m.getPrice()+m.getExtraPrice();
 		}
 		return price;
 	}
