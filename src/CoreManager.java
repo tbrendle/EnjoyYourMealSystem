@@ -1,5 +1,6 @@
 import java.util.HashMap;
 //DEPRECATED
+/*
 public class CoreManager implements BasicManager{
 	public User user;
 	public Restaurant restaurant;
@@ -48,4 +49,4 @@ public class CoreManager implements BasicManager{
 		c.init();
 		c.run();
 	}
-}
+}*/

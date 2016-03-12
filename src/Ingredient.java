@@ -1,12 +1,15 @@
 
 public class Ingredient {
 	private String name;
-	private String personalization;
+	private Integer quantity;
+	private Integer personalization;
+	private float costPerUnit;
 	public Ingredient(String name){
 		this.name = name;
-		this.personalization = "";
+		this.personalization = 0;
+		this.setCostPerUnit(1);
 	}
-	public Ingredient(String name, String personalization){
+	public Ingredient(String name, Integer personalization){
 		this.name = name;
 		this.personalization = personalization;
 	}
@@ -29,10 +32,23 @@ public class Ingredient {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPersonalization() {
-		return personalization;
+	public float getCostPerUnit() {
+		return costPerUnit;
 	}
-	public void setPersonalization(String personalization) {
+	public void setCostPerUnit(float costPerUnit) {
+		this.costPerUnit = costPerUnit;
+	}
+	public Integer getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+	public void setPersonalization(Integer personalization){
 		this.personalization = personalization;
 	}
+	public Integer getPersonalization(){
+		return this.personalization;
+	}
+	
 }

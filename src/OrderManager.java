@@ -1,5 +1,6 @@
 
 //DEPRECATED
+/*
 public class OrderManager implements BasicManager{
 	private Order order;
 	private Restaurant restaurant;
@@ -71,4 +72,4 @@ public class OrderManager implements BasicManager{
 
 
 
-}
+}*/

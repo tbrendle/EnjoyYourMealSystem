@@ -1,14 +1,106 @@
 import static org.junit.Assert.*;
 
-import java.util.HashMap;
 import org.junit.Test;
 
 public class TestScenario {
-	@Test
-	public void test(){
-		testWorkFlow();
-		//testOrder();
+	private Program program = new Program();
+
+	@Test 
+	public void testCreateBobRed(){
+		try{
+			program.insertChef("Bob", "Red", "bobred", "123456");
+			program.saveData();
+		} catch (Exception e){
+			
+		}
 	}
+	@Test
+	public void testAuth(){
+		program.authenticateUser("bobred", "123456");
+	}
+	
+	@Test
+	public void testCreateMeal(){
+		program.authenticateUser("bobred", "123456");
+		program.createMeal("Raclette", 20);
+	}
+	
+	@Test
+	public void testAddIngredient(){
+		program.authenticateUser("bobred", "123456");
+		program.createMeal("Raclette", 20);
+		program.addIngredient("cheese", 80);
+		program.addIngredient("ham", 40);
+		program.addIngredient("potatoes", 50);
+	}
+	
+	
+	@Test
+	public void testCurrentMeal(){
+		program.authenticateUser("bobred", "123456");
+		program.createMeal("Raclette", 20);
+		program.addIngredient("cheese", 80);
+		program.addIngredient("ham", 40);
+		program.addIngredient("potatoes", 50);
+		Meal currentMeal = program.currentMeal();
+		assertEquals(currentMeal.getName(), "Raclette");
+		assertEquals(currentMeal.getIngredients().keySet().size(), 3);
+		assertEquals(currentMeal.getIngredientQuantity("cheese")==80, true);
+	}
+	
+	@Test
+	public void testSaveMeal(){
+		program.authenticateUser("bobred", "123456");
+		program.createMeal("Raclette", 20);
+		program.addIngredient("cheese", 80);
+		program.addIngredient("ham", 40);
+		program.addIngredient("potatoes", 50);
+		program.saveMeal();
+		Meal currentMeal = program.getAvailableMeals().get("Raclette");
+		assertEquals(currentMeal.getName(), "Raclette");
+		assertEquals(currentMeal.getIngredients().keySet().size(), 3);
+		assertEquals(currentMeal.getIngredientQuantity("cheese") ==80, true);
+	}
+	
+	@Test
+	public void test1(){
+		program.authenticateUser("bobred", "123456");
+		program.createMeal("Raclette", 20);
+		program.addIngredient("cheese", 80);
+		program.addIngredient("ham", 40);
+		program.addIngredient("potatoes", 50);
+		program.saveMeal();
+		program.createMeal("Cheeeeese", 20);
+		program.addIngredient("cheese", 280);
+		program.saveMeal();
+		program.createMeal("Cheeeese", 20);
+		program.addIngredient("cheese", 280);
+		program.saveMeal();
+		program.createMeal("Cheese", 20);
+		program.addIngredient("cheese", 280);
+		program.saveMeal();
+		program.createMeal("Chese", 20);
+		program.addIngredient("cheese", 280);
+		program.saveMeal();
+		program.createMeal("Cheeeceese", 20);
+		program.addIngredient("cheese", 280);
+		program.saveMeal();
+		program.createMeal("Cheeeessese", 20);
+		program.addIngredient("cheese", 280);
+		program.saveMeal();
+		program.createMeal("Cheeeeddese", 20);
+		program.addIngredient("cheese", 280);
+		program.saveMeal();
+		program.createMeal("Chedfggfeeeese", 20);
+		program.addIngredient("cheese", 280);
+		program.saveMeal();
+		program.listIngredients("Raclette");
+		program.registerClient("Mario", "Rossi", "Mario", "345678");
+		program.authenticateUser("Mario", "345678");
+		
+	}
+	
+	/*
 	@Test
 	public void testIntegerChecker(){
 		IntegerChecker ic = new IntegerChecker(null, null);
@@ -30,26 +122,6 @@ public class TestScenario {
 			String personalization = "PERSO";
 			meal.personalize(ingredient, personalization);
 		}
-	}
-	
-	public Customer testCustomerCreation() {
-		Customer user = new Customer("Bob", "Red", "bobred", "123456");
-		user.putContact("email","bob.red@gmail.com");
-		user.putContact("phone", "0147200001");
-		assertEquals("Bob Red", user.getFullName());
-		assertEquals(true, user.authenticate("123456"));
-		assertEquals(false, user.authenticate("123457"));
-		assertEquals("bob.red@gmail.com", user.getPreferedContact());
-		user.setPreferedContactType("phone");
-		assertEquals("0147200001", user.getPreferedContact());
-		Meal meal = testMealCreation();
-		user.addFavoriteMeal(meal);
-		assertEquals(1, user.getFavoriteMeals().size());
-		Meal meal2 = testMealCreation();
-		user.addFavoriteMeal(meal2);
-		assertEquals(1, user.getFavoriteMeals().size());
-		return user;
-		
 	}
 	
 	public Meal testMealCreation(){
@@ -88,12 +160,7 @@ public class TestScenario {
 		Restaurant res = new Restaurant();
 		res.setMeals(generateMealList());
 		return res;
-	}
-	
-	public void testOrder(){
-		OrderManager om = new OrderManager(testRestaurantCreation(), testCustomerCreation(), new NativeInterface());
-		om.run();
-	}
-	
+	}*/
+
 
 }

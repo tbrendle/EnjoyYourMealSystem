@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class Program implements MealCreationInterface, OrderCreationInterface {
 	private User loggedUser;
@@ -29,6 +30,7 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		      this.restaurant = (Restaurant) ois.readObject();
 		      System.out.println("Restaurant : ");
 		      System.out.println("Users : " + this.restaurant.getUsers());
+		      System.out.println("Admins : " + this.restaurant.getAdmins());
 		      System.out.println("Meals : " + this.restaurant.getMeals());
 		    } catch (final java.io.IOException e) {
 		    	this.restaurant = new Restaurant();
@@ -67,6 +69,10 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	   }
 	}
 	
+	public HashMap<String, Meal> getAvailableMeals(){
+		return this.restaurant.getMeals();
+	}
+	
 	public void checkCustomer(){
 		if(!(loggedUser instanceof Customer))
 			throw new SecurityException("Operation not allowed : must be authentified customer");
@@ -78,7 +84,10 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	}
 	
 	public void authenticateUser(String userName, String password){
-		User candidate = restaurant.getUsers().get(userName);
+		User candidate = restaurant.getAdmins().get(userName);
+		if(candidate == null){
+			candidate = restaurant.getUsers().get(userName);
+		}
 		if(candidate == null){
 			throw new SecurityException("User not found");
 		}
@@ -96,6 +105,12 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		loggedUser = null;
 	}
 	
+	public HashMap<String, Ingredient> listIngredients(String mealName){
+		Meal m = restaurant.getMeals().get(mealName);
+		if(m == null)
+			throw new IllegalArgumentException("This meal does not exist");
+		return m.getIngredients();
+	}
 	@Override
 	public void createMeal(String mealName, float price) {
 		checkAdmin();

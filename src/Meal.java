@@ -3,14 +3,14 @@ import java.util.HashMap;
 
 public class Meal implements Serializable{
 	private String name;
-	private HashMap<Ingredient, Integer> ingredients;
+	private HashMap<String, Ingredient> ingredients;
 	private float price;
 	private float specialPrice;
 	private boolean promotion;
 	
 	public Meal(String name){
 		this.setName(name);
-		this.setIngredients(new HashMap<Ingredient, Integer>());
+		this.setIngredients(new HashMap<String, Ingredient>());
 		this.price = 0;
 		this.specialPrice = 0;
 		this.promotion = false;
@@ -34,24 +34,29 @@ public class Meal implements Serializable{
 		return false;
 	}
 	
-	public HashMap<Ingredient, Integer> getIngredients() {
+	public HashMap<String, Ingredient> getIngredients() {
 		return ingredients;
 	}
 	
 	public Integer getIngredientQuantity(Ingredient i){
-		return (ingredients.get(i)==null ? 0 : ingredients.get(i)) ;
+		return getIngredientQuantity(i.getName());
+	}
+	
+	public Integer getIngredientQuantity(String ingredientName){
+		return ingredients.get(ingredientName)==null ? 0 : ingredients.get(ingredientName).getQuantity();
 	}
 
-	public void setIngredients(HashMap<Ingredient, Integer> ingredients) {
+	public void setIngredients(HashMap<String, Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
 	
 	public void putIngredient(Ingredient ingredient, Integer quantity){
-		this.ingredients.put(ingredient, quantity);
+		ingredient.setQuantity(quantity);
+		this.ingredients.put(ingredient.getName(), ingredient);
 	}
 	
 	public void removeIngredient(Ingredient ingredient){
-		this.ingredients.remove(ingredient);
+		this.ingredients.remove(ingredient.getName());
 	}
 
 	public String getName() {
@@ -86,23 +91,29 @@ public class Meal implements Serializable{
 	public void setPromotion(boolean promotion) {
 		this.promotion = promotion;
 	}
-	public void personalize(Ingredient ingredient){
+	/*public void personalize(Ingredient ingredient){
 		Integer n = this.getIngredientQuantity(ingredient);
-		if(n>0){
-			this.ingredients.remove(ingredient);
-			this.ingredients.put(ingredient, n);
+		if(n!=null && !n.equals(0)){
+			this.ingredients.put(ingredient.getName(), ingredient);
+		} else {
+			//TODO: THROW EXCEPTION: INGREDIENT NOT FOUND
 		}
-	}
+	}*/
 	public boolean isPersonalized(){
-		for(Ingredient i : ingredients.keySet()){
-			if(i.getPersonalization()!=null && !i.getPersonalization().equals(""))
+		for(Ingredient i : ingredients.values()){
+			if(i.getPersonalization()!=null && !i.getPersonalization().equals(0))
 				return true;
 		}
 		return false;
 	}
 	
-	public void personalize(String ingredientName, String personalization){
-		Ingredient ingredient = new Ingredient(ingredientName, personalization);
-		this.personalize(ingredient);
+	public void personalize(String ingredientName, Integer personalization){
+		
+		Ingredient ingredient = this.ingredients.get(ingredientName);
+		if(ingredient != null){
+			ingredient.setPersonalization(personalization);
+		} else {
+			//TODO: THROW EXCEPTION: INGREDIENT NOT FOUND
+		}
 	}
 }
