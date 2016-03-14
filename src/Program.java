@@ -214,7 +214,6 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	}
 	
 	public void associateCard(String userName, String cardType){
-		//TODO: Check rights.. seems to be admin so...
 		checkAdmin();
 		Customer customer = restaurant.getUsers().get(userName);
 		if(customer==null)
