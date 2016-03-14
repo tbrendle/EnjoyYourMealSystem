@@ -192,7 +192,6 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 			restaurant.putUser(new Customer(c));
 	}
 	public void registerClient(String firstName, String lastName, String userName, String password){
-		//TODO: check rights ? 
 		registerUser(false, firstName, lastName, userName, password);
 	}
 	
@@ -237,7 +236,7 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		}
 	}
 	public void notifyAd(String message, String mealName, float price){
-		//TODO: Check if specialPrice/mealName is not useless :/
+		insertOffer(mealName, price);
 		notify(message, restaurant.getUsers().values());
 	}
 	@SuppressWarnings("deprecation")
