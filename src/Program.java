@@ -249,9 +249,9 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		checkAdmin();
 		for(Customer c : customerList){
 			if(c.isSpam()){
-				ContactSenderInterface csi = ContactFactory.create(c.getPreferedContactType());
+				ContactSenderInterface csi = ContactFactory.create(c.getPreferredContactType());
 				if(csi!=null)
-					csi.sendMessage(c.getPreferedContact(), message);
+					csi.sendMessage(c.getPreferredContact(), message);
 			}
 		}
 	}
@@ -270,7 +270,7 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		notify("OMGTHISISYOURBIRTHDAY", customerList);
 	}
 	
-	public ArrayList<Scorable> showMeal(String orderingCriteria){
+	public ArrayList<ScorableMeal> showMeal(String orderingCriteria){
 		SortingOrdersStrategy sorter = SorterFactory.create(orderingCriteria);
 		if( sorter == null)
 			throw new IllegalArgumentException("Can not sort this way : not yet implemented");

@@ -1,7 +1,17 @@
 import java.io.Serializable;
 
+/**
+ * 
+ * Lottery card : one of the fidelity card
+ *
+ */
 public class LotteryCard implements FidelityStrategy, Serializable{
 
+	/**
+	 * Pay and order using a lottery card
+	 * @param o order we want to pay
+	 * @return the price we have to pay
+	 */
 	@Override
 	public float pay(Order o) {
 		if(Math.random()>0.99)
@@ -9,6 +19,11 @@ public class LotteryCard implements FidelityStrategy, Serializable{
 		return getPrice(o);
 	}
 
+	/**
+	 * Getting the price of and order, having a lottery card
+	 * @param o order we want to pay
+	 * @return the price of the order
+	 */
 	@Override
 	public float getPrice(Order o) {
 		float price = 0;

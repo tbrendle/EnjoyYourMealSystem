@@ -1,11 +1,24 @@
 import java.io.Serializable;
 
+/**
+ * 
+ * Point card : one of the fidelity card
+ *
+ */
 public class PointCard implements FidelityStrategy, Serializable{
 	private float points;
+	/**
+	 * PointCard constructor
+	 */
 	PointCard(){
 		this.points=0;
 	}
 	
+	/**
+	 * Pay and order using a point card
+	 * @param o order we want to pay
+	 * @return the price we have to pay
+	 */
 	@Override
 	public float pay(Order o) {
 		float price = getPrice(o);
@@ -16,6 +29,11 @@ public class PointCard implements FidelityStrategy, Serializable{
 		return price;
 	}
 
+	/**
+	 * Getting the price of and order, having a point card
+	 * @param o order we want to pay
+	 * @return the price of the order
+	 */
 	@Override
 	public float getPrice(Order o) {
 		float price = 0;

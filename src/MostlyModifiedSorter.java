@@ -1,10 +1,18 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/**
+ * 
+ * One meal sorting strategy : the meals ordered mostly in a modified version
+ *
+ */
 public class MostlyModifiedSorter extends SortingOrdersStrategy{
-
+	/**
+	 * Sorting meals by the most ordered, ordered mostly in a modified version
+	 * @param oList List of Meals
+	 * @return ArrayList of meals, ordered by the most ordered (ordered mostly in a modified version)
+	 */
 	@Override
-	public ArrayList<Scorable> sort(ArrayList<Order> oList) {
+	public ArrayList<ScorableMeal> sort(ArrayList<Order> oList) {
 		HashMap<Meal, Number> d = new HashMap<Meal, Number>();
 		for(Order o : oList){
 			for(Meal m : o.getMeals()){

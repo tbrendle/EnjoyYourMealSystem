@@ -2,84 +2,165 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * 
+ * One type of User of the system : the restaurants' clients
+ * 
+ */
 public class Customer extends User{
 	private boolean spam;
-	private String preferedContactType;
+	private String preferredContactType;
 	private HashMap<String, String> contacts;
 	private HashSet<Meal> favoriteMeals;
 	private FidelityStrategy fidelityCard;
 	private Date birthDay;
 	
+	/**
+	 * Customer constructor from first name, last name, user name and password
+	 * @param firstName
+	 * @param lastName
+	 * @param userName
+	 * @param password
+	 */
 	public Customer(String firstName, String lastName, String userName, String password) {
 		super(firstName, lastName, userName);
+		// By default : we don't spam, we contact the client by email, he owns a basic card.
 		this.spam = false;
 		this.contacts = new HashMap<String, String>();
 		this.favoriteMeals = new HashSet<Meal>();
-		this.preferedContactType="email";
+		this.preferredContactType="email";
 		this.fidelityCard = new BasicCard();
 		this.birthDay = null;
 		this.setPassword(password);
 	}
+	/**
+	 * Customer constructor from a User
+	 * @param u user we want to create a customer from
+	 */
 	public Customer(User u){
 		super(u.getFirstName(), u.getLastName(), u.getUserName());
 		this.hash = u.getHash();
+		// By default : we don't spam, we contact the client by email, he owns a basic card.
 		this.spam = false;
 		this.contacts = new HashMap<String, String>();
 		this.favoriteMeals = new HashSet<Meal>();
-		this.preferedContactType="email";
+		this.preferredContactType="email";
 		this.fidelityCard = new BasicCard();
 		this.birthDay = new Date();
 	}
 	
+	/**
+	 * To know if a customer accepts spam
+	 * @return true if the customer accepts spam, false otherwise
+	 */
 	public boolean isSpam() {
 		return spam;
 	}
+	/**
+	 * Change the acceptance of a customer for spam
+	 * @param spam boolean (true if the customer accepts spam, false otherwise)
+	 */
 	public void setSpam(boolean spam) {
 		this.spam = spam;
 	}
+	/**
+	 * Get a customer's contacts
+	 * @return the contacts of the customer
+	 */
 	public HashMap<String, String> getContacts() {
 		return contacts;
 	}
+	/**
+	 * Set the contacts of a customer
+	 * @param contacts the contacts to be set for the customer
+	 */
 	public void setContacts(HashMap<String, String> contacts) {
 		this.contacts = contacts;
 	}
+	/**
+	 * Add a contact to the customer
+	 * @param key type of contact (email, phone ...)
+	 * @param value value of the contact (email address, phone number...) 
+	 */
 	public void putContact(String key, String value){
 		this.contacts.put(key, value);
 	}
-	public String getPreferedContactType() {
-		return preferedContactType;
+	/**
+	 * Get preferred contact type
+	 * @return the preferred contact type of the customer
+	 */
+	public String getPreferredContactType() {
+		return preferredContactType;
 	}
-	public void setPreferedContactType(String preferedContactType) {
-		this.preferedContactType = preferedContactType;
+	/**
+	 * Set preferred contact type of the customer
+	 * @param preferredContactType the preferred contact type
+	 */
+	public void setPreferredContactType(String preferredContactType) {
+		this.preferredContactType = preferredContactType;
 	}
-	public String getPreferedContact(){
-		return this.contacts.get(this.preferedContactType);
+	/**
+	 * Get preferred contact of the customer
+	 * @return the preferred contact of the customer
+	 */
+	public String getPreferredContact(){
+		return this.contacts.get(this.preferredContactType);
 	}
+	/**
+	 * Get favorite meals of a customer
+	 * @return favorite meals of a customer
+	 */
 	public HashSet<Meal> getFavoriteMeals() {
 		return favoriteMeals;
 	}
+	/**
+	 * Set favorite meals of a customer
+	 * @param favoriteMeals favorite meals of a customer
+	 */
 	public void setFavoriteMeals(HashSet<Meal> favoriteMeals) {
 		this.favoriteMeals = favoriteMeals;
 	}
+	/**
+	 * Add a meal to the list of favorite meals
+	 * @param meal the meal to add to favorite meals
+	 */
 	public void addFavoriteMeal(Meal meal){
 		this.favoriteMeals.add(meal);
 	}
+	/**
+	 * Remove a meal from the list of favorite meals
+	 * @param meal
+	 */
 	public void removeFavoriteMeal(Meal meal){
 		this.favoriteMeals.remove(meal);
 	}
-
+	/**
+	 * Get the fidelity card of the customer
+	 * @return the fidelity card of the customer
+	 */
 	public FidelityStrategy getFidelityCard() {
 		return fidelityCard;
 	}
-
+	/**
+	 * Get the fidelity card of the user
+	 * @param fidelityCard the fidelity card to associate to the customer
+	 */
 	public void setFidelityCard(FidelityStrategy fidelityCard) {
 		this.fidelityCard = fidelityCard;
 	}
 
+	/**
+	 * Get the birthday of a user
+	 * @return the birthday of a user
+	 */
 	public Date getBirthDay() {
 		return birthDay;
 	}
 
+	/**
+	 * Set the birthday of a user
+	 * @param birthDay the birthday of the user
+	 */
 	public void setBirthDay(Date birthDay) {
 		this.birthDay = birthDay;
 	}

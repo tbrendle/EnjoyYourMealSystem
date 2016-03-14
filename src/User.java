@@ -38,10 +38,10 @@ public class User implements Serializable{
 	}
 
 	public boolean authenticate(String password){
-		return SecurityController.hashPassword(password).equals(this.hash);
+		return PasswordHandler.hashPassword(password).equals(this.hash);
 	}
 	public void setPassword(String password) {
-		this.hash = SecurityController.hashPassword(password);
+		this.hash = PasswordHandler.hashPassword(password);
 	}
 	public String getHash(){
 		return this.hash;
