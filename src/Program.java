@@ -3,6 +3,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -202,6 +203,15 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		restaurant.putUser((Customer) loggedUser);
 	}
 	
+	public void associateCard(String cardType){
+		checkCustomer();
+		try {
+			((Customer) loggedUser).setFidelityCard(CardFactory.create(cardType));
+		} catch (Exception e){
+			throw new IllegalArgumentException("Invalid card type");
+		}
+	}
+	
 	public void associateCard(String userName, String cardType){
 		//TODO: Check rights.. seems to be admin so...
 		checkAdmin();
@@ -209,6 +219,7 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		if(customer==null)
 			throw new IllegalArgumentException("User not found...");
 		try{
+			//TODO: persists
 			customer.setFidelityCard(CardFactory.create(cardType));
 		} catch (Exception e){
 			throw new IllegalArgumentException("Invalid card type");
