@@ -207,6 +207,7 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		checkCustomer();
 		try {
 			((Customer) loggedUser).setFidelityCard(CardFactory.create(cardType));
+			restaurant.putUser((Customer) loggedUser);
 		} catch (Exception e){
 			throw new IllegalArgumentException("Invalid card type");
 		}
@@ -219,17 +220,26 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		if(customer==null)
 			throw new IllegalArgumentException("User not found...");
 		try{
-			//TODO: persists
 			customer.setFidelityCard(CardFactory.create(cardType));
+			restaurant.putUser(customer);
 		} catch (Exception e){
 			throw new IllegalArgumentException("Invalid card type");
 		}
 	}
 	
 	public void associateAgreement(boolean agreement){
-		//TODO: check specs of this function
 		checkCustomer();
 		((Customer) loggedUser).setSpam(agreement);
+		restaurant.putUser((Customer) loggedUser);
+	}
+	
+	public void associateAgreement(String userName, boolean agreement){
+		checkAdmin();
+		Customer customer = restaurant.getUsers().get(userName);
+		if(customer==null)
+			throw new IllegalArgumentException("User not found...");
+		customer.setSpam(agreement);
+		restaurant.putUser(customer);
 	}
 	
 	public void insertChef(String firstName, String lastName, String userName, String password){
