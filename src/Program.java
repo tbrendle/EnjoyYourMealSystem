@@ -12,20 +12,18 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	private Restaurant restaurant;
 	private MealCreator mealCreator;
 	private OrderCreator orderCreator;
-	
-	public Program(){
+	private final String name;
+	public Program(String name){
+		this.name = name;
 		this.loadData();
 		this.mealCreator = new MealCreator();
 	}
 	
 	public void loadData(){
-		//TODO: Load Restaurant data from some db/file/
-		//TODO: Refacto this using loading / saving strategies ? 
 		    ObjectInputStream ois = null;
-
 		    try {
 		      System.out.println("BJRE");
-		      final FileInputStream fichier = new FileInputStream("restaurant.ser");
+		      final FileInputStream fichier = new FileInputStream(this.name+".ser");
 		      ois = new ObjectInputStream(fichier);
 		      this.restaurant = (Restaurant) ois.readObject();
 		      System.out.println("Restaurant : ");
@@ -48,10 +46,9 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	}
 	
 	public void saveData(){
-		//TODO: save Restaurant data from some db/file/...
 	    ObjectOutputStream oos = null;
 	    try {
-	      final FileOutputStream fichier = new FileOutputStream("restaurant.ser");
+	      final FileOutputStream fichier = new FileOutputStream(this.name+".ser");
 	      oos = new ObjectOutputStream(fichier);
 	      oos.writeObject(this.restaurant);
 	      oos.flush();

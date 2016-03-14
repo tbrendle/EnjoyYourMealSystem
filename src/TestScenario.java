@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class TestScenario {
-	private Program program = new Program();
+	private Program program = new Program("restaurant");
 
 	@Test 
 	public void testCreateBobRed(){
