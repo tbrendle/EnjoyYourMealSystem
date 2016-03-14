@@ -8,7 +8,9 @@ public class JustOnSaleSorter extends SortingOrdersStrategy{
 		HashMap<Meal, Number> d = new HashMap<Meal, Number>();
 		for(Order o : oList){
 			for(Meal m : o.getMeals()){
-				if(m.isPromotion())//TODO ? && o.getCustomer().getFidelityCard())
+				//We check only if the meal was ordered by a customer 
+				//who cared about the promotion
+				if(m.isPromotion() && o.getCustomer().getFidelityCard() instanceof BasicCard)
 					if(d.get(m)==null)
 						d.put(m, 1);
 					else
