@@ -17,8 +17,7 @@ public class Customer extends User{
 		this.favoriteMeals = new HashSet<Meal>();
 		this.preferedContactType="email";
 		this.fidelityCard = new BasicCard();
-		//TODO: what is birthday, when will we ask the user ? 
-		this.birthDay = new Date();
+		this.birthDay = null;
 		this.setPassword(password);
 	}
 	public Customer(User u){
