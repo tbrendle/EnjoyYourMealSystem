@@ -115,7 +115,7 @@ public class Meal implements Serializable{
 		if(ingredient != null){
 			ingredient.setPersonalization(personalization);
 		} else {
-			//TODO: THROW EXCEPTION: INGREDIENT NOT FOUND
+			throw new IllegalArgumentException("Ingredient not found.");
 		}
 	}
 }
