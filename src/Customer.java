@@ -1,13 +1,15 @@
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * 
  * One type of User of the system : the restaurants' clients
  * 
  */
-public class Customer extends User{
+public class Customer extends User implements Observer{
 	private boolean spam;
 	private String preferredContactType;
 	private HashMap<String, String> contacts;
@@ -163,6 +165,24 @@ public class Customer extends User{
 	 */
 	public void setBirthDay(Date birthDay) {
 		this.birthDay = birthDay;
+	}
+	/**
+	 * Send a message to a user using his preferredContactType
+	 * @param message
+	 */
+	public void sendMessage(String message){
+		ContactSenderInterface csi = ContactFactory.create(getPreferredContactType());
+		if(csi!=null)
+			csi.sendMessage(getPreferredContact(), message);
+	}
+	
+	@Override
+	public void update(Observable o, Object arg) {
+		if(o instanceof GeneralNotifier && arg instanceof String){
+			sendMessage((String)arg);
+		} else if(o instanceof DateChangedNotifier){
+			sendMessage("THIS IS YOUR BIRTHDAY");
+		}
 	}
 
 }

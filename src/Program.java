@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -14,6 +13,8 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	private User loggedUser;
 	private Restaurant restaurant;
 	private MealCreator mealCreator;
+	private GeneralNotifier generalNotifier;
+	private DateChangedNotifier dateChangedNotifier;
 	private OrderCreator orderCreator;
 	private final String name;
 	/**
@@ -24,6 +25,15 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		this.name = name;
 		// We load the serialized data
 		this.loadData();
+		this.generalNotifier = new GeneralNotifier();
+		this.dateChangedNotifier = new DateChangedNotifier();
+		for(Customer c : this.restaurant.getUsers().values()){
+			if(c.isSpam()){
+				this.generalNotifier.addObserver(c);
+				this.dateChangedNotifier.addObserver(c);
+			}
+		}
+		
 		this.mealCreator = new MealCreator();
 	}
 	
@@ -346,14 +356,33 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		}
 	}
 	
+	
+	/**
+	 * Associate an agreement (for spam) to an user
+	 * @param agreement true if the current user accepts spam, false otherwise
+	 * @param user the user 
+	 */
+	public void associateAgreement(Customer customer, boolean agreement){
+		//Update notifiers
+		if(customer.isSpam() && !agreement){
+			generalNotifier.deleteObserver(customer);
+			dateChangedNotifier.deleteObserver(customer);
+		} else if(!customer.isSpam() && agreement){
+			generalNotifier.addObserver(customer);
+			dateChangedNotifier.addObserver(customer);
+		}
+		//Save preferences of the user
+		customer.setSpam(agreement);
+		restaurant.putUser(customer);
+	}
+	
 	/**
 	 * Associate an agreement (for spam) to the current user
 	 * @param agreement true if the current user accepts spam, false otherwise
 	 */
 	public void associateAgreement(boolean agreement){
 		checkCustomer();
-		((Customer) loggedUser).setSpam(agreement);
-		restaurant.putUser((Customer) loggedUser);
+		associateAgreement((Customer) loggedUser, agreement);
 	}
 	
 	/**
@@ -366,8 +395,7 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		Customer customer = restaurant.getUsers().get(userName);
 		if(customer==null)
 			throw new IllegalArgumentException("User not found...");
-		customer.setSpam(agreement);
-		restaurant.putUser(customer);
+		associateAgreement(customer, agreement);
 	}
 	
 	/**
@@ -380,23 +408,7 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	public void insertChef(String firstName, String lastName, String userName, String password){
 		registerUser(true, firstName, lastName, userName, password);
 	}
-	
-	/**
-	 * Notify a list of customers with a message
-	 * @param message the message to send to the customers
-	 * @param customerList the customers intended to receive the message
-	 */
-	//TODO: MAYBE REFACTO TO FACTORY
-	public void notify(String message, Iterable<Customer> customerList){
-		checkAdmin();
-		for(Customer c : customerList){
-			if(c.isSpam()){
-				ContactSenderInterface csi = ContactFactory.create(c.getPreferredContactType());
-				if(csi!=null)
-					csi.sendMessage(c.getPreferredContact(), message);
-			}
-		}
-	}
+
 	/**
 	 * Send a message to alert the users about an offer
 	 * @param message the message to send to users
@@ -405,21 +417,14 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	 */
 	public void notifyAd(String message, String mealName, float price){
 		insertOffer(mealName, price);
-		notify(message, restaurant.getUsers().values());
+		generalNotifier.notifyAll(message);
 	}
 
 	/**
 	 * Send a special offer to the users that celebrate their birthday
 	 */
-	@SuppressWarnings("deprecation")
 	public void notifyBirthday(){
-		ArrayList<Customer> customerList = new ArrayList<Customer>();
-		Date today = new Date();
-		for(Customer c : customerList){
-			if(c.getBirthDay().getDate() == today.getDate() && today.getMonth() == c.getBirthDay().getMonth())
-				customerList.add(c);
-		}
-		notify("OMGTHISISYOURBIRTHDAY", customerList);
+		dateChangedNotifier.notifyObservers();
 	}
 	
 	/**
