@@ -9,13 +9,13 @@ import java.util.HashMap;
 /**
  * Class to handle general operations required by the EYMS system
  */
-public class Program implements MealCreationInterface, OrderCreationInterface {
+public class Program {
 	private User loggedUser;
 	private Restaurant restaurant;
-	private MealCreator mealCreator;
+	private Meal mealInProgress;
 	private GeneralNotifier generalNotifier;
 	private DateChangedNotifier dateChangedNotifier;
-	private OrderCreator orderCreator;
+	private Order orderInProgress;
 	private final String name;
 	/**
 	 * Program constructor
@@ -37,7 +37,7 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		//Run date watcher
 		(new Thread(dateChangedNotifier)).start();
 		
-		this.mealCreator = new MealCreator();
+		
 	}
 	
 	/**
@@ -137,17 +137,15 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 			throw new SecurityException("Incorrect password");
 		}
 		this.loggedUser = candidate;
-		if(this.loggedUser instanceof Customer){
-			this.orderCreator = new OrderCreator(restaurant, (Customer) loggedUser);
-		}
 	}
 	
 	/**
 	 * Log out user
 	 */
 	public void logout(){
-		orderCreator = null;
 		loggedUser = null;
+		mealInProgress = null;
+		orderInProgress = null;
 	}
 	
 	/**
@@ -168,10 +166,12 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	 * @param mealName the name of the meal we want to create 
 	 * @param price the price associated to the meal we're creating
 	 */
-	@Override
 	public void createMeal(String mealName, float price) {
 		checkAdmin();
-		this.mealCreator.createMeal(mealName, price);
+		//TODO: Check if the meal already exist ? 
+		mealInProgress = new Meal(mealName);
+		mealInProgress.setPrice(price);
+		mealInProgress.setSpecialPrice(price);
 	}
 
 	/**
@@ -179,32 +179,36 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	 * @param ingredientName the name of the ingredient we're adding
 	 * @param quantity the quantity of the ingredien we're adding
 	 */
-	@Override
 	public void addIngredient(String ingredientName, Integer quantity) {
 		checkAdmin();
-		this.mealCreator.addIngredient(ingredientName, quantity);
+		if(mealInProgress!=null)
+			mealInProgress.putIngredient(new Ingredient(ingredientName), quantity);
+		else
+			throw new IllegalStateException("No meal...");
 	}
 
 	/**
 	 * Get the current state of the meal being created
 	 * @return the current state of the meal being created
 	 */
-	@Override
 	public Meal currentMeal() {
 		checkAdmin();
-		return this.mealCreator.currentMeal();
+		return mealInProgress;
 	}
 
 	/**
 	 * Save the meal currently being created in the restaurant
 	 * @return the meal newly created in the restaurant
 	 */
-	@Override
 	public Meal saveMeal() {
 		checkAdmin();
-		Meal m = mealCreator.saveMeal();
-		this.restaurant.addMeal(m);
-		return m;
+		this.restaurant.addMeal(mealInProgress);
+		Meal finalizedMeal = mealInProgress;
+		// We reinitialize the buffer meal for creation
+		mealInProgress = null;
+		//Persist data
+		saveData();
+		return finalizedMeal;
 	}
 
 	/**
@@ -212,10 +216,16 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	 * @param mealName the name of the meal to select
 	 * @param quantity the quantity of the meal to select
 	 */
-	@Override
 	public void selectMeal(String mealName, Integer quantity) {
 		checkCustomer();
-		orderCreator.selectMeal(mealName, quantity);
+		if(orderInProgress == null)
+			orderInProgress = new Order((Customer) loggedUser);
+		Meal meal = restaurant.getMeal(mealName);
+		if(meal==null){
+			throw new IllegalArgumentException(mealName+" not found :/");
+		}
+		for(int i = 0; i< quantity; i++)
+			orderInProgress.addMeal(meal);
 	}
 	
 	/**
@@ -224,42 +234,52 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 	 * @param ingredientName the name of the ingredient from the meal we want to personalize
 	 * @param quantity the quantity we want to personalize it from
 	 */
-	@Override
 	public void personalizeMeal(String mealName, String ingredientName, Integer quantity) {
 		checkCustomer();
-		orderCreator.personalizeMeal(mealName, ingredientName, quantity);
+		//TODO: ask for clarification
+		if(orderInProgress==null){
+			throw new IllegalArgumentException("Order not found :/");
+		}
 	}
 
 	/**
 	 * Getting the current state of the order being made
 	 * @return the current state of the order being made
 	 */
-	@Override
 	public Order currentOrder() {
 		checkCustomer();
-		return orderCreator.currentOrder();
+		return orderInProgress;
 	}
 
 	/**
 	 * Evaluation the price of the current order
 	 * @return the price of the current order
 	 */
-	@Override
 	public float evalPrice() {
 		checkCustomer();
-		return orderCreator.evalPrice();
+		if(orderInProgress==null){
+			throw new IllegalArgumentException("Order not found :/");
+		}
+		return ((Customer) loggedUser).getFidelityCard().getPrice(orderInProgress);
 	}
 	
 	/**
 	 * Save the order currently being made
 	 * @return the order saved
 	 */
-	@Override
 	public Order saveOrder() {
 		checkCustomer();
-		Order o = orderCreator.saveOrder();
-		restaurant.addOrder(o);
-		return o;
+		if(orderInProgress==null){
+			throw new IllegalArgumentException("Order not found :/");
+		}
+		orderInProgress.setPrice(((Customer) loggedUser).getFidelityCard().pay(orderInProgress));
+		Order finalizedOrder = orderInProgress;
+		restaurant.addOrder(orderInProgress);
+		// We reinitialize the buffer order for creation being hold in the creator
+		orderInProgress = null;
+		//Persist
+		saveData();
+		return finalizedOrder;
 	}
 	
 	/**

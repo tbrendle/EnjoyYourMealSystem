@@ -1,9 +1,11 @@
+import java.io.Serializable;
+
 /**
  *
  * Class for the ingredients of a meal
  *
  */
-public class Ingredient {
+public class Ingredient implements Serializable{
 	private String name;
 	private Integer quantity;
 	private Integer personalization;
