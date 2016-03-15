@@ -95,7 +95,7 @@ public class TestScenario {
 		program.addIngredient("cheese", 280);
 		program.saveMeal();
 		program.listIngredients("Raclette");
-		program.registerClient("Mario", "Rossi", "Mario", "345678");
+		program.registerCustomer("Mario", "Rossi", "Mario", "345678");
 		program.authenticateUser("Mario", "345678");
 		
 	}
