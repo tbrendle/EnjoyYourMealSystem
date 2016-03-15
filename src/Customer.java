@@ -181,7 +181,9 @@ public class Customer extends User implements Observer{
 		if(o instanceof GeneralNotifier && arg instanceof String){
 			sendMessage((String)arg);
 		} else if(o instanceof DateChangedNotifier){
-			sendMessage("THIS IS YOUR BIRTHDAY");
+			Date today = new Date();
+			if(getBirthDay().getDate() == today.getDate() && today.getMonth() == getBirthDay().getMonth())
+				sendMessage("THIS IS YOUR BIRTHDAY");
 		}
 	}
 

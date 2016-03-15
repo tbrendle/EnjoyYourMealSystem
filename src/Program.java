@@ -27,12 +27,15 @@ public class Program implements MealCreationInterface, OrderCreationInterface {
 		this.loadData();
 		this.generalNotifier = new GeneralNotifier();
 		this.dateChangedNotifier = new DateChangedNotifier();
+		//Load notifiers
 		for(Customer c : this.restaurant.getUsers().values()){
 			if(c.isSpam()){
 				this.generalNotifier.addObserver(c);
 				this.dateChangedNotifier.addObserver(c);
 			}
 		}
+		//Run date watcher
+		(new Thread(dateChangedNotifier)).start();
 		
 		this.mealCreator = new MealCreator();
 	}
