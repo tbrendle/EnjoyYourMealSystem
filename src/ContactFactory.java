@@ -12,6 +12,8 @@ public class ContactFactory {
 	public static ContactSenderInterface create(String s){
 		if(s=="email"){
 			return new ContactEmailer();
+		} else if(s=="phone") {
+			return new ContactSMS();
 		} else 
 			return null;
 	}
