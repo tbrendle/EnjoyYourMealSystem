@@ -36,19 +36,6 @@ public class Ingredient implements Serializable{
 	}
 	
 	/**
-	 * Serialize the ingredient in a string
-	 */
-	public String toString(){
-		return name+" : "+personalization;
-	}
-	/**
-	 * Return the hashcode associated to the ingredient
-	 */
-	@Override
-	public int hashCode(){
-		return name.hashCode();
-	}
-	/**
 	 * Test if a given object (Ingredient) is the same as this ingredient
 	 * @param o an object (ingredient)
 	 * @return true if the given object is the same as this ingredient, false otherwise
@@ -107,6 +94,8 @@ public class Ingredient implements Serializable{
 	 */
 	public void setPersonalization(Integer personalization){
 		// TODO : check if personalization < quantity
+		if(personalization+quantity<0)
+			personalization = -quantity;
 		this.personalization = personalization;
 	}
 	/**
