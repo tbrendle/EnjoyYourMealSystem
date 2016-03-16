@@ -215,14 +215,24 @@ public class Program {
 	}
 	
 	/**
-	 * Personalize a meal, that is to say an ingredient of this meal
-	 * @param mealName the name of the meal we're personalizing
+	 * Personalize the currentMeal, that is to say an ingredient of this meal
 	 * @param ingredientName the name of the ingredient from the meal we want to personalize
 	 * @param quantity the quantity we want to personalize it from
 	 */
-	public void personalizeMeal(String mealName, String ingredientName, Integer quantity) {
+	public void personalizeMeal(String ingredientName, Integer quantity) {
 		checkCustomer();
-		orderCreator.personalizeMeal(mealName, ingredientName, quantity);
+		orderCreator.personalizeMeal(ingredientName, quantity);
+	}
+	
+	/**
+	 * Personalize a meal given its index, that is to say an ingredient of this meal
+	 * @param ingredientName the name of the ingredient from the meal we want to personalize
+	 * @param quantity the quantity we want to personalize it from
+	 * @param index the id of the meal in the order array
+	 */
+	public void personalizeMeal(String ingredientName, Integer quantity, Integer index) {
+		checkCustomer();
+		orderCreator.personalizeMeal(ingredientName, quantity, index);
 	}
 
 	/**

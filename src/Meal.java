@@ -201,7 +201,12 @@ public class Meal implements Serializable{
 	public void personalize(String ingredientName, Integer personalization){
 		Ingredient ingredient = this.ingredients.get(ingredientName);
 		if(ingredient != null){
-			ingredient.setPersonalization(personalization);
+			if(ingredient.getQuantity()+personalization<=0){
+				this.ingredients.remove(ingredientName);
+			} else {
+				ingredient.setPersonalization(personalization);
+				this.ingredients.put(ingredientName, ingredient);
+			}
 		} else {
 			throw new IllegalArgumentException("Ingredient not found.");
 		}

@@ -82,4 +82,17 @@ public class Order {
 		this.customer = c;
 	}
 	
+	/**
+	 * 
+	 * @param ingredientName the name of the ingredient to personalize in the meal
+	 * @param quantity the quantity we want to add or remove
+	 * @param index the index of the meal in order
+	 */
+	public void personalizeMealByIndex(String ingredientName, Integer personalization, Integer index){
+		if(index>=0 && index < meals.size()){
+			Meal mealToCustom = meals.get(index);
+			mealToCustom.personalize(ingredientName, personalization);
+			meals.set(index, mealToCustom);
+		}	
+	}
 }

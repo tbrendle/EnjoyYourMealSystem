@@ -7,6 +7,8 @@ public class OrderCreator {
 	private Order order;
 	private Restaurant restaurant;
 	private Customer customer;
+	private Meal currentMeal;
+	private Integer currentMealQuantity;
 	
 	/**
 	 * Order creator constructor
@@ -26,25 +28,55 @@ public class OrderCreator {
 	public void selectMeal(String mealName, Integer quantity) {
 		if(this.order == null)
 			this.order = new Order(customer);
+		flushCurrentMeal();
 		Meal meal = restaurant.getMeal(mealName);
 		if(meal==null){
 			throw new IllegalArgumentException(mealName+" not found :/");
 		}
-		for(int i = 0; i< quantity; i++)
-			order.addMeal(meal);
+		currentMeal = meal;
+		currentMealQuantity = quantity;
 	}
-
+	
+	
 	/**
-	 * Personalize a meal from this order
-	 * @param mealName the name of the meal to personalize
-	 * @param ingredientName the name of the ingredient to personalize in the meal
-	 * @param quantity the quantity we want to personalize by
+	 * Flush current(s) meal(s) and add them to order
 	 */
-	public void personalizeMeal(String mealName, String ingredientName, Integer quantity) {
-		//TODO: ask for clarification
+	public void flushCurrentMeal(){
+		if(currentMeal != null){
+			for(int i = 0; i< currentMealQuantity; i++)
+				order.addMeal(currentMeal);
+		}
+		currentMeal=null;
+		currentMealQuantity=0;
+	}
+	
+	/**
+	 * Personalize the currentMeal from this order
+	 * @param ingredientName the name of the ingredient to personalize in the meal
+	 * @param quantity the quantity we want to add or remove
+	 */
+	public void personalizeMeal(String ingredientName, Integer quantity) {
 		if(order==null){
 			throw new IllegalArgumentException("Order not found :/");
 		}
+		if(currentMeal==null){
+			throw new IllegalArgumentException("Meal not found :/");
+		}
+		currentMeal.personalize(ingredientName, quantity);
+	}
+	
+	/**
+	 * Personalize a meal from this order
+	 * 
+	 * @param ingredientName the name of the ingredient to personalize in the meal
+	 * @param quantity the quantity we want to add or remove
+	 * @param index the index of the meal in order
+	 */
+	public void personalizeMeal(String ingredientName, Integer quantity, Integer index) {
+		if(order==null){
+			throw new IllegalArgumentException("Order not found :/");
+		}
+		order.personalizeMealByIndex(ingredientName,quantity,index);
 	}
 	
 	/**
@@ -54,6 +86,7 @@ public class OrderCreator {
 		if(order==null){
 			throw new IllegalArgumentException("Order not found :/");
 		}
+		flushCurrentMeal();
 		order.setPrice(customer.getFidelityCard().pay(order));
 		Order finalizedOrder = order;
 		// We reinitialize the buffer order for creation being hold in the creator

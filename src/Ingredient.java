@@ -18,6 +18,7 @@ public class Ingredient implements Serializable{
 		this.name = name;
 		// By default, no personalization of the quantity, and a cost per unit of 1
 		this.quantity = 0;
+		// Personalization is the delta set by the user to personalize his meal
 		this.personalization = 0;
 		this.setCostPerUnit(1);
 	}
