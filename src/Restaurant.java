@@ -7,7 +7,7 @@ import java.util.HashMap;
  */
 public class Restaurant implements Serializable {
 	private HashMap<String,Customer> users;
-	private HashMap<String,User> admins;
+	private HashMap<String,Admin> admins;
 	private HashMap<String,Meal> meals;
 	private ArrayList<Order> ordersHistory;
 	/**
@@ -15,7 +15,7 @@ public class Restaurant implements Serializable {
 	 */
 	public Restaurant(){
 		this.setUsers(new HashMap<String,Customer>());
-		this.setAdmins(new HashMap<String,User>());
+		this.setAdmins(new HashMap<String,Admin>());
 		this.setMeals(new HashMap<String,Meal>());
 		this.setOrdersHistory(new ArrayList<Order>());
 	}
@@ -65,21 +65,21 @@ public class Restaurant implements Serializable {
 	 * Add an admin for this restaurant
 	 * @param u the user becoming an admin for this restaurant
 	 */
-	public void putAdmin(User u){
+	public void putAdmin(Admin u){
 		this.admins.put(u.getUserName(), u);
 	}
 	/**
 	 * Get the admins of this restaurant
 	 * @return the admins of this restaurant
 	 */
-	public HashMap<String,User> getAdmins() {
+	public HashMap<String,Admin> getAdmins() {
 		return admins;
 	}
 	/**
 	 * Set the admins of this restaurant
 	 * @param admins the admins of this restaurant
 	 */
-	public void setAdmins(HashMap<String,User> admins) {
+	public void setAdmins(HashMap<String,Admin> admins) {
 		this.admins = admins;
 	}
 	/**

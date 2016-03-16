@@ -25,7 +25,7 @@ public class Customer extends User implements Observer{
 	 * @param password
 	 */
 	public Customer(String firstName, String lastName, String userName, String password) {
-		super(firstName, lastName, userName);
+		super(firstName, lastName, userName, password);
 		// By default : we don't spam, we contact the client by email, he owns a basic card.
 		this.spam = false;
 		this.contacts = new HashMap<String, String>();
@@ -33,23 +33,8 @@ public class Customer extends User implements Observer{
 		this.preferredContactType="email";
 		this.fidelityCard = new BasicCard();
 		this.birthDay = null;
-		this.setPassword(password);
 	}
-	/**
-	 * Customer constructor from a User
-	 * @param u user we want to create a customer from
-	 */
-	public Customer(User u){
-		super(u.getFirstName(), u.getLastName(), u.getUserName());
-		this.hash = u.getHash();
-		// By default : we don't spam, we contact the client by email, he owns a basic card.
-		this.spam = false;
-		this.contacts = new HashMap<String, String>();
-		this.favoriteMeals = new HashSet<Meal>();
-		this.preferredContactType="email";
-		this.fidelityCard = new BasicCard();
-		this.birthDay = new Date();
-	}
+
 	
 	/**
 	 * To know if a customer accepts spam

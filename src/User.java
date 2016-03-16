@@ -3,7 +3,7 @@ import java.io.Serializable;
 /**
  * Class to manage Users in general (customers and admins)
  */
-public class User implements Serializable{
+public abstract class User implements Serializable{
 	private final String firstName;
 	private final String lastName;
 	private final String userName;
@@ -14,11 +14,13 @@ public class User implements Serializable{
 	 * @param firstName the first name of the user
 	 * @param lastName the last name of the user
 	 * @param userName the user name of the user
+	 * @param password the unencrypted password of the user
 	 */
-	public User(String firstName, String lastName, String userName){
+	public User(String firstName, String lastName, String userName, String password){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
+		this.setPassword(password);
 	}
 	
 	/**

@@ -298,13 +298,10 @@ public class Program {
 			throw new IllegalArgumentException("An admin already own this username");
 		if(restaurant.getUsers().containsKey(userName))
 			throw new IllegalArgumentException("A customer already own this username");
-		
-		User c = new User(firstName, lastName, userName);
-		c.setPassword(password);
 		if(admin)
-			restaurant.putAdmin(c);
+			restaurant.putAdmin(new Admin(firstName, lastName, userName, password));
 		else
-			restaurant.putUser(new Customer(c));
+			restaurant.putUser(new Customer(firstName, lastName, userName, password));
 		saveData();
 	}
 	/**
