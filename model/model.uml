@@ -1,0 +1,2010 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_CwSc0Ot5EeWJPLZ6WCwSZg" name="RootElement">
+  <packagedElement xmi:type="uml:Model" xmi:id="_cCMl8Ot5EeWJPLZ6WCwSZg" name="JavaModel">
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCObIOt5EeWJPLZ6WCwSZg" name="AsItIsSorter" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCObIet5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * One meal sorting strategy : the meals ordered as they are
+ *
+ </body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_cCObI-t5EeWJPLZ6WCwSZg" general="_cCObIut5EeWJPLZ6WCwSZg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCPCMet5EeWJPLZ6WCwSZg" name="sort" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCPCMut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Sorting meals by the most ordered, as they are
+	 * @param oList List of Meals
+	 * @return ArrayList of meals, ordered by the most ordered (as they are)
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCPCNOt5EeWJPLZ6WCwSZg" type="_cCPCM-t5EeWJPLZ6WCwSZg" direction="return">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCPCNet5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCPCNut5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCPCN-t5EeWJPLZ6WCwSZg" name="oList" type="_cCPCMOt5EeWJPLZ6WCwSZg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCPpQOt5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCPpQet5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCObIut5EeWJPLZ6WCwSZg" name="SortingOrdersStrategy" visibility="public" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cC7lxOt5EeWJPLZ6WCwSZg">
+        <body>
+ * Abstract class for sorting strategies in general
+ </body>
+      </ownedComment>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC7lxet5EeWJPLZ6WCwSZg" name="sort" visibility="public" isAbstract="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC7lxut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Associating scores to meals and getting the ordered list from there using getListfromHashMap
+	 * @param o the order containing meals
+	 * @return meals ordered
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC8M0Ot5EeWJPLZ6WCwSZg" type="_cCPCM-t5EeWJPLZ6WCwSZg" direction="return">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cC8M0et5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cC8M0ut5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC8M0-t5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cC8M1Ot5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cC8M1et5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC8M1ut5EeWJPLZ6WCwSZg" name="getListfromHashMap" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC8M1-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Getting a ordered list from a hashmap associating elements to scores
+	 * @param d the hashmap associating numbers (scores) to meals
+	 * @return the list of values in the hashmap ordered by there scores
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC8M2Ot5EeWJPLZ6WCwSZg" type="_cCPCM-t5EeWJPLZ6WCwSZg" direction="return">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cC8M2et5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cC8M2ut5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC8M2-t5EeWJPLZ6WCwSZg" name="d" type="_cCWW8ut5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCPCMOt5EeWJPLZ6WCwSZg" name="Order" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCp48Ot5EeWJPLZ6WCwSZg">
+        <body>
+ * Class for the orders of a customer
+ </body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCp48et5EeWJPLZ6WCwSZg" name="meals" visibility="private" type="_cCYMJut5EeWJPLZ6WCwSZg" isUnique="false" aggregation="composite" association="_j9hBcOufEeWi5-MO0eyMKw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCp48ut5EeWJPLZ6WCwSZg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCp48-t5EeWJPLZ6WCwSZg" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCp49Ot5EeWJPLZ6WCwSZg" name="date" visibility="private" type="_cCWW9-t5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCp49et5EeWJPLZ6WCwSZg" name="price" visibility="private" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCp49ut5EeWJPLZ6WCwSZg" name="customer" visibility="private" type="_cCVv4Ot5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_f4_Dw-uZEeWi5-MO0eyMKw" name="meal" type="_cCYMJut5EeWJPLZ6WCwSZg" association="_f4_DwOuZEeWi5-MO0eyMKw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iJSScOuZEeWi5-MO0eyMKw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iJTgkOuZEeWi5-MO0eyMKw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_D8U5s-ubEeWi5-MO0eyMKw" name="customer" type="_cCVv4Ot5EeWJPLZ6WCwSZg" association="_D8U5sOubEeWi5-MO0eyMKw"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCqgAOt5EeWJPLZ6WCwSZg" name="getMeals" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCqgAet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the meals in the order
+	 * @return the meals in the order
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCqgAut5EeWJPLZ6WCwSZg" type="_cCYMJut5EeWJPLZ6WCwSZg" direction="return">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCqgA-t5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCqgBOt5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCqgBet5EeWJPLZ6WCwSZg" name="setMeals" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCqgBut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the meals in the order
+	 * @param meals the meals to set in the order
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCqgB-t5EeWJPLZ6WCwSZg" name="meals" type="_cCYMJut5EeWJPLZ6WCwSZg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCqgCOt5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCqgCet5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCqgCut5EeWJPLZ6WCwSZg" name="addMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCqgC-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add a meal to the order
+	 * @param meal the meal to add in the order
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCqgDOt5EeWJPLZ6WCwSZg" name="meal" type="_cCYMJut5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCqgDet5EeWJPLZ6WCwSZg" name="getDate" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCqgDut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the date at which the order is being done
+	 * @return the date at which the order is being done
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCrHEOt5EeWJPLZ6WCwSZg" type="_cCWW9-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCrHEet5EeWJPLZ6WCwSZg" name="setDate" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCrHEut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the date at which the order is being done
+	 * @param date the date at which the order is being done
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCrHE-t5EeWJPLZ6WCwSZg" name="date" type="_cCWW9-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCrHFOt5EeWJPLZ6WCwSZg" name="getPrice" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCrHFet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the price of the order
+	 * @return the price of the order
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCrHFut5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCrHF-t5EeWJPLZ6WCwSZg" name="setPrice" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCrHGOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the price of the order
+	 * @param price the price of the order
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCrHGet5EeWJPLZ6WCwSZg" name="price" type="_cCQ3Y-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCrHGut5EeWJPLZ6WCwSZg" name="getCustomer" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCrHG-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the customer making the order
+	 * @return the customer making the order
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCruIOt5EeWJPLZ6WCwSZg" type="_cCVv4Ot5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCruIet5EeWJPLZ6WCwSZg" name="setCustomer" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCruIut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the customer making the order
+	 * @param c the customer making the order
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCruI-t5EeWJPLZ6WCwSZg" name="c" type="_cCVv4Ot5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_xNHScOujEeWi5-MO0eyMKw" name="personalizeMealByIndex">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1hNk4OujEeWi5-MO0eyMKw" name="ingredientName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="__iYu4OujEeWi5-MO0eyMKw" name="personalization">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_BBiNcOukEeWi5-MO0eyMKw" name="index">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCPCM-t5EeWJPLZ6WCwSZg" name="ScorableMeal" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cC6Xpet5EeWJPLZ6WCwSZg">
+        <body>
+ * Class extending Meal to be able to associate a score to meals
+ </body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_cC6Xput5EeWJPLZ6WCwSZg" general="_cCYMJut5EeWJPLZ6WCwSZg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cC6-set5EeWJPLZ6WCwSZg" name="score" visibility="private" type="_cC6-sOt5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC6-sut5EeWJPLZ6WCwSZg" name="setScore" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC6-s-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the score of the ScorableMeal
+	 * @param s the score of the ScorableMeal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC6-tOt5EeWJPLZ6WCwSZg" name="s" type="_cC6-sOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC6-tet5EeWJPLZ6WCwSZg" name="getScore" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC6-tut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the score of the ScorableMeal
+	 * @return the score of the ScorableMeal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC6-t-t5EeWJPLZ6WCwSZg" type="_cC6-sOt5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCPpQut5EeWJPLZ6WCwSZg" name="BasicCard" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCPpQ-t5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * Basic card : one of the fidelity card
+ *
+ </body>
+      </ownedComment>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_cCQQUet5EeWJPLZ6WCwSZg" name="BasicCard implements FidelityStrategy" client="_cCPpQut5EeWJPLZ6WCwSZg" supplier="_cCQQUOt5EeWJPLZ6WCwSZg" contract="_cCQQUOt5EeWJPLZ6WCwSZg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCQ3Yet5EeWJPLZ6WCwSZg" name="pay" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCQ3Yut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Pay and order using a basic card
+	 * @param o order we want to pay
+	 * @return the price we have to pay
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCQ3ZOt5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCQ3Zet5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCQ3Zut5EeWJPLZ6WCwSZg" name="getPrice" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCQ3Z-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Getting the price of and order, having a basic card
+	 * @param o order we want to pay
+	 * @return the price of the order
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCRecOt5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCRecet5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_cCQQUOt5EeWJPLZ6WCwSZg" name="FidelityStrategy" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCaoZet5EeWJPLZ6WCwSZg">
+        <body>
+ *
+ * Interface fidelity cards have to implement
+ *
+ </body>
+      </ownedComment>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCbPcOt5EeWJPLZ6WCwSZg" name="pay" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCbPcet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Pay using a fidelity card
+	 * @param o the order to pay
+	 * @return the price to pay
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCbPcut5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCbPc-t5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCbPdOt5EeWJPLZ6WCwSZg" name="getPrice" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCbPdet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the price of an order having a fidelity card
+	 * @param o the order
+	 * @return the price of the order having this fidelity card
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCbPdut5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCbPd-t5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_cCQ3Y-t5EeWJPLZ6WCwSZg" name="Float"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCRecut5EeWJPLZ6WCwSZg" name="CardFactory" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCRec-t5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * Factory to create the fidelity cards
+ * 
+ </body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2HDDYOuDEeWi5-MO0eyMKw" name="fidelitystrategy" type="_cCQQUOt5EeWJPLZ6WCwSZg" association="_2HCcUOuDEeWi5-MO0eyMKw"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCSFgut5EeWJPLZ6WCwSZg" name="create" visibility="public" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCSFg-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * 
+	 * @param s name of the card
+	 * @return an fidelity card (object) of the class giving in paramater
+	 * @throws ClassNotFoundException
+	 * @throws NoSuchMethodException
+	 * @throws SecurityException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCSFhOt5EeWJPLZ6WCwSZg" type="_cCQQUOt5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCSFhet5EeWJPLZ6WCwSZg" name="s" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCSskOt5EeWJPLZ6WCwSZg" name="ContactEmailer" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCSsket5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * Class to be instantiated to contact a client via email
+ *
+ </body>
+      </ownedComment>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_cCSsk-t5EeWJPLZ6WCwSZg" name="ContactEmailer implements ContactSenderInterface" client="_cCSskOt5EeWJPLZ6WCwSZg" supplier="_cCSskut5EeWJPLZ6WCwSZg" contract="_cCSskut5EeWJPLZ6WCwSZg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCSslOt5EeWJPLZ6WCwSZg" name="sendMessage" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCSslet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Sends a message to a user, using emails
+	 * @param contact the name of the contact
+	 * @param message the message we want to send
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCTToOt5EeWJPLZ6WCwSZg" name="contact" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCTToet5EeWJPLZ6WCwSZg" name="message" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_cCSskut5EeWJPLZ6WCwSZg" name="ContactSenderInterface" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCT6tet5EeWJPLZ6WCwSZg">
+        <body>
+ *
+ * Interface every module to contact client (one module for each way we have to contact him) has to implement
+ *
+ </body>
+      </ownedComment>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCUhwOt5EeWJPLZ6WCwSZg" name="sendMessage" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCUhwet5EeWJPLZ6WCwSZg">
+          <body>
+	 * 
+	 * Sending a message to a contact
+	 * @param contact the client we want to contact
+	 * @param message the message we want to send
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCUhwut5EeWJPLZ6WCwSZg" name="contact" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCUhw-t5EeWJPLZ6WCwSZg" name="message" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCTTout5EeWJPLZ6WCwSZg" name="ContactFactory" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCT6sOt5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * Factory to instantiate a class to contact a user, depending on how we want to contact him
+ * 
+ </body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_JQtMIuuVEeWi5-MO0eyMKw" name="contactsenderinterface" type="_cCSskut5EeWJPLZ6WCwSZg" association="_JQslEOuVEeWi5-MO0eyMKw"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCT6set5EeWJPLZ6WCwSZg" name="create" visibility="public" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCT6sut5EeWJPLZ6WCwSZg">
+          <body>
+	 * 
+	 * @param s Name of the contacting module we want to create
+	 * @return an instance of a module to contact the user
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCT6s-t5EeWJPLZ6WCwSZg" type="_cCSskut5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCT6tOt5EeWJPLZ6WCwSZg" name="s" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCVv4Ot5EeWJPLZ6WCwSZg" name="Customer" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCVv4et5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * One type of User of the system : the restaurants' clients
+ * 
+ </body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_cCVv4-t5EeWJPLZ6WCwSZg" general="_cCVv4ut5EeWJPLZ6WCwSZg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCWW8Ot5EeWJPLZ6WCwSZg" name="spam" visibility="private" type="_cCVv6et5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCWW8et5EeWJPLZ6WCwSZg" name="preferredContactType" visibility="private" type="_cCSFget5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCWW8-t5EeWJPLZ6WCwSZg" name="contacts" visibility="private" type="_cCWW8ut5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCWW9et5EeWJPLZ6WCwSZg" name="favoriteMeals" visibility="private" type="_cCWW9Ot5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCWW9ut5EeWJPLZ6WCwSZg" name="fidelityCard" visibility="private" type="_cCQQUOt5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCWW-Ot5EeWJPLZ6WCwSZg" name="birthDay" visibility="private" type="_cCWW9-t5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Mkw2guuYEeWi5-MO0eyMKw" name="fidelitystrategy" type="_cCQQUOt5EeWJPLZ6WCwSZg" association="_MkwPcOuYEeWi5-MO0eyMKw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a3JXAOuYEeWi5-MO0eyMKw" name="meal" type="_cCYMJut5EeWJPLZ6WCwSZg" association="_a3Iv8OuYEeWi5-MO0eyMKw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fdZJYOuYEeWi5-MO0eyMKw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fdaXgOuYEeWi5-MO0eyMKw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_nc-G4-vLEeWi5-MO0eyMKw" name="contactsenderinterface" type="_cCSskut5EeWJPLZ6WCwSZg" association="_nc-G4OvLEeWi5-MO0eyMKw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_StRdUOvOEeWi5-MO0eyMKw" name="generalnotifier" type="_cCbPeOt5EeWJPLZ6WCwSZg" association="_StQPMOvOEeWi5-MO0eyMKw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_W01Ik-vOEeWi5-MO0eyMKw" name="datechangednotifier" type="_cCaBU-t5EeWJPLZ6WCwSZg" association="_W01IkOvOEeWi5-MO0eyMKw"/>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_VWFSoOvOEeWi5-MO0eyMKw" client="_cCVv4Ot5EeWJPLZ6WCwSZg" supplier="_OxprMOugEeWi5-MO0eyMKw" contract="_OxprMOugEeWi5-MO0eyMKw"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCW-AOt5EeWJPLZ6WCwSZg" name="isSpam" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCW-Aet5EeWJPLZ6WCwSZg">
+          <body>
+	 * To know if a customer accepts spam
+	 * @return true if the customer accepts spam, false otherwise
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCW-Aut5EeWJPLZ6WCwSZg" type="_cCVv6et5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCW-A-t5EeWJPLZ6WCwSZg" name="setSpam" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCW-BOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Change the acceptance of a customer for spam
+	 * @param spam boolean (true if the customer accepts spam, false otherwise)
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCW-Bet5EeWJPLZ6WCwSZg" name="spam" type="_cCVv6et5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCW-But5EeWJPLZ6WCwSZg" name="getContacts" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCW-B-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get a customer's contacts
+	 * @return the contacts of the customer
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCW-COt5EeWJPLZ6WCwSZg" type="_cCWW8ut5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCW-Cet5EeWJPLZ6WCwSZg" name="setContacts" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCW-Cut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the contacts of a customer
+	 * @param contacts the contacts to be set for the customer
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCW-C-t5EeWJPLZ6WCwSZg" name="contacts" type="_cCWW8ut5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCXlEOt5EeWJPLZ6WCwSZg" name="putContact" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCXlEet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add a contact to the customer
+	 * @param key type of contact (email, phone ...)
+	 * @param value value of the contact (email address, phone number...) 
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCXlEut5EeWJPLZ6WCwSZg" name="key" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCXlE-t5EeWJPLZ6WCwSZg" name="value" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCXlFOt5EeWJPLZ6WCwSZg" name="getPreferredContactType" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCXlFet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get preferred contact type
+	 * @return the preferred contact type of the customer
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCXlFut5EeWJPLZ6WCwSZg" type="_cCSFget5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCXlF-t5EeWJPLZ6WCwSZg" name="setPreferredContactType" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCXlGOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set preferred contact type of the customer
+	 * @param preferredContactType the preferred contact type
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCXlGet5EeWJPLZ6WCwSZg" name="preferredContactType" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCXlGut5EeWJPLZ6WCwSZg" name="getPreferredContact" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCXlG-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get preferred contact of the customer
+	 * @return the preferred contact of the customer
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCXlHOt5EeWJPLZ6WCwSZg" type="_cCSFget5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCYMIOt5EeWJPLZ6WCwSZg" name="getFavoriteMeals" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCYMIet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get favorite meals of a customer
+	 * @return favorite meals of a customer
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCYMIut5EeWJPLZ6WCwSZg" type="_cCWW9Ot5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCYMI-t5EeWJPLZ6WCwSZg" name="setFavoriteMeals" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCYMJOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set favorite meals of a customer
+	 * @param favoriteMeals favorite meals of a customer
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCYMJet5EeWJPLZ6WCwSZg" name="favoriteMeals" type="_cCWW9Ot5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCYMJ-t5EeWJPLZ6WCwSZg" name="addFavoriteMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCYMKOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add a meal to the list of favorite meals
+	 * @param meal the meal to add to favorite meals
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCYMKet5EeWJPLZ6WCwSZg" name="meal" type="_cCYMJut5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCYzMOt5EeWJPLZ6WCwSZg" name="removeFavoriteMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCYzMet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Remove a meal from the list of favorite meals
+	 * @param meal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCYzMut5EeWJPLZ6WCwSZg" name="meal" type="_cCYMJut5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCYzM-t5EeWJPLZ6WCwSZg" name="getFidelityCard" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCYzNOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the fidelity card of the customer
+	 * @return the fidelity card of the customer
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCYzNet5EeWJPLZ6WCwSZg" type="_cCQQUOt5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCYzNut5EeWJPLZ6WCwSZg" name="setFidelityCard" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCYzN-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the fidelity card of the user
+	 * @param fidelityCard the fidelity card to associate to the customer
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCYzOOt5EeWJPLZ6WCwSZg" name="fidelityCard" type="_cCQQUOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCYzOet5EeWJPLZ6WCwSZg" name="getBirthDay" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCYzOut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the birthday of a user
+	 * @return the birthday of a user
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCYzO-t5EeWJPLZ6WCwSZg" type="_cCWW9-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCZaQOt5EeWJPLZ6WCwSZg" name="setBirthDay" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCZaQet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the birthday of a user
+	 * @param birthDay the birthday of the user
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCZaQut5EeWJPLZ6WCwSZg" name="birthDay" type="_cCWW9-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCZaQ-t5EeWJPLZ6WCwSZg" name="sendMessage" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCZaROt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Send a message to a user using his preferredContactType
+	 * @param message
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCZaRet5EeWJPLZ6WCwSZg" name="message" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCaBUOt5EeWJPLZ6WCwSZg" name="update" visibility="public">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCaBUet5EeWJPLZ6WCwSZg" name="o" type="_cCZaRut5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCaBUut5EeWJPLZ6WCwSZg" name="arg" type="_cCZaR-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCVv4ut5EeWJPLZ6WCwSZg" name="User" visibility="public" isAbstract="true">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cC9a9-t5EeWJPLZ6WCwSZg">
+        <body>
+ * Class to manage Users in general (customers and admins)
+ </body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cC-CAet5EeWJPLZ6WCwSZg" name="firstName" visibility="private" isLeaf="true" type="_cCSFget5EeWJPLZ6WCwSZg" isUnique="false" aggregation="composite" association="_iTyqkOufEeWi5-MO0eyMKw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cC-CAut5EeWJPLZ6WCwSZg" name="lastName" visibility="private" isLeaf="true" type="_cCSFget5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cC-CA-t5EeWJPLZ6WCwSZg" name="userName" visibility="private" isLeaf="true" type="_cCSFget5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cC-CBOt5EeWJPLZ6WCwSZg" name="hash" visibility="protected" type="_cCSFget5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_R-v_4uvNEeWi5-MO0eyMKw" name="passwordhandler" type="_cCuxcOt5EeWJPLZ6WCwSZg" association="_R-vY0OvNEeWi5-MO0eyMKw"/>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_YLmdIOugEeWi5-MO0eyMKw" client="_cCVv4ut5EeWJPLZ6WCwSZg" supplier="_OxprMOugEeWi5-MO0eyMKw" contract="_OxprMOugEeWi5-MO0eyMKw"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC-CBet5EeWJPLZ6WCwSZg" name="hashCode" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC-CBut5EeWJPLZ6WCwSZg">
+          <body>
+	 * @return the hashcode associated to this user
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC-CB-t5EeWJPLZ6WCwSZg" type="_cCcdk-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC-CCOt5EeWJPLZ6WCwSZg" name="equals" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC-CCet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Test if a given object (User) is the same as this user
+	 * @param user an object (user)
+	 * @return true if the given object is the same as this user, false otherwise
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC-CCut5EeWJPLZ6WCwSZg" type="_cCVv6et5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC-CC-t5EeWJPLZ6WCwSZg" name="user" type="_cCZaR-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC-pEOt5EeWJPLZ6WCwSZg" name="getFirstName" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC-pEet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the first name of the user
+	 * @return the first name of the user
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC-pEut5EeWJPLZ6WCwSZg" type="_cCSFget5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC-pE-t5EeWJPLZ6WCwSZg" name="getLastName" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC-pFOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the last name of the user
+	 * @return the first name of the user
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC-pFet5EeWJPLZ6WCwSZg" type="_cCSFget5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC-pFut5EeWJPLZ6WCwSZg" name="getFullName" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC-pF-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the full name of the user
+	 * @return the full name of the user
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC-pGOt5EeWJPLZ6WCwSZg" type="_cCSFget5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC-pGet5EeWJPLZ6WCwSZg" name="getUserName" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC-pGut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the user name of the user
+	 * @return the user name of the user
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC-pG-t5EeWJPLZ6WCwSZg" type="_cCSFget5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC-pHOt5EeWJPLZ6WCwSZg" name="authenticate" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC-pHet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Authenticate a user
+	 * @param password the password entered by the human
+	 * @return true if the password corresponds to this user, false otherwise
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC-pHut5EeWJPLZ6WCwSZg" type="_cCVv6et5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC-pH-t5EeWJPLZ6WCwSZg" name="password" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC_QIOt5EeWJPLZ6WCwSZg" name="setPassword" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC_QIet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the password of the user. Actually only stores the hash of this password for security concerns.
+	 * @param password the password to be set
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC_QIut5EeWJPLZ6WCwSZg" name="password" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC_QI-t5EeWJPLZ6WCwSZg" name="getHash" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC_QJOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the hash associated to the user's password
+	 * @return the hash associated to the user's password
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC_QJet5EeWJPLZ6WCwSZg" type="_cCSFget5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCYMJut5EeWJPLZ6WCwSZg" name="Meal" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCh9IOt5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * Class for the meals
+ *
+ </body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCikMet5EeWJPLZ6WCwSZg" name="name" visibility="private" type="_cCSFget5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCikMut5EeWJPLZ6WCwSZg" name="ingredients" visibility="private" type="_cCWW8ut5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCikM-t5EeWJPLZ6WCwSZg" name="price" visibility="private" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCikNOt5EeWJPLZ6WCwSZg" name="specialPrice" visibility="private" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCikNet5EeWJPLZ6WCwSZg" name="promotion" visibility="private" type="_cCVv6et5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KpBtIuuZEeWi5-MO0eyMKw" name="ingredient" type="_cCcdkOt5EeWJPLZ6WCwSZg" association="_KpBGEOuZEeWi5-MO0eyMKw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MycQsOuZEeWi5-MO0eyMKw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Myc3wOuZEeWi5-MO0eyMKw" value="*"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCikNut5EeWJPLZ6WCwSZg" name="toString" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCikN-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Serialize the meal in a string
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCjLQOt5EeWJPLZ6WCwSZg" type="_cCSFget5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCjLQet5EeWJPLZ6WCwSZg" name="hashCode" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCjLQut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the hashcode associated to the meal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCjLQ-t5EeWJPLZ6WCwSZg" type="_cCcdk-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCjLROt5EeWJPLZ6WCwSZg" name="equals" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCjLRet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Test if a given object (Meal) is the same as this meal
+	 * @param meal an object (meal)
+	 * @return true if the given object is the same as this meal, false otherwise
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCjLRut5EeWJPLZ6WCwSZg" type="_cCVv6et5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCjLR-t5EeWJPLZ6WCwSZg" name="meal" type="_cCZaR-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCjLSOt5EeWJPLZ6WCwSZg" name="getIngredients" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCjLSet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get ingredients of this meal
+	 * @return the list of Ingredients of this meal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCjLSut5EeWJPLZ6WCwSZg" type="_cCWW8ut5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCjLS-t5EeWJPLZ6WCwSZg" name="getIngredientQuantity" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCjLTOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the quantity of an ingredient
+	 * @param i the ingredient
+	 * @return the quantity of this ingredient
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCjyUOt5EeWJPLZ6WCwSZg" type="_cCcdk-t5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCjyUet5EeWJPLZ6WCwSZg" name="i" type="_cCcdkOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCjyUut5EeWJPLZ6WCwSZg" name="getIngredientQuantity" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCjyU-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the quantity of an ingredient
+	 * @param ingredientName the name of the ingredient
+	 * @return the quantity of the ingredient having this name
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCjyVOt5EeWJPLZ6WCwSZg" type="_cCcdk-t5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCjyVet5EeWJPLZ6WCwSZg" name="ingredientName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCjyVut5EeWJPLZ6WCwSZg" name="setIngredients" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCjyV-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the ingredients of this meal
+	 * @param ingredients the ingredients to associate to this meal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCjyWOt5EeWJPLZ6WCwSZg" name="ingredients" type="_cCWW8ut5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCjyWet5EeWJPLZ6WCwSZg" name="putIngredient" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCjyWut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add an ingredient to this meal
+	 * @param ingredient the ingredient to add to this meal
+	 * @param quantity the quantity associated to this ingredient
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCjyW-t5EeWJPLZ6WCwSZg" name="ingredient" type="_cCcdkOt5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCkZYOt5EeWJPLZ6WCwSZg" name="quantity" type="_cCcdk-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCkZYet5EeWJPLZ6WCwSZg" name="removeIngredient" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCkZYut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Remove an ingredient from this meal
+	 * @param ingredient the ingredient to remove from this meal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCkZY-t5EeWJPLZ6WCwSZg" name="ingredient" type="_cCcdkOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCkZZOt5EeWJPLZ6WCwSZg" name="getName" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCkZZet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the name of the meal
+	 * @return the name of the meal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCkZZut5EeWJPLZ6WCwSZg" type="_cCSFget5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCkZZ-t5EeWJPLZ6WCwSZg" name="setName" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCkZaOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the name of the meal
+	 * @param name the name of the meal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCkZaet5EeWJPLZ6WCwSZg" name="name" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCkZaut5EeWJPLZ6WCwSZg" name="getPrice" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCkZa-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the price of the meal
+	 * @return the price of the meal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cClAcOt5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cClAcet5EeWJPLZ6WCwSZg" name="setPrice" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cClAcut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the price of the meal
+	 * @param price the price of the meal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cClAc-t5EeWJPLZ6WCwSZg" name="price" type="_cCQ3Y-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cClAdOt5EeWJPLZ6WCwSZg" name="getExtraPrice" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cClAdet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the extra price of the meal, associated to 
+	 * @return the extra price of the meal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cClAdut5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cClAd-t5EeWJPLZ6WCwSZg" name="getSpecialPrice" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cClAeOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the special price of the meal if a promotion currently exists
+	 * @return the special price of the meal if a promotion currently exists
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cClAeet5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cClAeut5EeWJPLZ6WCwSZg" name="setSpecialPrice" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cClAe-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the special price of the meal if a promotion currently exists
+	 * @param specialPrice the special price of the meal if a promotion currently exists
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cClAfOt5EeWJPLZ6WCwSZg" name="specialPrice" type="_cCQ3Y-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cClngOt5EeWJPLZ6WCwSZg" name="isPromotion" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cClnget5EeWJPLZ6WCwSZg">
+          <body>
+	 * Tells if a promotion currently exists for this meal
+	 * @return true if a promotion currently exists for this meal, false otherwise
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cClngut5EeWJPLZ6WCwSZg" type="_cCVv6et5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cClng-t5EeWJPLZ6WCwSZg" name="setPromotion" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cClnhOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Activate or deactivate a promotion for this meal
+	 * @param promotion true to activate a promotion, false to deactivate
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cClnhet5EeWJPLZ6WCwSZg" name="promotion" type="_cCVv6et5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cClnhut5EeWJPLZ6WCwSZg" name="isPersonalized" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cClnh-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Tells if this meal has been personalized or not
+	 * @return true if this meal has been personalized, false otherwise
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cClniOt5EeWJPLZ6WCwSZg" type="_cCVv6et5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cClniet5EeWJPLZ6WCwSZg" name="personalize" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cClniut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Personalize an ingredient of this meal
+	 * @param ingredientName the name of the ingredient to personalize
+	 * @param personalization the personalization to associate to this ingredient
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCmOkOt5EeWJPLZ6WCwSZg" name="ingredientName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCmOket5EeWJPLZ6WCwSZg" name="personalization" type="_cCcdk-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCaBU-t5EeWJPLZ6WCwSZg" name="DateChangedNotifier" visibility="public">
+      <generalization xmi:type="uml:Generalization" xmi:id="_cCaoYOt5EeWJPLZ6WCwSZg" general="_cCZaRut5EeWJPLZ6WCwSZg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCaoY-t5EeWJPLZ6WCwSZg" name="oldDate" visibility="private" type="_cCWW9-t5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_cCaoYut5EeWJPLZ6WCwSZg" name="DateChangedNotifier implements Runnable" client="_cCaBU-t5EeWJPLZ6WCwSZg" supplier="_cCaoYet5EeWJPLZ6WCwSZg" contract="_cCaoYet5EeWJPLZ6WCwSZg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCaoZOt5EeWJPLZ6WCwSZg" name="run" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCbPeOt5EeWJPLZ6WCwSZg" name="GeneralNotifier" visibility="public">
+      <generalization xmi:type="uml:Generalization" xmi:id="_cCb2gOt5EeWJPLZ6WCwSZg" general="_cCZaRut5EeWJPLZ6WCwSZg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCb2get5EeWJPLZ6WCwSZg" name="notifyAll" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCb2gut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Notify customers with a message
+	 * @param message the message to send to the customers
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCb2g-t5EeWJPLZ6WCwSZg" name="message" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCcdkOt5EeWJPLZ6WCwSZg" name="Ingredient" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCcdket5EeWJPLZ6WCwSZg">
+        <body>
+ *
+ * Class for the ingredients of a meal
+ *
+ </body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCcdkut5EeWJPLZ6WCwSZg" name="name" visibility="private" type="_cCSFget5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCcdlOt5EeWJPLZ6WCwSZg" name="quantity" visibility="private" type="_cCcdk-t5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCcdlet5EeWJPLZ6WCwSZg" name="personalization" visibility="private" type="_cCcdk-t5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCcdlut5EeWJPLZ6WCwSZg" name="costPerUnit" visibility="private" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCcdl-t5EeWJPLZ6WCwSZg" name="toString" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCcdmOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Serialize the ingredient in a string
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCcdmet5EeWJPLZ6WCwSZg" type="_cCSFget5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCdEoOt5EeWJPLZ6WCwSZg" name="hashCode" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCdEoet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Return the hashcode associated to the ingredient
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCdEout5EeWJPLZ6WCwSZg" type="_cCcdk-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCdEo-t5EeWJPLZ6WCwSZg" name="equals" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCdEpOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Test if a given object (Ingredient) is the same as this ingredient
+	 * @param o an object (ingredient)
+	 * @return true if the given object is the same as this ingredient, false otherwise
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCdEpet5EeWJPLZ6WCwSZg" type="_cCVv6et5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCdEput5EeWJPLZ6WCwSZg" name="o" type="_cCZaR-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCdEp-t5EeWJPLZ6WCwSZg" name="getName" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCdEqOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the name of this ingredient
+	 * @return the name of this ingredient
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCdEqet5EeWJPLZ6WCwSZg" type="_cCSFget5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCdEqut5EeWJPLZ6WCwSZg" name="setName" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCdrsOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the name of this ingredient
+	 * @param name the name of this ingredient
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCdrset5EeWJPLZ6WCwSZg" name="name" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCdrsut5EeWJPLZ6WCwSZg" name="getCostPerUnit" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCdrs-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the cost per unit of this ingredient
+	 * @return the cost per unit of this ingredient
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCdrtOt5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCdrtet5EeWJPLZ6WCwSZg" name="setCostPerUnit" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCdrtut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the cost per unit of this ingredient
+	 * @param costPerUnit the cost per unit of this ingredient
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCdrt-t5EeWJPLZ6WCwSZg" name="costPerUnit" type="_cCQ3Y-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCdruOt5EeWJPLZ6WCwSZg" name="getQuantity" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCdruet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the quantity of this ingredient
+	 * @return the quantity of this ingredient
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCdruut5EeWJPLZ6WCwSZg" type="_cCcdk-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCeSwOt5EeWJPLZ6WCwSZg" name="setQuantity" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCeSwet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the quantity of this ingredient
+	 * @param quantity the quantity of this ingredient
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCeSwut5EeWJPLZ6WCwSZg" name="quantity" type="_cCcdk-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCeSw-t5EeWJPLZ6WCwSZg" name="setPersonalization" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCeSxOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the personalization of this ingredient in quantity
+	 * @param personalization the delta between the quantity associated to this ingredient and the quantity we want
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCeSxet5EeWJPLZ6WCwSZg" name="personalization" type="_cCcdk-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCeSxut5EeWJPLZ6WCwSZg" name="getPersonalization" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCeSx-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the personalization of this ingredient
+	 * @return the personalization of this ingredient
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCe50Ot5EeWJPLZ6WCwSZg" type="_cCcdk-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCgH8et5EeWJPLZ6WCwSZg" name="JustOnSaleSorter" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCgH8ut5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * One meal sorting strategy : the meals ordered just when there is a special offer
+ *
+ </body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_cCgH8-t5EeWJPLZ6WCwSZg" general="_cCObIut5EeWJPLZ6WCwSZg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCgH9Ot5EeWJPLZ6WCwSZg" name="sort" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCgH9et5EeWJPLZ6WCwSZg">
+          <body>
+	 * Sorting meals by the most ordered, just when there is a special offer
+	 * @param oList List of Meals
+	 * @return ArrayList of meals, ordered by the most ordered (just when there is a special offer)
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCgH9ut5EeWJPLZ6WCwSZg" type="_cCPCM-t5EeWJPLZ6WCwSZg" direction="return">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCgvAOt5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCgvAet5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCgvAut5EeWJPLZ6WCwSZg" name="oList" type="_cCPCMOt5EeWJPLZ6WCwSZg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCgvA-t5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCgvBOt5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCgvBet5EeWJPLZ6WCwSZg" name="LotteryCard" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCgvBut5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * Lottery card : one of the fidelity card
+ *
+ </body>
+      </ownedComment>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_cCgvB-t5EeWJPLZ6WCwSZg" name="LotteryCard implements FidelityStrategy" client="_cCgvBet5EeWJPLZ6WCwSZg" supplier="_cCQQUOt5EeWJPLZ6WCwSZg" contract="_cCQQUOt5EeWJPLZ6WCwSZg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cChWEet5EeWJPLZ6WCwSZg" name="pay" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cChWEut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Pay and order using a lottery card
+	 * @param o order we want to pay
+	 * @return the price we have to pay
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cChWE-t5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cChWFOt5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cChWFet5EeWJPLZ6WCwSZg" name="getPrice" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cChWFut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Getting the price of and order, having a lottery card
+	 * @param o order we want to pay
+	 * @return the price of the order
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cChWF-t5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cChWGOt5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCmOlOt5EeWJPLZ6WCwSZg" name="Restaurant" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cC37YOt5EeWJPLZ6WCwSZg">
+        <body>
+ * Class for the restaurants
+ </body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cC37Yut5EeWJPLZ6WCwSZg" name="users" visibility="private" type="_cCWW8ut5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cC37Y-t5EeWJPLZ6WCwSZg" name="admins" visibility="private" type="_cCWW8ut5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cC4icOt5EeWJPLZ6WCwSZg" name="meals" visibility="private" type="_cCWW8ut5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cC4icet5EeWJPLZ6WCwSZg" name="ordersHistory" visibility="private" type="_cCPCMOt5EeWJPLZ6WCwSZg" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cC4icut5EeWJPLZ6WCwSZg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cC4ic-t5EeWJPLZ6WCwSZg" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qxQ04uuZEeWi5-MO0eyMKw" name="meal" type="_cCYMJut5EeWJPLZ6WCwSZg" association="_qxQN0OuZEeWi5-MO0eyMKw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tt0soOuZEeWi5-MO0eyMKw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tt16wOuZEeWi5-MO0eyMKw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_zg3XYuubEeWi5-MO0eyMKw" type="_cCPCMOt5EeWJPLZ6WCwSZg" association="_zg2wUOubEeWi5-MO0eyMKw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__VtecOubEeWi5-MO0eyMKw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__VuFgOubEeWi5-MO0eyMKw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_EvETUeudEeWi5-MO0eyMKw" name="customer" type="_cCVv4Ot5EeWJPLZ6WCwSZg" association="_EvDsQOudEeWi5-MO0eyMKw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hrck4OudEeWi5-MO0eyMKw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HreaEOudEeWi5-MO0eyMKw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_0F0rguvQEeWi5-MO0eyMKw" name="admin" type="_bNticOvQEeWi5-MO0eyMKw" association="_0F0EcOvQEeWi5-MO0eyMKw"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC4idOt5EeWJPLZ6WCwSZg" name="getOrdersHistory" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC4idet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the history of orders in this restaurant
+	 * @return the history of orders in this restaurant
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC4idut5EeWJPLZ6WCwSZg" type="_cCPCMOt5EeWJPLZ6WCwSZg" direction="return">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cC4id-t5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cC4ieOt5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC4ieet5EeWJPLZ6WCwSZg" name="setOrdersHistory" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC4ieut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the history of orders in this restaurant
+	 * @param ordersHistory the history of orders in this restaurant to set
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC4ie-t5EeWJPLZ6WCwSZg" name="ordersHistory" type="_cCPCMOt5EeWJPLZ6WCwSZg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cC4ifOt5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cC4ifet5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC4ifut5EeWJPLZ6WCwSZg" name="addOrder" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC5JgOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add an order made in this restaurant
+	 * @param o the order made in this restaurant
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC5Jget5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC5Jgut5EeWJPLZ6WCwSZg" name="getMeals" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC5Jg-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the meals available in this restaurant
+	 * @return the meals available in this restaurant
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC5JhOt5EeWJPLZ6WCwSZg" type="_cCWW8ut5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC5Jhet5EeWJPLZ6WCwSZg" name="setMeals" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC5Jhut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the meals available in this restaurant
+	 * @param meals the meals available in this restaurant
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC5Jh-t5EeWJPLZ6WCwSZg" name="meals" type="_cCWW8ut5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC5JiOt5EeWJPLZ6WCwSZg" name="addMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC5Jiet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add a meal available in this restaurant
+	 * @param meal the meal available in this restaurant
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC5Jiut5EeWJPLZ6WCwSZg" name="meal" type="_cCYMJut5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC5Ji-t5EeWJPLZ6WCwSZg" name="putAdmin" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC5JjOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add an admin for this restaurant
+	 * @param u the user becoming an admin for this restaurant
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC5Jjet5EeWJPLZ6WCwSZg" name="u" type="_bNticOvQEeWi5-MO0eyMKw"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC5wkOt5EeWJPLZ6WCwSZg" name="getAdmins" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC5wket5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the admins of this restaurant
+	 * @return the admins of this restaurant
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC5wkut5EeWJPLZ6WCwSZg" type="_cCWW8ut5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC5wk-t5EeWJPLZ6WCwSZg" name="setAdmins" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC5wlOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the admins of this restaurant
+	 * @param admins the admins of this restaurant
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC5wlet5EeWJPLZ6WCwSZg" name="admins" type="_cCWW8ut5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC5wlut5EeWJPLZ6WCwSZg" name="putUser" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC5wl-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add a customer to this restaurant
+	 * @param u the customer to add to this restaurant
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC5wmOt5EeWJPLZ6WCwSZg" name="u" type="_cCVv4Ot5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC5wmet5EeWJPLZ6WCwSZg" name="getUsers" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC5wmut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the customers of this restaurant
+	 * @return the customers of this restaurant
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC5wm-t5EeWJPLZ6WCwSZg" type="_cCWW8ut5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC5wnOt5EeWJPLZ6WCwSZg" name="setUsers" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC5wnet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Set the customers of this restaurant
+	 * @param users the customers of this restaurant
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC6XoOt5EeWJPLZ6WCwSZg" name="users" type="_cCWW8ut5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC6Xoet5EeWJPLZ6WCwSZg" name="getMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC6Xout5EeWJPLZ6WCwSZg">
+          <body>
+	 * Alias for getMeals().get(str)
+	 * @param str name a of the meal we want to get
+	 * @return the meal having the name str
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC6Xo-t5EeWJPLZ6WCwSZg" type="_cCYMJut5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC6XpOt5EeWJPLZ6WCwSZg" name="str" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCoDwOt5EeWJPLZ6WCwSZg" name="MealCreator" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCoDwet5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * Class to manage the creation of a new meal
+ *
+ </body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCoDw-t5EeWJPLZ6WCwSZg" name="meal" visibility="public" type="_cCYMJut5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_V-3kAOuZEeWi5-MO0eyMKw" name="meal" type="_cCYMJut5EeWJPLZ6WCwSZg" association="_V-288OuZEeWi5-MO0eyMKw"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCoDxOt5EeWJPLZ6WCwSZg" name="createMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCoDxet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Function to create a meal from a name and a price
+	 * @param mealName the name of the meal to create
+	 * @param price the price to set for the meal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCoDxut5EeWJPLZ6WCwSZg" name="mealName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCoDx-t5EeWJPLZ6WCwSZg" name="price" type="_cCQ3Y-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCoDyOt5EeWJPLZ6WCwSZg" name="addIngredient" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCoq0Ot5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add an ingredient to the meal
+	 * @param ingredientName the name of the ingredient to add
+	 * @param quantity the quantity associated to this element
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCoq0et5EeWJPLZ6WCwSZg" name="ingredientName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCoq0ut5EeWJPLZ6WCwSZg" name="quantity" type="_cCcdk-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCoq0-t5EeWJPLZ6WCwSZg" name="currentMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCoq1Ot5EeWJPLZ6WCwSZg">
+          <body>
+	 * Getting the meal currently created as it is at the moment
+	 * @return the state of the meal currently created
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCoq1et5EeWJPLZ6WCwSZg" type="_cCYMJut5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCoq1ut5EeWJPLZ6WCwSZg" name="saveMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCoq1-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Saving a new meal to the restaurant
+	 * @return the meal newly created
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCoq2Ot5EeWJPLZ6WCwSZg" type="_cCYMJut5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCpR4Ot5EeWJPLZ6WCwSZg" name="MostlyModifiedSorter" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCpR4et5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * One meal sorting strategy : the meals ordered mostly in a modified version
+ *
+ </body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_cCpR4ut5EeWJPLZ6WCwSZg" general="_cCObIut5EeWJPLZ6WCwSZg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCpR4-t5EeWJPLZ6WCwSZg" name="sort" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCpR5Ot5EeWJPLZ6WCwSZg">
+          <body>
+	 * Sorting meals by the most ordered, ordered mostly in a modified version
+	 * @param oList List of Meals
+	 * @return ArrayList of meals, ordered by the most ordered (ordered mostly in a modified version)
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCpR5et5EeWJPLZ6WCwSZg" type="_cCPCM-t5EeWJPLZ6WCwSZg" direction="return">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCpR5ut5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCpR5-t5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCpR6Ot5EeWJPLZ6WCwSZg" name="oList" type="_cCPCMOt5EeWJPLZ6WCwSZg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCpR6et5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCpR6ut5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCs8QOt5EeWJPLZ6WCwSZg" name="OrderCreator" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCs8Qet5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * Class to manage the creation of a new order
+ *
+ </body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCtjUet5EeWJPLZ6WCwSZg" name="order" visibility="private" type="_cCPCMOt5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCtjUut5EeWJPLZ6WCwSZg" name="restaurant" visibility="private" type="_cCmOlOt5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCtjU-t5EeWJPLZ6WCwSZg" name="customer" visibility="private" type="_cCVv4Ot5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VBENEuubEeWi5-MO0eyMKw" name="order" type="_cCPCMOt5EeWJPLZ6WCwSZg" association="_VBDmAOubEeWi5-MO0eyMKw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_T19LMOujEeWi5-MO0eyMKw" name="currentMeal" visibility="private" type="_cCYMJut5EeWJPLZ6WCwSZg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_fmYsUOujEeWi5-MO0eyMKw" name="currentMealQuantity" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_sG0uEuujEeWi5-MO0eyMKw" name="meal" type="_cCYMJut5EeWJPLZ6WCwSZg" association="_sGzf8OujEeWi5-MO0eyMKw"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCtjVOt5EeWJPLZ6WCwSZg" name="selectMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCtjVet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Select a meal for this order
+	 * @param mealName the name of the meal to select
+	 * @param quantity the quantity of this meal we want
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCtjVut5EeWJPLZ6WCwSZg" name="mealName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCtjV-t5EeWJPLZ6WCwSZg" name="quantity" type="_cCcdk-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCtjWOt5EeWJPLZ6WCwSZg" name="personalizeMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCtjWet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Personalize a meal from this order
+	 * @param mealName the name of the meal to personalize
+	 * @param ingredientName the name of the ingredient to personalize in the meal
+	 * @param quantity the quantity we want to personalize by
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCuKYOt5EeWJPLZ6WCwSZg" name="mealName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCuKYet5EeWJPLZ6WCwSZg" name="ingredientName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCuKYut5EeWJPLZ6WCwSZg" name="quantity" type="_cCcdk-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCuKY-t5EeWJPLZ6WCwSZg" name="saveOrder" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCuKZOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Save this order
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCuKZet5EeWJPLZ6WCwSZg" type="_cCPCMOt5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCuKZut5EeWJPLZ6WCwSZg" name="currentOrder" visibility="public">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCuKZ-t5EeWJPLZ6WCwSZg" type="_cCPCMOt5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCuKaOt5EeWJPLZ6WCwSZg" name="evalPrice" visibility="public">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCuKaet5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_O_7a8OukEeWi5-MO0eyMKw" name="flushCurrentMeal"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Uc2WoOukEeWi5-MO0eyMKw" name="personalizeMeal">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_W9_dsOukEeWi5-MO0eyMKw" name="ingredientName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZjFQoOukEeWi5-MO0eyMKw" name="quantity">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCuxcOt5EeWJPLZ6WCwSZg" name="PasswordHandler" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCuxcet5EeWJPLZ6WCwSZg">
+        <body>
+ * Class used to handle operations on passwords
+ </body>
+      </ownedComment>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCuxcut5EeWJPLZ6WCwSZg" name="hashPassword" visibility="public" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCuxc-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Hash a password
+	 * @param password the unencrypted password
+	 * @return the crypted password (the hash)
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCuxdOt5EeWJPLZ6WCwSZg" type="_cCSFget5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCuxdet5EeWJPLZ6WCwSZg" name="password" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCvYgOt5EeWJPLZ6WCwSZg" name="PointCard" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCvYget5EeWJPLZ6WCwSZg">
+        <body>
+ * 
+ * Point card : one of the fidelity card
+ *
+ </body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCvYhOt5EeWJPLZ6WCwSZg" name="points" visibility="private" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_cCvYgut5EeWJPLZ6WCwSZg" name="PointCard implements FidelityStrategy" client="_cCvYgOt5EeWJPLZ6WCwSZg" supplier="_cCQQUOt5EeWJPLZ6WCwSZg" contract="_cCQQUOt5EeWJPLZ6WCwSZg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCvYhet5EeWJPLZ6WCwSZg" name="pay" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCvYhut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Pay and order using a point card
+	 * @param o order we want to pay
+	 * @return the price we have to pay
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCvYh-t5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCvYiOt5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCvYiet5EeWJPLZ6WCwSZg" name="getPrice" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCvYiut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Getting the price of and order, having a point card
+	 * @param o order we want to pay
+	 * @return the price of the order
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCv_kOt5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCv_ket5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cCxNsOt5EeWJPLZ6WCwSZg" name="Program" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cCxNset5EeWJPLZ6WCwSZg">
+        <body>
+ * Class to handle general operations required by the EYMS system
+ </body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCxNtOt5EeWJPLZ6WCwSZg" name="loggedUser" visibility="private" type="_cCVv4ut5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCx0wOt5EeWJPLZ6WCwSZg" name="restaurant" visibility="private" type="_cCmOlOt5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCx0wet5EeWJPLZ6WCwSZg" name="mealCreator" visibility="private" type="_cCoDwOt5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCx0wut5EeWJPLZ6WCwSZg" name="generalNotifier" visibility="private" type="_cCbPeOt5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCx0w-t5EeWJPLZ6WCwSZg" name="dateChangedNotifier" visibility="private" type="_cCaBU-t5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCx0xOt5EeWJPLZ6WCwSZg" name="orderCreator" visibility="private" type="_cCs8QOt5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cCx0xet5EeWJPLZ6WCwSZg" name="name" visibility="private" isLeaf="true" type="_cCSFget5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_uz1mw-vLEeWi5-MO0eyMKw" name="mealcreator" type="_cCoDwOt5EeWJPLZ6WCwSZg" association="_uz1mwOvLEeWi5-MO0eyMKw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_wGVwc-vLEeWi5-MO0eyMKw" name="restaurant" type="_cCmOlOt5EeWJPLZ6WCwSZg" association="_wGVwcOvLEeWi5-MO0eyMKw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_zNrU0-vLEeWi5-MO0eyMKw" name="ordercreator" type="_cCs8QOt5EeWJPLZ6WCwSZg" association="_zNrU0OvLEeWi5-MO0eyMKw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2t1B0uvLEeWi5-MO0eyMKw" name="user" type="_cCVv4ut5EeWJPLZ6WCwSZg" association="_2t0awOvLEeWi5-MO0eyMKw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9l2pkuvLEeWi5-MO0eyMKw" name="generalnotifier" type="_cCbPeOt5EeWJPLZ6WCwSZg" association="_9l2CgOvLEeWi5-MO0eyMKw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-S2ScOvLEeWi5-MO0eyMKw" name="datechangednotifier" type="_cCaBU-t5EeWJPLZ6WCwSZg" association="_-S1rYOvLEeWi5-MO0eyMKw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RtK9I-vMEeWi5-MO0eyMKw" name="sortingordersstrategy" type="_cCObIut5EeWJPLZ6WCwSZg" association="_RtK9IOvMEeWi5-MO0eyMKw"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCx0xut5EeWJPLZ6WCwSZg" name="loadData" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCx0x-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Loading seralized data to this instance of the program
+	 </body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCx0yOt5EeWJPLZ6WCwSZg" name="saveData" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCx0yet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Serialize data associated to this instance of the program and store them on the computer 
+	 </body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCx0yut5EeWJPLZ6WCwSZg" name="getAvailableMeals" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCx0y-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the available meals for this instance of the program
+	 * @return the available meals for this instance of the program
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCyb0Ot5EeWJPLZ6WCwSZg" type="_cCWW8ut5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCyb0et5EeWJPLZ6WCwSZg" name="checkCustomer" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCyb0ut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Check if the current user of the system is a customer
+	 * @throws SecurityException
+	 </body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCyb0-t5EeWJPLZ6WCwSZg" name="checkAdmin" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCyb1Ot5EeWJPLZ6WCwSZg">
+          <body>
+	 * Check if the current user of the system is an admin
+	 * @throws SecurityException
+	 </body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCyb1et5EeWJPLZ6WCwSZg" name="authenticateUser" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCyb1ut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Authenticate a user being given its name and password
+	 * @param userName the name of the user we try to authenticate
+	 * @param password the password of the user we try to authenticate
+	 * @throws SecurityException
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCyb1-t5EeWJPLZ6WCwSZg" name="userName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCyb2Ot5EeWJPLZ6WCwSZg" name="password" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCyb2et5EeWJPLZ6WCwSZg" name="logout" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCyb2ut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Log out user
+	 </body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCyb2-t5EeWJPLZ6WCwSZg" name="listIngredients" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCyb3Ot5EeWJPLZ6WCwSZg">
+          <body>
+	 * List ingredients for a given meal name
+	 * @param mealName the name of the meal we want ingredients from
+	 * @return an hashmap of the ingredients
+	 * @throws IllegalArgumentException
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCzC4Ot5EeWJPLZ6WCwSZg" type="_cCWW8ut5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCzC4et5EeWJPLZ6WCwSZg" name="mealName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCzC4ut5EeWJPLZ6WCwSZg" name="createMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCzC4-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Create a meal given a name and a price
+	 * @param mealName the name of the meal we want to create 
+	 * @param price the price associated to the meal we're creating
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCzC5Ot5EeWJPLZ6WCwSZg" name="mealName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCzC5et5EeWJPLZ6WCwSZg" name="price" type="_cCQ3Y-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCzC5ut5EeWJPLZ6WCwSZg" name="addIngredient" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCzC5-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add an ingredient to the meal currently being created
+	 * @param ingredientName the name of the ingredient we're adding
+	 * @param quantity the quantity of the ingredien we're adding
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCzC6Ot5EeWJPLZ6WCwSZg" name="ingredientName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCzC6et5EeWJPLZ6WCwSZg" name="quantity" type="_cCcdk-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCzC6ut5EeWJPLZ6WCwSZg" name="currentMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCzp8Ot5EeWJPLZ6WCwSZg">
+          <body>
+	 * Get the current state of the meal being created
+	 * @return the current state of the meal being created
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCzp8et5EeWJPLZ6WCwSZg" type="_cCYMJut5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCzp8ut5EeWJPLZ6WCwSZg" name="saveMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCzp8-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Save the meal currently being created in the restaurant
+	 * @return the meal newly created in the restaurant
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCzp9Ot5EeWJPLZ6WCwSZg" type="_cCYMJut5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCzp9et5EeWJPLZ6WCwSZg" name="selectMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCzp9ut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Select a meal from its name and associate a quantity to this meal selected
+	 * @param mealName the name of the meal to select
+	 * @param quantity the quantity of the meal to select
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCzp9-t5EeWJPLZ6WCwSZg" name="mealName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCzp-Ot5EeWJPLZ6WCwSZg" name="quantity" type="_cCcdk-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cCzp-et5EeWJPLZ6WCwSZg" name="personalizeMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cCzp-ut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Personalize a meal, that is to say an ingredient of this meal
+	 * @param mealName the name of the meal we're personalizing
+	 * @param ingredientName the name of the ingredient from the meal we want to personalize
+	 * @param quantity the quantity we want to personalize it from
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCzp_Ot5EeWJPLZ6WCwSZg" name="ingredientName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC0RAOt5EeWJPLZ6WCwSZg" name="quantity" type="_cCcdk-t5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_rin_YOukEeWi5-MO0eyMKw" name="index">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC0RAet5EeWJPLZ6WCwSZg" name="currentOrder" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC0RAut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Getting the current state of the order being made
+	 * @return the current state of the order being made
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC0RA-t5EeWJPLZ6WCwSZg" type="_cCPCMOt5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC0RBOt5EeWJPLZ6WCwSZg" name="evalPrice" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC0RBet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Evaluation the price of the current order
+	 * @return the price of the current order
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC0RBut5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC0RB-t5EeWJPLZ6WCwSZg" name="saveOrder" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC0RCOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Save the order currently being made
+	 * @return the order saved
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC0RCet5EeWJPLZ6WCwSZg" type="_cCPCMOt5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC0RCut5EeWJPLZ6WCwSZg" name="insertOffer" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC0RC-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add on offer to a given meal
+	 * @param mealName the name of the meal we want to associated an offer to
+	 * @param mealPrice the price of the meal under promotion
+	 * @throws IllegalStateException
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC0RDOt5EeWJPLZ6WCwSZg" name="mealName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC04EOt5EeWJPLZ6WCwSZg" name="mealPrice" type="_cCQ3Y-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC04Eet5EeWJPLZ6WCwSZg" name="registerUser" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC04Eut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add a user to the restaurant
+	 * @param admin boolean to specify if the user is an admin or not
+	 * @param firstName the first name of the user
+	 * @param lastName the last name of the user
+	 * @param userName the user name of the user
+	 * @param password the password of the user
+	 * @throws IllegalArgumentException
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC04E-t5EeWJPLZ6WCwSZg" name="admin" type="_cCVv6et5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC04FOt5EeWJPLZ6WCwSZg" name="firstName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC04Fet5EeWJPLZ6WCwSZg" name="lastName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC04Fut5EeWJPLZ6WCwSZg" name="userName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC04F-t5EeWJPLZ6WCwSZg" name="password" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC04GOt5EeWJPLZ6WCwSZg" name="registerCustomer" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC04Get5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add a customer to the restaurant
+	 * @param firstName the first name of the customer
+	 * @param lastName the last name of the customer
+	 * @param userName the user name of the customer
+	 * @param password the password of the customer
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC04Gut5EeWJPLZ6WCwSZg" name="firstName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC1fIOt5EeWJPLZ6WCwSZg" name="lastName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC1fIet5EeWJPLZ6WCwSZg" name="userName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC1fIut5EeWJPLZ6WCwSZg" name="password" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC1fI-t5EeWJPLZ6WCwSZg" name="addContactInfo" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC1fJOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add a contact info to a customer
+	 * @param contact the contact to be added
+	 * @param contactType the type of the contact to be added
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC1fJet5EeWJPLZ6WCwSZg" name="contact" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC1fJut5EeWJPLZ6WCwSZg" name="contactType" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC1fJ-t5EeWJPLZ6WCwSZg" name="associateCard" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC1fKOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Associate a card to the current user
+	 * @param cardType the card type to associate to the current user
+	 * @throws IllegalArgumentException
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC1fKet5EeWJPLZ6WCwSZg" name="cardType" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC2GMOt5EeWJPLZ6WCwSZg" name="associateCard" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC2GMet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Association a card to a given user
+	 * @param userName the name of the user to associated the card to
+	 * @param cardType the card type to associate to the current user
+	 * @throws IllegalArgumentException
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC2GMut5EeWJPLZ6WCwSZg" name="userName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC2GM-t5EeWJPLZ6WCwSZg" name="cardType" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC2GNOt5EeWJPLZ6WCwSZg" name="associateAgreement" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC2GNet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Associate an agreement (for spam) to an user
+	 * @param agreement true if the current user accepts spam, false otherwise
+	 * @param user the user 
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC2GNut5EeWJPLZ6WCwSZg" name="customer" type="_cCVv4Ot5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC2GN-t5EeWJPLZ6WCwSZg" name="agreement" type="_cCVv6et5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC2GOOt5EeWJPLZ6WCwSZg" name="associateAgreement" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC2GOet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Associate an agreement (for spam) to the current user
+	 * @param agreement true if the current user accepts spam, false otherwise
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC2tQOt5EeWJPLZ6WCwSZg" name="agreement" type="_cCVv6et5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC2tQet5EeWJPLZ6WCwSZg" name="associateAgreement" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC2tQut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Associate an agreement (for spam) to a given user
+	 * @param userName the name of the user to associated the agreemnt to
+	 * @param agreement true if the current user accepts spam, false otherwise
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC2tQ-t5EeWJPLZ6WCwSZg" name="userName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC2tROt5EeWJPLZ6WCwSZg" name="agreement" type="_cCVv6et5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC2tRet5EeWJPLZ6WCwSZg" name="insertChef" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC2tRut5EeWJPLZ6WCwSZg">
+          <body>
+	 * Add a chef to the restaurant of this instance of the program
+	 * @param firstName first name of the chef
+	 * @param lastName last name of the chef
+	 * @param userName user name of the chef
+	 * @param password password of the chef
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC2tR-t5EeWJPLZ6WCwSZg" name="firstName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC2tSOt5EeWJPLZ6WCwSZg" name="lastName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC2tSet5EeWJPLZ6WCwSZg" name="userName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC2tSut5EeWJPLZ6WCwSZg" name="password" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC2tS-t5EeWJPLZ6WCwSZg" name="notifyAd" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC3UUOt5EeWJPLZ6WCwSZg">
+          <body>
+	 * Send a message to alert the users about an offer
+	 * @param message the message to send to users
+	 * @param mealName the name of the meal having a promotion on
+	 * @param price the special price of this meal
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC3UUet5EeWJPLZ6WCwSZg" name="message" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC3UUut5EeWJPLZ6WCwSZg" name="mealName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC3UU-t5EeWJPLZ6WCwSZg" name="price" type="_cCQ3Y-t5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC3UVOt5EeWJPLZ6WCwSZg" name="notifyBirthday" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC3UVet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Send a special offer to the users that celebrate their birthday
+	 </body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC3UVut5EeWJPLZ6WCwSZg" name="showMeal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC3UV-t5EeWJPLZ6WCwSZg">
+          <body>
+	 * To see the list of the meals ordered according to a certain criteria
+	 * @param orderingCriteria the criteria with which we order meals
+	 * @return the ordered list of meals
+	 * @throws IllegalArgumentException
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC3UWOt5EeWJPLZ6WCwSZg" type="_cCPCM-t5EeWJPLZ6WCwSZg" direction="return">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cC3UWet5EeWJPLZ6WCwSZg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cC3UWut5EeWJPLZ6WCwSZg" value="*"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC3UW-t5EeWJPLZ6WCwSZg" name="orderingCriteria" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cC6-sOt5EeWJPLZ6WCwSZg" name="Number"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cC6-uOt5EeWJPLZ6WCwSZg" name="SorterFactory" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_cC6-uet5EeWJPLZ6WCwSZg">
+        <body>
+ * Factory to get a sorting strategy
+ </body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__0vtMOuCEeWi5-MO0eyMKw" name="sortingordersstrategy" type="_cCObIut5EeWJPLZ6WCwSZg" association="__0vGIOuCEeWi5-MO0eyMKw"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC7lwOt5EeWJPLZ6WCwSZg" name="create" visibility="public" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cC7lwet5EeWJPLZ6WCwSZg">
+          <body>
+	 * Getting a sorting strategy from its name
+	 * @param s name of the sorting strategy
+	 * @return the sorting strategy
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC7lwut5EeWJPLZ6WCwSZg" type="_cCObIut5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC7lw-t5EeWJPLZ6WCwSZg" name="s" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_tUqaYOvIEeWi5-MO0eyMKw" name="ContactSMS" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_tUqaYevIEeWi5-MO0eyMKw">
+        <body>
+ * 
+ * Class to be instantiated to contact a client via sms
+ *
+ </body>
+      </ownedComment>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_tUrBcOvIEeWi5-MO0eyMKw" name="ContactSMS implements ContactSenderInterface" client="_tUqaYOvIEeWi5-MO0eyMKw" supplier="_cCSskut5EeWJPLZ6WCwSZg" contract="_cCSskut5EeWJPLZ6WCwSZg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_tUrBcevIEeWi5-MO0eyMKw" name="sendMessage" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tUrBcuvIEeWi5-MO0eyMKw">
+          <body>
+	 * Sends a message to a user, using sms
+	 * @param contact the name of the contact
+	 * @param message the message we want to send
+	 </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_tUrBc-vIEeWi5-MO0eyMKw" name="contact" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_tUrogOvIEeWi5-MO0eyMKw" name="message" type="_cCSFget5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_bNticOvQEeWi5-MO0eyMKw" name="Admin" visibility="public">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_bNticevQEeWi5-MO0eyMKw">
+        <body>
+ * 
+ * One type of User of the system : the restaurants' managers
+ *
+ </body>
+      </ownedComment>
+      <generalization xmi:type="uml:Generalization" xmi:id="_bNticuvQEeWi5-MO0eyMKw" general="_cCVv4ut5EeWJPLZ6WCwSZg"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_vu0PAOvQEeWi5-MO0eyMKw" general="_cCVv4ut5EeWJPLZ6WCwSZg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_iTyqkOufEeWi5-MO0eyMKw" name="A_firstName_user" memberEnd="_cC-CAet5EeWJPLZ6WCwSZg _iT1t4OufEeWi5-MO0eyMKw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_iT1t4OufEeWi5-MO0eyMKw" name="user" type="_cCVv4ut5EeWJPLZ6WCwSZg" association="_iTyqkOufEeWi5-MO0eyMKw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iT2U8OufEeWi5-MO0eyMKw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iT2U8eufEeWi5-MO0eyMKw" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_j9hBcOufEeWi5-MO0eyMKw" name="A_meals_order" memberEnd="_cCp48et5EeWJPLZ6WCwSZg _j9hBceufEeWi5-MO0eyMKw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_j9hBceufEeWi5-MO0eyMKw" name="order" type="_cCPCMOt5EeWJPLZ6WCwSZg" association="_j9hBcOufEeWi5-MO0eyMKw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_j9hogOufEeWi5-MO0eyMKw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_j9hogeufEeWi5-MO0eyMKw" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_cCQQUut5EeWJPLZ6WCwSZg" name="java">
+    <packagedElement xmi:type="uml:Package" xmi:id="_cCQQU-t5EeWJPLZ6WCwSZg" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_cCQQVOt5EeWJPLZ6WCwSZg" name="io"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_cCSFgOt5EeWJPLZ6WCwSZg" name="lang">
+        <packagedElement xmi:type="uml:Class" xmi:id="_cCSFget5EeWJPLZ6WCwSZg" name="String"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_cCZaR-t5EeWJPLZ6WCwSZg" name="Object"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_cCaoYet5EeWJPLZ6WCwSZg" name="Runnable"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_cCVv5Ot5EeWJPLZ6WCwSZg" name="util">
+        <packagedElement xmi:type="uml:Class" xmi:id="_cCWW8ut5EeWJPLZ6WCwSZg" name="HashMap"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_cCWW9Ot5EeWJPLZ6WCwSZg" name="HashSet"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_cCWW9-t5EeWJPLZ6WCwSZg" name="Date"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_OxprMOugEeWi5-MO0eyMKw" name="Observer"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_cCZaRut5EeWJPLZ6WCwSZg" name="Observable">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_o02VE-ulEeWi5-MO0eyMKw" name="observer" type="_OxprMOugEeWi5-MO0eyMKw" association="_o02VEOulEeWi5-MO0eyMKw">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tN28sOulEeWi5-MO0eyMKw"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tN4K0OulEeWi5-MO0eyMKw" value="*"/>
+          </ownedAttribute>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_cCVv5-t5EeWJPLZ6WCwSZg" name="datatype">
+    <packagedElement xmi:type="uml:Package" xmi:id="_cCVv6Ot5EeWJPLZ6WCwSZg" name="datatype">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_cCVv6et5EeWJPLZ6WCwSZg" name="Boolean"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_cCcdk-t5EeWJPLZ6WCwSZg" name="Integer"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="__0vGIOuCEeWi5-MO0eyMKw" name="creates" memberEnd="__0vtMOuCEeWi5-MO0eyMKw __0vtMeuCEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__0vGIeuCEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__0vGIuuCEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="__0vtMeuCEeWi5-MO0eyMKw" name="sorterfactory" type="_cC6-uOt5EeWJPLZ6WCwSZg" association="__0vGIOuCEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2HCcUOuDEeWi5-MO0eyMKw" name="creates" memberEnd="_2HDDYOuDEeWi5-MO0eyMKw _2HERgOuDEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2HCcUeuDEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2HCcUuuDEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2HERgOuDEeWi5-MO0eyMKw" name="cardfactory" type="_cCRecut5EeWJPLZ6WCwSZg" association="_2HCcUOuDEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_JQslEOuVEeWi5-MO0eyMKw" name="creates" memberEnd="_JQtMIuuVEeWi5-MO0eyMKw _JQtMI-uVEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JQtMIOuVEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JQtMIeuVEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_JQtMI-uVEeWi5-MO0eyMKw" name="contactfactory" type="_cCTTout5EeWJPLZ6WCwSZg" association="_JQslEOuVEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MkwPcOuYEeWi5-MO0eyMKw" name="owns" memberEnd="_Mkw2guuYEeWi5-MO0eyMKw _Mkw2g-uYEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Mkw2gOuYEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Mkw2geuYEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Mkw2g-uYEeWi5-MO0eyMKw" name="customer" type="_cCVv4Ot5EeWJPLZ6WCwSZg" association="_MkwPcOuYEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_a3Iv8OuYEeWi5-MO0eyMKw" name="prefers" memberEnd="_a3JXAOuYEeWi5-MO0eyMKw _a3KlIOuYEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_a3Iv8euYEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_a3Iv8uuYEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_a3KlIOuYEeWi5-MO0eyMKw" name="customer" type="_cCVv4Ot5EeWJPLZ6WCwSZg" association="_a3Iv8OuYEeWi5-MO0eyMKw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nrB5MOuYEeWi5-MO0eyMKw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nrCgQOuYEeWi5-MO0eyMKw" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_KpBGEOuZEeWi5-MO0eyMKw" name="contains" memberEnd="_KpBtIuuZEeWi5-MO0eyMKw _KpBtI-uZEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KpBtIOuZEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KpBtIeuZEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_KpBtI-uZEeWi5-MO0eyMKw" name="meal" type="_cCYMJut5EeWJPLZ6WCwSZg" association="_KpBGEOuZEeWi5-MO0eyMKw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OhDuoOuZEeWi5-MO0eyMKw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OhE8wOuZEeWi5-MO0eyMKw" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_V-288OuZEeWi5-MO0eyMKw" name="creates" memberEnd="_V-3kAOuZEeWi5-MO0eyMKw _V-3kAeuZEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_V-288euZEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_V-288uuZEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_V-3kAeuZEeWi5-MO0eyMKw" name="mealcreator" type="_cCoDwOt5EeWJPLZ6WCwSZg" association="_V-288OuZEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_f4_DwOuZEeWi5-MO0eyMKw" name="contains" memberEnd="_f4_Dw-uZEeWi5-MO0eyMKw _f5A48OuZEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_f4_DweuZEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_f4_DwuuZEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_f5A48OuZEeWi5-MO0eyMKw" name="order" type="_cCPCMOt5EeWJPLZ6WCwSZg" association="_f4_DwOuZEeWi5-MO0eyMKw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_if734OuZEeWi5-MO0eyMKw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_if9GAOuZEeWi5-MO0eyMKw" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qxQN0OuZEeWi5-MO0eyMKw" name="proposes" memberEnd="_qxQ04uuZEeWi5-MO0eyMKw _qxQ04-uZEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qxQ04OuZEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qxQ04euZEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qxQ04-uZEeWi5-MO0eyMKw" name="restaurant" type="_cCmOlOt5EeWJPLZ6WCwSZg" association="_qxQN0OuZEeWi5-MO0eyMKw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uQyPwOuZEeWi5-MO0eyMKw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uQzd4OuZEeWi5-MO0eyMKw" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_D8U5sOubEeWi5-MO0eyMKw" name="owns" memberEnd="_D8U5s-ubEeWi5-MO0eyMKw _D8VgwOubEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_D8U5seubEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_D8U5suubEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_D8VgwOubEeWi5-MO0eyMKw" name="order" type="_cCPCMOt5EeWJPLZ6WCwSZg" association="_D8U5sOubEeWi5-MO0eyMKw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NytwAOubEeWi5-MO0eyMKw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Nyu-IOubEeWi5-MO0eyMKw" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_VBDmAOubEeWi5-MO0eyMKw" name="creates" memberEnd="_VBENEuubEeWi5-MO0eyMKw _VBFbMOubEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VBENEOubEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VBENEeubEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_VBFbMOubEeWi5-MO0eyMKw" name="ordercreator" type="_cCs8QOt5EeWJPLZ6WCwSZg" association="_VBDmAOubEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_zg2wUOubEeWi5-MO0eyMKw" name="stores" memberEnd="_zg3XYuubEeWi5-MO0eyMKw _zg3XY-ubEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zg3XYOubEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zg3XYeubEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_zg3XY-ubEeWi5-MO0eyMKw" type="_cCmOlOt5EeWJPLZ6WCwSZg" association="_zg2wUOubEeWi5-MO0eyMKw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-XvaUOubEeWi5-MO0eyMKw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-XwBYOubEeWi5-MO0eyMKw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_EvDsQOudEeWi5-MO0eyMKw" name="is visited by" memberEnd="_EvETUeudEeWi5-MO0eyMKw _EvETUuudEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EvDsQeudEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EvETUOudEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_EvETUuudEeWi5-MO0eyMKw" name="restaurant" type="_cCmOlOt5EeWJPLZ6WCwSZg" association="_EvDsQOudEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_sGzf8OujEeWi5-MO0eyMKw" name="selects" memberEnd="_sG0uEuujEeWi5-MO0eyMKw _sG2jQOujEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_sG0uEOujEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sG0uEeujEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_sG2jQOujEeWi5-MO0eyMKw" name="ordercreator" type="_cCs8QOt5EeWJPLZ6WCwSZg" association="_sGzf8OujEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_o02VEOulEeWi5-MO0eyMKw" name="notifies" memberEnd="_o02VE-ulEeWi5-MO0eyMKw _o04KQOulEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_o02VEeulEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_o02VEuulEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_o04KQOulEeWi5-MO0eyMKw" name="observable" type="_cCZaRut5EeWJPLZ6WCwSZg" association="_o02VEOulEeWi5-MO0eyMKw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_smsPAOulEeWi5-MO0eyMKw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_smtdIOulEeWi5-MO0eyMKw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_tUpMQOvIEeWi5-MO0eyMKw" name="generated"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_nc-G4OvLEeWi5-MO0eyMKw" name="uses" memberEnd="_nc-G4-vLEeWi5-MO0eyMKw _nc-G5OvLEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nc-G4evLEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_nc-G4uvLEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_nc-G5OvLEeWi5-MO0eyMKw" name="customer" type="_cCVv4Ot5EeWJPLZ6WCwSZg" association="_nc-G4OvLEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_uz1mwOvLEeWi5-MO0eyMKw" name="has" memberEnd="_uz1mw-vLEeWi5-MO0eyMKw _uz2N0OvLEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uz1mwevLEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_uz1mwuvLEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_uz2N0OvLEeWi5-MO0eyMKw" name="program" type="_cCxNsOt5EeWJPLZ6WCwSZg" association="_uz1mwOvLEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_wGVwcOvLEeWi5-MO0eyMKw" name="manages" memberEnd="_wGVwc-vLEeWi5-MO0eyMKw _wGWXgOvLEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wGVwcevLEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wGVwcuvLEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_wGWXgOvLEeWi5-MO0eyMKw" name="program" type="_cCxNsOt5EeWJPLZ6WCwSZg" association="_wGVwcOvLEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_zNrU0OvLEeWi5-MO0eyMKw" name="has" memberEnd="_zNrU0-vLEeWi5-MO0eyMKw _zNrU1OvLEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zNrU0evLEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zNrU0uvLEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_zNrU1OvLEeWi5-MO0eyMKw" name="program" type="_cCxNsOt5EeWJPLZ6WCwSZg" association="_zNrU0OvLEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2t0awOvLEeWi5-MO0eyMKw" name="authenticates" memberEnd="_2t1B0uvLEeWi5-MO0eyMKw _2t1B0-vLEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2t1B0OvLEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2t1B0evLEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2t1B0-vLEeWi5-MO0eyMKw" name="program" type="_cCxNsOt5EeWJPLZ6WCwSZg" association="_2t0awOvLEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_9l2CgOvLEeWi5-MO0eyMKw" name="manages" memberEnd="_9l2pkuvLEeWi5-MO0eyMKw _9l2pk-vLEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9l2pkOvLEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9l2pkevLEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_9l2pk-vLEeWi5-MO0eyMKw" name="program" type="_cCxNsOt5EeWJPLZ6WCwSZg" association="_9l2CgOvLEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_-S1rYOvLEeWi5-MO0eyMKw" memberEnd="_-S2ScOvLEeWi5-MO0eyMKw _-S2ScevLEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-S1rYevLEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-S1rYuvLEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_-S2ScevLEeWi5-MO0eyMKw" name="program" type="_cCxNsOt5EeWJPLZ6WCwSZg" association="_-S1rYOvLEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_RtK9IOvMEeWi5-MO0eyMKw" name="uses" memberEnd="_RtK9I-vMEeWi5-MO0eyMKw _RtK9JOvMEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RtK9IevMEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RtK9IuvMEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_RtK9JOvMEeWi5-MO0eyMKw" name="program" type="_cCxNsOt5EeWJPLZ6WCwSZg" association="_RtK9IOvMEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_R-vY0OvNEeWi5-MO0eyMKw" name="uses" memberEnd="_R-v_4uvNEeWi5-MO0eyMKw _R-v_4-vNEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_R-v_4OvNEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_R-v_4evNEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_R-v_4-vNEeWi5-MO0eyMKw" name="user" type="_cCVv4ut5EeWJPLZ6WCwSZg" association="_R-vY0OvNEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_StQPMOvOEeWi5-MO0eyMKw" name="observes" memberEnd="_StRdUOvOEeWi5-MO0eyMKw _StRdUevOEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_StQ2QOvOEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_StQ2QevOEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_StRdUevOEeWi5-MO0eyMKw" name="customer" type="_cCVv4Ot5EeWJPLZ6WCwSZg" association="_StQPMOvOEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_W01IkOvOEeWi5-MO0eyMKw" memberEnd="_W01Ik-vOEeWi5-MO0eyMKw _W01IlOvOEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_W01IkevOEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_W01IkuvOEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_W01IlOvOEeWi5-MO0eyMKw" name="customer" type="_cCVv4Ot5EeWJPLZ6WCwSZg" association="_W01IkOvOEeWi5-MO0eyMKw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_0F0EcOvQEeWi5-MO0eyMKw" name="is managed by" memberEnd="_0F0rguvQEeWi5-MO0eyMKw _0F0rg-vQEeWi5-MO0eyMKw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0F0rgOvQEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0F0rgevQEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_0F0rg-vQEeWi5-MO0eyMKw" name="restaurant" type="_cCmOlOt5EeWJPLZ6WCwSZg" association="_0F0EcOvQEeWi5-MO0eyMKw"/>
+  </packagedElement>
+</uml:Model>
