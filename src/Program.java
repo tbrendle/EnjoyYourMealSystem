@@ -115,7 +115,7 @@ public class Program {
 	 * @throws SecurityException
 	 */
 	public void checkAdmin(){
-		if((loggedUser instanceof Customer) || loggedUser == null)
+		if(!(loggedUser instanceof Admin))
 			throw new SecurityException("Operation not allowed : must be authentified administrator");
 	}
 	
@@ -445,4 +445,5 @@ public class Program {
 			throw new IllegalArgumentException("Can not sort this way : not yet implemented");
 		return sorter.sort(restaurant.getOrdersHistory());
 	}
+	
 }
