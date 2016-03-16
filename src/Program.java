@@ -12,10 +12,10 @@ import java.util.HashMap;
 public class Program {
 	private User loggedUser;
 	private Restaurant restaurant;
-	private Meal mealInProgress;
+	private MealCreator mealCreator;
 	private GeneralNotifier generalNotifier;
 	private DateChangedNotifier dateChangedNotifier;
-	private Order orderInProgress;
+	private OrderCreator orderCreator;
 	private final String name;
 	/**
 	 * Program constructor
@@ -37,7 +37,7 @@ public class Program {
 		//Run date watcher
 		(new Thread(dateChangedNotifier)).start();
 		
-		
+		this.mealCreator = new MealCreator();
 	}
 	
 	/**
@@ -137,15 +137,17 @@ public class Program {
 			throw new SecurityException("Incorrect password");
 		}
 		this.loggedUser = candidate;
+		if(this.loggedUser instanceof Customer){
+			this.orderCreator = new OrderCreator(restaurant, (Customer) loggedUser);
+		}
 	}
 	
 	/**
 	 * Log out user
 	 */
 	public void logout(){
+		orderCreator = null;
 		loggedUser = null;
-		mealInProgress = null;
-		orderInProgress = null;
 	}
 	
 	/**
@@ -168,10 +170,7 @@ public class Program {
 	 */
 	public void createMeal(String mealName, float price) {
 		checkAdmin();
-		//TODO: Check if the meal already exist ? 
-		mealInProgress = new Meal(mealName);
-		mealInProgress.setPrice(price);
-		mealInProgress.setSpecialPrice(price);
+		this.mealCreator.createMeal(mealName, price);
 	}
 
 	/**
@@ -181,10 +180,7 @@ public class Program {
 	 */
 	public void addIngredient(String ingredientName, Integer quantity) {
 		checkAdmin();
-		if(mealInProgress!=null)
-			mealInProgress.putIngredient(new Ingredient(ingredientName), quantity);
-		else
-			throw new IllegalStateException("No meal...");
+		this.mealCreator.addIngredient(ingredientName, quantity);
 	}
 
 	/**
@@ -193,7 +189,7 @@ public class Program {
 	 */
 	public Meal currentMeal() {
 		checkAdmin();
-		return mealInProgress;
+		return this.mealCreator.currentMeal();
 	}
 
 	/**
@@ -202,13 +198,10 @@ public class Program {
 	 */
 	public Meal saveMeal() {
 		checkAdmin();
-		this.restaurant.addMeal(mealInProgress);
-		Meal finalizedMeal = mealInProgress;
-		// We reinitialize the buffer meal for creation
-		mealInProgress = null;
-		//Persist data
+		Meal m = mealCreator.saveMeal();
+		this.restaurant.addMeal(m);
 		saveData();
-		return finalizedMeal;
+		return m;
 	}
 
 	/**
@@ -218,14 +211,7 @@ public class Program {
 	 */
 	public void selectMeal(String mealName, Integer quantity) {
 		checkCustomer();
-		if(orderInProgress == null)
-			orderInProgress = new Order((Customer) loggedUser);
-		Meal meal = restaurant.getMeal(mealName);
-		if(meal==null){
-			throw new IllegalArgumentException(mealName+" not found :/");
-		}
-		for(int i = 0; i< quantity; i++)
-			orderInProgress.addMeal(meal);
+		orderCreator.selectMeal(mealName, quantity);
 	}
 	
 	/**
@@ -236,10 +222,7 @@ public class Program {
 	 */
 	public void personalizeMeal(String mealName, String ingredientName, Integer quantity) {
 		checkCustomer();
-		//TODO: ask for clarification
-		if(orderInProgress==null){
-			throw new IllegalArgumentException("Order not found :/");
-		}
+		orderCreator.personalizeMeal(mealName, ingredientName, quantity);
 	}
 
 	/**
@@ -248,7 +231,7 @@ public class Program {
 	 */
 	public Order currentOrder() {
 		checkCustomer();
-		return orderInProgress;
+		return orderCreator.currentOrder();
 	}
 
 	/**
@@ -257,10 +240,7 @@ public class Program {
 	 */
 	public float evalPrice() {
 		checkCustomer();
-		if(orderInProgress==null){
-			throw new IllegalArgumentException("Order not found :/");
-		}
-		return ((Customer) loggedUser).getFidelityCard().getPrice(orderInProgress);
+		return orderCreator.evalPrice();
 	}
 	
 	/**
@@ -269,17 +249,10 @@ public class Program {
 	 */
 	public Order saveOrder() {
 		checkCustomer();
-		if(orderInProgress==null){
-			throw new IllegalArgumentException("Order not found :/");
-		}
-		orderInProgress.setPrice(((Customer) loggedUser).getFidelityCard().pay(orderInProgress));
-		Order finalizedOrder = orderInProgress;
-		restaurant.addOrder(orderInProgress);
-		// We reinitialize the buffer order for creation being hold in the creator
-		orderInProgress = null;
-		//Persist
+		Order o = orderCreator.saveOrder();
+		restaurant.addOrder(o);
 		saveData();
-		return finalizedOrder;
+		return o;
 	}
 	
 	/**
@@ -298,6 +271,7 @@ public class Program {
 		meal.setPromotion(true);
 		//This meal will erase itself because it is the same
 		restaurant.addMeal(meal);
+		saveData();
 	}
 	/**
 	 * Add a user to the restaurant
@@ -321,6 +295,7 @@ public class Program {
 			restaurant.putAdmin(c);
 		else
 			restaurant.putUser(new Customer(c));
+		saveData();
 	}
 	/**
 	 * Add a customer to the restaurant
@@ -397,6 +372,7 @@ public class Program {
 		//Save preferences of the user
 		customer.setSpam(agreement);
 		restaurant.putUser(customer);
+		saveData();
 	}
 	
 	/**
