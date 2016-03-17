@@ -41,7 +41,7 @@ public class Program {
 	}
 	
 	/**
-	 * Loading seralized data to this instance of the program
+	 * Loading serialized data to this instance of the program
 	 */
 	public void loadData(){
 		    ObjectInputStream ois = null;
@@ -440,10 +440,13 @@ public class Program {
 	 * @throws IllegalArgumentException if the sorting criteria is not implemented yet
 	 */
 	public ArrayList<ScorableMeal> showMeal(String orderingCriteria){
-		SortingOrdersStrategy sorter = SorterFactory.create(orderingCriteria);
-		if( sorter == null)
-			throw new IllegalArgumentException("Can not sort this way : not yet implemented");
-		return sorter.sort(restaurant.getOrdersHistory());
+		try {
+			SortingOrdersStrategy sorter = SorterFactory.create(orderingCriteria);
+			return sorter.sort(restaurant.getOrdersHistory());
+		}
+		catch (IllegalArgumentException e) {
+			throw e;
+		}
 	}
 	
 }
