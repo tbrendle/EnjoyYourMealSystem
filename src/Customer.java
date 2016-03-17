@@ -19,10 +19,10 @@ public class Customer extends User implements Observer{
 	
 	/**
 	 * Customer constructor from first name, last name, user name and password
-	 * @param firstName
-	 * @param lastName
-	 * @param userName
-	 * @param password
+	 * @param firstName the first name of the customer
+	 * @param lastName the last name of the customer
+	 * @param userName the user name of the customer
+	 * @param password the password of the customer
 	 */
 	public Customer(String firstName, String lastName, String userName, String password) {
 		super(firstName, lastName, userName, password);
@@ -116,7 +116,7 @@ public class Customer extends User implements Observer{
 	}
 	/**
 	 * Remove a meal from the list of favorite meals
-	 * @param meal
+	 * @param meal the meal to remove from the favorites list
 	 */
 	public void removeFavoriteMeal(Meal meal){
 		this.favoriteMeals.remove(meal);
@@ -153,7 +153,7 @@ public class Customer extends User implements Observer{
 	}
 	/**
 	 * Send a message to a user using his preferredContactType
-	 * @param message
+	 * @param message the message to be sent
 	 */
 	public void sendMessage(String message){
 		ContactSenderInterface csi = ContactFactory.create(getPreferredContactType());

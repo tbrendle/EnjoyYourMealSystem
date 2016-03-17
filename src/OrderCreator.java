@@ -81,6 +81,7 @@ public class OrderCreator {
 	
 	/**
 	 * Save this order
+	 * @return the order saved
 	 */
 	public Order saveOrder(){
 		if(order==null){

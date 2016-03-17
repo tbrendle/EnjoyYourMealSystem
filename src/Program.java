@@ -103,7 +103,7 @@ public class Program {
 	
 	/**
 	 * Check if the current user of the system is a customer
-	 * @throws SecurityException
+	 * @throws SecurityException if nobody is logged in or if the current logged in user is not a customer
 	 */
 	public void checkCustomer(){
 		if(!(loggedUser instanceof Customer))
@@ -112,7 +112,7 @@ public class Program {
 	
 	/**
 	 * Check if the current user of the system is an admin
-	 * @throws SecurityException
+	 * @throws SecurityException  if nobody is logged in or if the current logged in user is not a admin
 	 */
 	public void checkAdmin(){
 		if(!(loggedUser instanceof Admin))
@@ -123,7 +123,7 @@ public class Program {
 	 * Authenticate a user being given its name and password
 	 * @param userName the name of the user we try to authenticate
 	 * @param password the password of the user we try to authenticate
-	 * @throws SecurityException
+	 * @throws SecurityException if used not found or if the password is incorrect
 	 */
 	public void authenticateUser(String userName, String password){
 		User candidate = restaurant.getAdmins().get(userName);
@@ -154,7 +154,7 @@ public class Program {
 	 * List ingredients for a given meal name
 	 * @param mealName the name of the meal we want ingredients from
 	 * @return an hashmap of the ingredients
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException if the meal was not found
 	 */
 	public HashMap<String, Ingredient> listIngredients(String mealName){
 		Meal m = restaurant.getMeals().get(mealName);
@@ -269,7 +269,7 @@ public class Program {
 	 * Add on offer to a given meal
 	 * @param mealName the name of the meal we want to associated an offer to
 	 * @param mealPrice the price of the meal under promotion
-	 * @throws IllegalStateException
+	 * @throws IllegalStateException if the meal was not found
 	 */
 	public void insertOffer(String mealName, float mealPrice){
 		checkAdmin();
@@ -290,7 +290,7 @@ public class Program {
 	 * @param lastName the last name of the user
 	 * @param userName the user name of the user
 	 * @param password the password of the user
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException if the username is already taken
 	 */
 	public void registerUser(boolean admin, String firstName, String lastName, String userName, String password){
 		//Check that user does not exist
@@ -330,7 +330,7 @@ public class Program {
 	/**
 	 * Associate a card to the current user
 	 * @param cardType the card type to associate to the current user
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException if the card type is invalid
 	 */
 	public void associateCard(String cardType){
 		checkCustomer();
@@ -346,7 +346,7 @@ public class Program {
 	 * Association a card to a given user
 	 * @param userName the name of the user to associated the card to
 	 * @param cardType the card type to associate to the current user
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException if the user was not found or the card type was invalid
 	 */
 	public void associateCard(String userName, String cardType){
 		checkAdmin();
@@ -364,8 +364,8 @@ public class Program {
 	
 	/**
 	 * Associate an agreement (for spam) to an user
+	 * @param customer the customer 
 	 * @param agreement true if the current user accepts spam, false otherwise
-	 * @param user the user 
 	 */
 	public void associateAgreement(Customer customer, boolean agreement){
 		//Update notifiers
@@ -437,7 +437,7 @@ public class Program {
 	 * To see the list of the meals ordered according to a certain criteria
 	 * @param orderingCriteria the criteria with which we order meals
 	 * @return the ordered list of meals
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException if the sorting criteria is not implemented yet
 	 */
 	public ArrayList<ScorableMeal> showMeal(String orderingCriteria){
 		SortingOrdersStrategy sorter = SorterFactory.create(orderingCriteria);

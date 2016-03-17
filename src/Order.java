@@ -85,7 +85,7 @@ public class Order {
 	/**
 	 * 
 	 * @param ingredientName the name of the ingredient to personalize in the meal
-	 * @param quantity the quantity we want to add or remove
+	 * @param personalization the quantity we want to add or remove
 	 * @param index the index of the meal in order
 	 */
 	public void personalizeMealByIndex(String ingredientName, Integer personalization, Integer index){
