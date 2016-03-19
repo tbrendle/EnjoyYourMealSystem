@@ -12,11 +12,13 @@ public class CardFactory {
 	 * @return an fidelity card (object) of the class given as a paramater
 	 */
 	public static FidelityStrategy create(String s){
-		try {
-			return (FidelityStrategy) Class.forName(s).getConstructor().newInstance();
-		}
-		catch(Exception e) {
-			throw new IllegalArgumentException("Can't create fidelity card for string : " + s);
-		}
+			if(s =="Basic")
+				return new BasicCard();
+			else if (s=="Point")
+				return new PointCard();
+			else if (s=="Lottery")
+				return new LotteryCard();
+			else
+				throw new IllegalArgumentException("Can't create fidelity card for string : " + s);
 	}
 }

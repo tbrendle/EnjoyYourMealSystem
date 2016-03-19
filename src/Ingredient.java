@@ -35,6 +35,13 @@ public class Ingredient implements Serializable{
 		this.personalization = personalization;
 	}
 	
+	public Ingredient clone(){
+		Ingredient clone = new Ingredient(name);
+		clone.setQuantity(quantity);
+		clone.setPersonalization(personalization);
+		clone.setCostPerUnit(costPerUnit);
+		return clone;
+	}
 	/**
 	 * Test if a given object (Ingredient) is the same as this ingredient
 	 * @param o an object (ingredient)

@@ -29,7 +29,7 @@ public class OrderCreator {
 		if(this.order == null)
 			this.order = new Order(customer);
 		flushCurrentMeal();
-		Meal meal = restaurant.getMeal(mealName);
+		Meal meal = restaurant.getMeal(mealName).clone();
 		if(meal==null){
 			throw new IllegalArgumentException(mealName+" not found :/");
 		}
@@ -103,6 +103,7 @@ public class OrderCreator {
 		if(order==null){
 			throw new IllegalArgumentException("Order not found :/");
 		}
+		flushCurrentMeal();
 		return customer.getFidelityCard().getPrice(order);
 	}
 

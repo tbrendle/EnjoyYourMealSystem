@@ -25,6 +25,16 @@ public class Meal implements Serializable{
 		this.promotion = false;
 	}
 	
+	public Meal clone(){
+		Meal clone = new Meal(name);
+		for(String key : ingredients.keySet()){
+			clone.putIngredient(ingredients.get(key).clone(), ingredients.get(key).getQuantity());
+		}
+		clone.setPrice(price);
+		clone.setSpecialPrice(specialPrice);
+		clone.setPromotion(promotion);
+		return clone;
+	}
 	/**
 	 * Serialize the meal in a string
 	 */
@@ -77,7 +87,7 @@ public class Meal implements Serializable{
 	 * @return the quantity of the ingredient having this name
 	 */
 	public Integer getIngredientQuantity(String ingredientName){
-		return ingredients.get(ingredientName)==null ? 0 : ingredients.get(ingredientName).getQuantity();
+		return ingredients.get(ingredientName)==null ? 0 : ingredients.get(ingredientName).getQuantity()+ingredients.get(ingredientName).getPersonalization();
 	}
 	/**
 	 * Set the ingredients of this meal
