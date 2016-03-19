@@ -86,7 +86,6 @@ public class OrderCreatorTest {
 		assertTrue(c.evalPrice()==300);
 		u.setFidelityCard(CardFactory.create("Point"));
 		assertTrue(c.evalPrice()==300);
-		
 	}
 
 }
