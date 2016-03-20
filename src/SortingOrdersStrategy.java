@@ -20,7 +20,7 @@ public abstract class SortingOrdersStrategy {
 	public ArrayList<ScorableMeal> getListfromHashMap(HashMap<Meal, Number> d) {
 		ArrayList<ScorableMeal> sList = new ArrayList<ScorableMeal>();
 		for(Meal m : d.keySet()){
-			ScorableMeal sm = (ScorableMeal) m;
+			ScorableMeal sm = new ScorableMeal(m.getName());
 			sm.setScore(d.get(m));
 			sList.add(sm);
 		}

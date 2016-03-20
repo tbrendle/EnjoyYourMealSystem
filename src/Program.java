@@ -67,7 +67,6 @@ public class Program {
 	public void loadData(){
 		    ObjectInputStream ois = null;
 		    try {
-		      System.out.println("BJRE");
 		      final FileInputStream fichier = new FileInputStream(this.inputName+".ser");
 		      ois = new ObjectInputStream(fichier);
 		      this.restaurant = (Restaurant) ois.readObject();
@@ -344,7 +343,21 @@ public class Program {
 	public void addContactInfo(String contact, String contactType){
 		checkCustomer();		
 		((Customer) this.loggedUser).putContact(contactType, contact);
-		restaurant.putUser((Customer) loggedUser);
+		saveData();
+	}
+	
+	/**
+	 * Add a contact info to a customer
+	 * @param contact the contact to be added
+	 * @param contactType the type of the contact to be added
+	 */
+	public void addContactInfo(String userName, String contact, String contactType){
+		checkAdmin();		
+		Customer customer = restaurant.getUsers().get(userName);
+		if(customer==null)
+			throw new IllegalArgumentException("User not found...");
+		customer.putContact(contactType, contact);
+		saveData();
 	}
 	
 	/**
@@ -356,10 +369,10 @@ public class Program {
 		checkCustomer();
 		try {
 			((Customer) loggedUser).setFidelityCard(CardFactory.create(cardType));
-			restaurant.putUser((Customer) loggedUser);
 		} catch (Exception e){
 			throw new IllegalArgumentException("Invalid card type");
 		}
+		saveData();
 	}
 	
 	/**
@@ -375,10 +388,10 @@ public class Program {
 			throw new IllegalArgumentException("User not found...");
 		try{
 			customer.setFidelityCard(CardFactory.create(cardType));
-			restaurant.putUser(customer);
 		} catch (Exception e){
 			throw new IllegalArgumentException("Invalid card type");
 		}
+		saveData();
 	}
 	
 	
@@ -451,6 +464,15 @@ public class Program {
 	 */
 	public void notifyBirthday(){
 		dateChangedNotifier.notifyObservers();
+	}
+	
+	
+	/**
+	 * To see the list of the meals available in the restaurant
+	 * @return the list of meals
+	 */
+	public HashMap<String, Meal> showMeal(){
+		return restaurant.getMeals();
 	}
 	
 	/**

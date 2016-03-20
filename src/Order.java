@@ -1,9 +1,10 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 /**
  * Class for the orders of a customer
  */
-public class Order {
+public class Order implements Serializable{
 	private ArrayList<Meal> meals;
 	private Date date;
 	private float price;
