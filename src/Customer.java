@@ -166,9 +166,13 @@ public class Customer extends User implements Observer{
 	 * @param message the message to be sent
 	 */
 	public void sendMessage(String message){
-		ContactSenderInterface csi = ContactFactory.create(getPreferredContactType());
-		if(csi!=null)
-			csi.sendMessage(getPreferredContact(), message);
+		//If the user has a preferedContact
+		if(getPreferredContact()!=null){
+			ContactSenderInterface csi = ContactFactory.create(getPreferredContactType());
+			// if we can reach the user (ie the ContactSender is implemented for this contact type
+			if(csi!=null)
+				csi.sendMessage(getPreferredContact(), message);
+		}
 	}
 	
 	/**
