@@ -2,11 +2,17 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-
+/**
+ * Test class for OrderCreator and Order (every Order is born from an order creator)
+ */
 public class OrderCreatorTest {
 	private OrderCreator c;
 	private Customer u;
 	private Restaurant r;
+	
+	/**
+	 * Initialization method to create an order creator
+	 */
 	public OrderCreatorTest(){
 		r = new Restaurant();
 		Meal m = new Meal("Pates");
@@ -23,7 +29,7 @@ public class OrderCreatorTest {
 
 
 	/**
-	 * Test method for {@link OrderCreator#selectMeal(java.lang.String, java.lang.Integer)}.
+	 * Test method for selecting and flushing meals
 	 */
 	@Test
 	public void testSelectMeal() {
@@ -33,7 +39,7 @@ public class OrderCreatorTest {
 	}
 
 	/**
-	 * Test method for {@link OrderCreator#personalizeMeal(java.lang.String, java.lang.Integer)}.
+	 * Test method for personalizing meals in an order
 	 */
 	@Test
 	public void testPersonalizeMeal() {
@@ -50,7 +56,7 @@ public class OrderCreatorTest {
 
 
 	/**
-	 * Test method for {@link OrderCreator#saveOrder()}.
+	 * Test method for saving orders
 	 */
 	@Test
 	public void testSaveOrder() {
@@ -67,7 +73,7 @@ public class OrderCreatorTest {
 
 
 	/**
-	 * Test method for {@link OrderCreator#evalPrice()}.
+	 * Test method for evaluating the price of an order
 	 */
 	@Test
 	public void testEvalPrice() {

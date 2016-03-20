@@ -2,11 +2,18 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * Test class for Program
+ * This is the test scenario of our program
+ */
 public class ProgramTest {
 	
-	//We avoid to erase the initial input file
+	//We avoid erasing the initial input file
 	private Program program = new Program("testScenario_1_input", "testScenario_1_output");	
 
+	/**
+	 * First test scenario as described in the specifications
+	 */
 	@Test
 	public void test1(){
 		//execute the login<‘‘bobred’’, ‘‘123456’’> operation for “Bob Red”

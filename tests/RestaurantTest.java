@@ -2,11 +2,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-
+/**
+ * Test class for Restaurant
+ */
 public class RestaurantTest {
 	private Restaurant r = new Restaurant();
 	/**
-	 * Test method for {@link Restaurant#getOrdersHistory()}.
+	 * Test method for getting the orders history of a restaurant
 	 */
 	@Test
 	public void testOrdersHistory() {
@@ -19,7 +21,7 @@ public class RestaurantTest {
 	}
 
 	/**
-	 * Test method for {@link Restaurant#getMeals()}.
+	 * Test method for adding meals to restaurants
 	 */
 	@Test
 	public void testMeals() {
@@ -33,7 +35,7 @@ public class RestaurantTest {
 
 
 	/**
-	 * Test method for {@link Restaurant#putAdmin(Admin)}.
+	 * Test method for adding and getting admins of a restaurant
 	 */
 	@Test
 	public void testAdmin() {
@@ -44,7 +46,7 @@ public class RestaurantTest {
 
 
 	/**
-	 * Test method for {@link Restaurant#putUser(Customer)}.
+	 * Test method for adding and getting customers of a restaurant
 	 */
 	@Test
 	public void testUser() {

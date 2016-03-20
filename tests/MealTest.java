@@ -2,12 +2,14 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-
+/**
+ * Test class for meal
+ */
 public class MealTest {
 	private Meal m  =  new Meal("Salade");
 
 	/**
-	 * Test method for {@link Meal#equals(java.lang.Object)}.
+	 * Test method for testing the equality of two meals
 	 */
 	@Test
 	public void testEqualsObject() {
@@ -16,7 +18,7 @@ public class MealTest {
 	}
 
 	/**
-	 * Test method for {@link Meal#getIngredients()}.
+	 * Test method for adding and getting ingredients with quantities to meals
 	 */
 	@Test
 	public void testIngredients() {
@@ -29,7 +31,7 @@ public class MealTest {
 	}
 
 	/**
-	 * Test method for {@link Meal#getName()}.
+	 * Test method for setting and getting meal's name
 	 */
 	@Test
 	public void testName() {
@@ -38,7 +40,7 @@ public class MealTest {
 	}
 
 	/**
-	 * Test method for {@link Meal#getPrice()}.
+	 * Test method for setting and getting meal's (special) price
 	 */
 	@Test
 	public void testPrice() {
@@ -52,7 +54,7 @@ public class MealTest {
 
 
 	/**
-	 * Test method for {@link Meal#personalize(java.lang.String, java.lang.Integer)}.
+	 * Test method for personalizing meals
 	 */
 	@Test
 	public void testPersonalize() {

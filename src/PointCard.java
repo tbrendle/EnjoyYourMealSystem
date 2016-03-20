@@ -14,6 +14,10 @@ public class PointCard implements FidelityStrategy, Serializable{
 		this.points=0;
 	}
 	
+	/**
+	 * Setter : sets the number of points of the PointCard
+	 * @param points the number of points to associate to this card
+	 */
 	public void setPoint(float points){
 		this.points = points;
 	}
@@ -49,8 +53,11 @@ public class PointCard implements FidelityStrategy, Serializable{
 		}
 		return price;
 	}
+	
+	
 	/**
-	 * @return Hard Copy of the object
+	 * Clones the instance of PointCard to a new instance with same characteristics (hard copy)
+	 * @return a hard copy of the PointCard instance
 	 */
 	@Override
 	public FidelityStrategy clone(){

@@ -348,6 +348,7 @@ public class Program {
 	
 	/**
 	 * Add a contact info to a customer
+	 * @param userName the username of the User we want to add a contact to
 	 * @param contact the contact to be added
 	 * @param contactType the type of the contact to be added
 	 */
