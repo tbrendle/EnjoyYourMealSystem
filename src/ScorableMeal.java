@@ -1,9 +1,7 @@
-import java.util.HashMap;
-
 /**
  * Class extending Meal to be able to associate a score to meals
  */
-public class ScorableMeal extends Meal implements Comparable{
+public class ScorableMeal extends Meal implements Comparable<ScorableMeal>{
 	
 	private Integer score;
 	/**
@@ -36,11 +34,9 @@ public class ScorableMeal extends Meal implements Comparable{
 	 * @return 0 if the Object is not a ScorableMeal, of the difference between the score of the object given to the score of this instance
 	 */
 	@Override
-	public int compareTo(Object o) {
-		if(o instanceof ScorableMeal)
-			return ((ScorableMeal) o).getScore()-score;
-		else
-			return 0;
+	public int compareTo(ScorableMeal o) {
+		return o.getScore()-score;
 	}
+
 
 }
