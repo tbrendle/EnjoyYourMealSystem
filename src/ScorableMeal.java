@@ -26,7 +26,7 @@ public class ScorableMeal extends Meal implements Comparable{
 	 * Get the score of the ScorableMeal
 	 * @return the score of the ScorableMeal
 	 */
-	public int getScore() {
+	public Integer getScore() {
 		return score;
 	}
 

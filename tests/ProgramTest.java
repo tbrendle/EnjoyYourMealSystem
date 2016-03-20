@@ -5,15 +5,7 @@ import org.junit.Test;
 public class ProgramTest {
 	
 	//We avoid to erase the initial input file
-	private Program program = new Program("testScenario_1_input", "testScenario_1_output");
-
-	/*@Test 
-	public void testCreateBobRed(){
-		try{
-			program.insertChef("Bob", "Red", "bobred", "123456");
-		} catch (Exception e){}
-	}*/
-	
+	private Program program = new Program("testScenario_1_input", "testScenario_1_output");	
 
 	@Test
 	public void test1(){
@@ -126,6 +118,7 @@ public class ProgramTest {
 			}
 		}
 		assertEquals(verifProgram.showMeal("AS IT IS").get(0).getName(), "Raclette");
+		assertTrue(verifProgram.showMeal("AS IT IS").size() == 21);
 		assertTrue(verifProgram.showMeal("AS IT IS").get(0).getScore()==3);
 		assertEquals(verifProgram.showMeal("MOSTLY MODIFIED").get(0).getName(), "Raclette");
 		assertTrue(verifProgram.showMeal("MOSTLY MODIFIED").get(0).getScore()==1);
