@@ -38,7 +38,7 @@ public class CardFactoryTest {
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void UnknownCardTest() {
-		FidelityStrategy b = CardFactory.create("Unknow");
+		CardFactory.create("Unknow");
 	}
 
 }

@@ -1,5 +1,3 @@
-import java.lang.reflect.InvocationTargetException;
-
 /**
  * 
  * Factory to create the fidelity cards
