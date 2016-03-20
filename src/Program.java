@@ -16,13 +16,35 @@ public class Program {
 	private GeneralNotifier generalNotifier;
 	private DateChangedNotifier dateChangedNotifier;
 	private OrderCreator orderCreator;
-	private final String name;
+	private final String inputName;
+	private final String outputName;
+	
 	/**
 	 * Program constructor
 	 * @param name name of the program
 	 */
 	public Program(String name){
-		this.name = name;
+		this.inputName = name;
+		this.outputName = name;
+		initProgram();
+	}
+	
+	/**
+	 * Program constructor for tests purpose
+	 * @param inputName name of the input file
+	 * @param outputName name of the output file
+	 */
+	public Program(String inputName, String outputName){
+		this.inputName = inputName;
+		this.outputName = outputName;
+		initProgram();
+	}
+	
+	/**
+	 * Initialize the program
+	 * This method must be called only by the constructor
+	 */
+	private void initProgram(){
 		// We load the serialized data
 		this.loadData();
 		this.generalNotifier = new GeneralNotifier();
@@ -36,7 +58,6 @@ public class Program {
 		}
 		//Run date watcher
 		(new Thread(dateChangedNotifier)).start();
-		
 		this.mealCreator = new MealCreator();
 	}
 	
@@ -47,7 +68,7 @@ public class Program {
 		    ObjectInputStream ois = null;
 		    try {
 		      System.out.println("BJRE");
-		      final FileInputStream fichier = new FileInputStream(this.name+".ser");
+		      final FileInputStream fichier = new FileInputStream(this.inputName+".ser");
 		      ois = new ObjectInputStream(fichier);
 		      this.restaurant = (Restaurant) ois.readObject();
 		      System.out.println("Restaurant : ");
@@ -75,7 +96,7 @@ public class Program {
 	public void saveData(){
 	    ObjectOutputStream oos = null;
 	    try {
-	      final FileOutputStream fichier = new FileOutputStream(this.name+".ser");
+	      final FileOutputStream fichier = new FileOutputStream(this.outputName+".ser");
 	      oos = new ObjectOutputStream(fichier);
 	      oos.writeObject(this.restaurant);
 	      oos.flush();
