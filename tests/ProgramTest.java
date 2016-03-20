@@ -117,7 +117,7 @@ public class ProgramTest {
 		assertTrue(raclette.isPromotion());
 		assertTrue(raclette.getSpecialPrice()==2);
 		assertTrue(raclette.getPrice()==20);
-		//We verify order stats
+		//We verify order stats. It also tests ordering strategies
 		String[] sorting = {"JUST ON SALE", "AS IT IS", "MOSTLY MODIFIED"};
 		for(String s : sorting){
 			System.out.println("========="+s+"==========");
