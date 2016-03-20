@@ -10,18 +10,21 @@ public class AsItIsSorter extends SortingOrdersStrategy{
 
 	/**
 	 * Sorting meals by the most ordered, as they are
-	 * @param oList List of Meals
+	 * @param oList List of Orders
+	 * @param meals List of reference meal
 	 * @return ArrayList of meals, ordered by the most ordered (as they are)
 	 */
 	@Override
-	public ArrayList<ScorableMeal> sort(ArrayList<Order> oList) {
-		HashMap<Meal, Number> d = new HashMap<Meal, Number>();
+	public ArrayList<ScorableMeal> sort(ArrayList<Order> oList, HashMap<String, Meal> meals) {
+		HashMap<String, Integer> d = new HashMap<String, Integer>();
+		for(Meal m : meals.values()){
+			d.put(m.getName(), 0);
+		}
 		for(Order o : oList){
 			for(Meal m : o.getMeals()){
-				if(d.get(m)==null)
-					d.put(m, 1);
-				else
-					d.put(m, d.get(m).intValue()+1);
+				//We do not show removed meals
+				if(d.get(m.getName())!=null)
+					d.put(m.getName(), d.get(m.getName())+1);
 			}
 		}
 		return this.getListfromHashMap(d);

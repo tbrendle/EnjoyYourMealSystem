@@ -484,7 +484,7 @@ public class Program {
 	public ArrayList<ScorableMeal> showMeal(String orderingCriteria){
 		try {
 			SortingOrdersStrategy sorter = SorterFactory.create(orderingCriteria);
-			return sorter.sort(restaurant.getOrdersHistory());
+			return sorter.sort(restaurant.getOrdersHistory(), restaurant.getMeals());
 		}
 		catch (IllegalArgumentException e) {
 			throw e;

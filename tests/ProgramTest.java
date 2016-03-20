@@ -48,8 +48,8 @@ public class ProgramTest {
 			//Everything costs 10euros
 			program.createMeal(mealNames[i], 10);
 			//30g for each
-			program.addIngredient(ingredientNames[(i+1)%ingredientNames.length], i*10);
-			program.addIngredient(ingredientNames[(2*i)%ingredientNames.length], i*11);
+			program.addIngredient(ingredientNames[(i+1)%ingredientNames.length], 1+i*10);
+			program.addIngredient(ingredientNames[(2*i)%ingredientNames.length], 2+i*11);
 			program.saveMeal();
 		}
 		//TODO: When we will have CLUI
@@ -112,12 +112,23 @@ public class ProgramTest {
 		Program verifProgram = new Program("testScenario_1_output");
 		for(String mealName : mealNames)
 			assertEquals(verifProgram.showMeal().get(mealName).getName(), mealName);
+		//We verify that raclette is still as it was
 		Meal raclette = verifProgram.showMeal().get("Raclette");
 		assertTrue(raclette.isPromotion());
 		assertTrue(raclette.getSpecialPrice()==2);
 		assertTrue(raclette.getPrice()==20);
+		//We verify order stats
+		String[] sorting = {"JUST ON SALE", "AS IT IS", "MOSTLY MODIFIED"};
+		for(String s : sorting){
+			System.out.println("========="+s+"==========");
+			for(ScorableMeal meal : verifProgram.showMeal(s)){
+				System.out.println(meal.getScore()+" "+meal.getName());
+			}
+		}
 		assertEquals(verifProgram.showMeal("AS IT IS").get(0).getName(), "Raclette");
-		assertTrue(verifProgram.showMeal("AS IT IS").get(0).getScore().equals(3));
+		assertTrue(verifProgram.showMeal("AS IT IS").get(0).getScore()==3);
+		assertEquals(verifProgram.showMeal("MOSTLY MODIFIED").get(0).getName(), "Raclette");
+		assertTrue(verifProgram.showMeal("MOSTLY MODIFIED").get(0).getScore()==1);
 	}
 	
 
