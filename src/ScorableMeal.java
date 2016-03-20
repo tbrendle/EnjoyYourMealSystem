@@ -30,7 +30,11 @@ public class ScorableMeal extends Meal implements Comparable{
 		return score;
 	}
 
-	
+	/**
+	 * Method overriding the compareTo of Comparable (that it implements)
+	 * @param o object to compare this instance to
+	 * @return 0 if the Object is not a ScorableMeal, of the difference between the score of the object given to the score of this instance
+	 */
 	@Override
 	public int compareTo(Object o) {
 		if(o instanceof ScorableMeal)

@@ -175,6 +175,12 @@ public class Customer extends User implements Observer{
 		}
 	}
 	
+	/**
+	 * Overriding the update function owned by Observer implementers
+	 * Either directly calls the sending message module (when GeneralNotifier is used) or checks if it is the user's birthday (DateChangedNotifier)
+	 * @param o the observable watched
+	 * @param arg message to be sent 
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		if(o instanceof GeneralNotifier && arg instanceof String){

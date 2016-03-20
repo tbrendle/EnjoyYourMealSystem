@@ -4,11 +4,14 @@ import java.util.Date;
 
 import org.junit.Test;
 
+/**
+ * Test class for customer
+ */
 public class CustomerTest {
 	private Customer c = new Customer("Bob", "Red", "bobred", "123");
 
 	/**
-	 * Test method for {@link Customer#isSpam()}.
+	 * Test method for Customer.isSpam
 	 */
 	@Test
 	public void testSpam() {
@@ -19,7 +22,7 @@ public class CustomerTest {
 	}
 
 	/**
-	 * Test method for {@link Customer#getContacts()}.
+	 * Test method for customers setting and getting contacts
 	 */
 	@Test
 	public void testGetContacts() {
@@ -30,7 +33,7 @@ public class CustomerTest {
 	}
 
 	/**
-	 * Test method for {@link Customer#getPreferredContactType()}.
+	 * Test method for setting and getting a user preferred contact type
 	 */
 	@Test
 	public void testPreferredContactType() {
@@ -39,19 +42,16 @@ public class CustomerTest {
 	}
 
 	/**
-	 * Test method for {@link Customer#getFavoriteMeals()}.
+	 * Test method for customer favorite meals
 	 * Currently we have no informations about what is a favorite meal. 
 	 * So we do not do anything with this parameter
 	 */
 	@Test
 	public void testFavoriteMeals() {
-		
 	}
 
-	
-
 	/**
-	 * Test method for {@link Customer#getFidelityCard()}.
+	 * Test method for setting and getting a fidelity card
 	 */
 	@Test
 	public void testFidelityCard() {
@@ -60,7 +60,7 @@ public class CustomerTest {
 	}
 
 	/**
-	 * Test method for {@link Customer#setBirthDay(java.util.Date)}.
+	 * Test method for setting and getting a user's birthday
 	 */
 	@SuppressWarnings("deprecation")
 	@Test
@@ -70,17 +70,17 @@ public class CustomerTest {
 	}
 
 	/**
-	 * Test method for {@link Customer#sendMessage(java.lang.String)}.
+	 * Test method for sending a message to a customer
 	 */
 	@Test
 	public void testSendMessage() {
+		c.putContact("email", "bob@red.com");
+		c.setPreferredContactType("email");
 		c.sendMessage("bonjour");
 	}
 
-
-
 	/**
-	 * Test method for {@link User#getFirstName()}.
+	 * Test method for getting a user's first, last, user and full name
 	 */
 	@Test
 	public void testName() {
@@ -91,7 +91,7 @@ public class CustomerTest {
 	}
 
 	/**
-	 * Test method for {@link User#authenticate(java.lang.String)}.
+	 * Test method for authenticating a user with its password
 	 */
 	@Test
 	public void testAuthenticate() {
@@ -100,7 +100,7 @@ public class CustomerTest {
 	}
 
 	/**
-	 * Test method for {@link User#setPassword(java.lang.String)}.
+	 * Test method for setting a user password
 	 */
 	@Test
 	public void testSetPassword() {

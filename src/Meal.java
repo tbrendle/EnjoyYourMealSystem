@@ -25,6 +25,10 @@ public class Meal implements Serializable{
 		this.promotion = false;
 	}
 	
+	/**
+	 * Clones the instance of Meal to a new instance with same characteristics (hard copy)
+	 * @return a hard copy of the Meal instance
+	 */
 	public Meal clone(){
 		Meal clone = new Meal(name);
 		for(String key : ingredients.keySet()){

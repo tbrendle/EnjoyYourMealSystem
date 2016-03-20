@@ -94,11 +94,19 @@ public class OrderCreator {
 		order = null;
 		return finalizedOrder;
 	}
-
+	
+	/**
+	 * Gives the current order being made
+	 * @return the current order being made
+	 */
 	public Order currentOrder() {
 		return order;
 	}
 
+	/**
+	 * Evaluate the price of the current order being made
+	 * @return the price of the current order being made
+	 */
 	public float evalPrice() {
 		if(order==null){
 			throw new IllegalArgumentException("Order not found :/");

@@ -34,6 +34,10 @@ public class Ingredient implements Serializable{
 		this.personalization = personalization;
 	}
 	
+	/**
+	 * Clones the instance of Ingredient to a new instance with same characteristics (hard copy)
+	 * @return a hard copy of the Ingredient instance
+	 */
 	public Ingredient clone(){
 		Ingredient clone = new Ingredient(name);
 		clone.setQuantity(quantity);

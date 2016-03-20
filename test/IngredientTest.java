@@ -2,10 +2,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * Test class for ingredient
+ */
 public class IngredientTest {
 	private Ingredient i = new Ingredient("Mushroom");
 	/**
-	 * Test method for {@link Ingredient#Ingredient(java.lang.String)}.
+	 * Test method for creating a new ingredient
 	 */
 	@Test
 	public void testIngredientString() {
@@ -14,7 +17,7 @@ public class IngredientTest {
 	}
 
 	/**
-	 * Test method for {@link Ingredient#Ingredient(java.lang.String, java.lang.Integer)}.
+	 * Test method for a new ingredient with a quantity
 	 */
 	@Test
 	public void testIngredientStringInteger() {
@@ -24,7 +27,7 @@ public class IngredientTest {
 
 
 	/**
-	 * Test method for {@link Ingredient#equals(java.lang.Object)}.
+	 * Test method for testing the equality of two ingredients
 	 */
 	@Test
 	public void testEqualsObject() {
@@ -35,7 +38,7 @@ public class IngredientTest {
 	}
 
 	/**
-	 * Test method for {@link Ingredient#getName()}.
+	 * Test method for setting and getting ingredient's name
 	 */
 	@Test
 	public void testName() {
@@ -46,7 +49,7 @@ public class IngredientTest {
 	}
 
 	/**
-	 * Test method for {@link Ingredient#getCostPerUnit()}.
+	 * Test method for setting and getting an ingredient's cost per unit
 	 */
 	@Test
 	public void testCostPerUnit() {
@@ -55,7 +58,7 @@ public class IngredientTest {
 	}
 
 	/**
-	 * Test method for {@link Ingredient#getQuantity()}.
+	 * Test method for setting and getting an ingredient quantity
 	 */
 	@Test
 	public void testQuantity() {
@@ -65,7 +68,7 @@ public class IngredientTest {
 
 
 	/**
-	 * Test method for {@link Ingredient#setPersonalization(java.lang.Integer)}.
+	 * Test method for personalizing an ingredient
 	 */
 	@Test
 	public void testPersonalization() {
