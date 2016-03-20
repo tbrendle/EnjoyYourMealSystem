@@ -26,6 +26,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCPpQOt5EeWJPLZ6WCwSZg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCPpQet5EeWJPLZ6WCwSZg" value="*"/>
         </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_31JVIO6-EeWYutRXvdXDPQ" name="meals" type="_cCWW8ut5EeWJPLZ6WCwSZg"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_cCObIut5EeWJPLZ6WCwSZg" name="SortingOrdersStrategy" visibility="public" isAbstract="true">
@@ -51,6 +52,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cC8M1Ot5EeWJPLZ6WCwSZg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cC8M1et5EeWJPLZ6WCwSZg" value="*"/>
         </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_qmEPQO6_EeWYutRXvdXDPQ" name="meals" type="_cCWW8ut5EeWJPLZ6WCwSZg"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_cC8M1ut5EeWJPLZ6WCwSZg" name="getListfromHashMap" visibility="public">
         <ownedComment xmi:type="uml:Comment" xmi:id="_cC8M1-t5EeWJPLZ6WCwSZg">
@@ -80,10 +82,6 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_cCp49Ot5EeWJPLZ6WCwSZg" name="date" visibility="private" type="_cCWW9-t5EeWJPLZ6WCwSZg" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_cCp49et5EeWJPLZ6WCwSZg" name="price" visibility="private" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_cCp49ut5EeWJPLZ6WCwSZg" name="customer" visibility="private" type="_cCVv4Ot5EeWJPLZ6WCwSZg" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_f4_Dw-uZEeWi5-MO0eyMKw" name="meal" type="_cCYMJut5EeWJPLZ6WCwSZg" association="_f4_DwOuZEeWi5-MO0eyMKw">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iJSScOuZEeWi5-MO0eyMKw"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iJTgkOuZEeWi5-MO0eyMKw" value="*"/>
-      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Onse0e0dEeWJuvmt5_wpUA" name="restaurant" type="_cCmOlOt5EeWJPLZ6WCwSZg" aggregation="shared" association="_Onr3wO0dEeWJuvmt5_wpUA"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_cCqgAOt5EeWJPLZ6WCwSZg" name="getMeals" visibility="public">
         <ownedComment xmi:type="uml:Comment" xmi:id="_cCqgAet5EeWJPLZ6WCwSZg">
@@ -191,7 +189,8 @@
  </body>
       </ownedComment>
       <generalization xmi:type="uml:Generalization" xmi:id="_cC6Xput5EeWJPLZ6WCwSZg" general="_cCYMJut5EeWJPLZ6WCwSZg"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_cC6-set5EeWJPLZ6WCwSZg" name="score" visibility="private" type="_cC6-sOt5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cC6-set5EeWJPLZ6WCwSZg" name="score" visibility="private" type="_cCcdk-t5EeWJPLZ6WCwSZg" isUnique="false"/>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_iTR5sO6_EeWYutRXvdXDPQ" client="_cCPCM-t5EeWJPLZ6WCwSZg" supplier="_emmzoO6_EeWYutRXvdXDPQ" contract="_emmzoO6_EeWYutRXvdXDPQ"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_cC6-sut5EeWJPLZ6WCwSZg" name="setScore" visibility="public">
         <ownedComment xmi:type="uml:Comment" xmi:id="_cC6-s-t5EeWJPLZ6WCwSZg">
           <body>
@@ -199,7 +198,7 @@
 	 * @param s the score of the ScorableMeal
 	 </body>
         </ownedComment>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC6-tOt5EeWJPLZ6WCwSZg" name="s" type="_cC6-sOt5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC6-tOt5EeWJPLZ6WCwSZg" name="s" type="_cCcdk-t5EeWJPLZ6WCwSZg"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_cC6-tet5EeWJPLZ6WCwSZg" name="getScore" visibility="public">
         <ownedComment xmi:type="uml:Comment" xmi:id="_cC6-tut5EeWJPLZ6WCwSZg">
@@ -208,7 +207,13 @@
 	 * @return the score of the ScorableMeal
 	 </body>
         </ownedComment>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC6-t-t5EeWJPLZ6WCwSZg" type="_cC6-sOt5EeWJPLZ6WCwSZg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC6-t-t5EeWJPLZ6WCwSZg" type="_cCcdk-t5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_TQOKMO6_EeWYutRXvdXDPQ" name="compareTo">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_YSfKMO6_EeWYutRXvdXDPQ" name="o" type="_cCZaR-t5EeWJPLZ6WCwSZg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_bYyMwO6_EeWYutRXvdXDPQ" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+        </ownedParameter>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_cCPpQut5EeWJPLZ6WCwSZg" name="BasicCard" visibility="public">
@@ -242,6 +247,9 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCRecOt5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCRecet5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Vj7kIO69EeWYutRXvdXDPQ" name="clone">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_YAxaAO69EeWYutRXvdXDPQ" type="_cCQQUOt5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_cCQQUOt5EeWJPLZ6WCwSZg" name="FidelityStrategy" visibility="public">
       <ownedComment xmi:type="uml:Comment" xmi:id="_cCaoZet5EeWJPLZ6WCwSZg">
@@ -273,6 +281,9 @@
         </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCbPdut5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCbPd-t5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_pK-cMO69EeWYutRXvdXDPQ" name="clone">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_rHVbMO69EeWYutRXvdXDPQ" type="_cCQQUOt5EeWJPLZ6WCwSZg" direction="return"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_cCQ3Y-t5EeWJPLZ6WCwSZg" name="Float"/>
@@ -547,6 +558,9 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCaBUet5EeWJPLZ6WCwSZg" name="o" type="_cCZaRut5EeWJPLZ6WCwSZg"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCaBUut5EeWJPLZ6WCwSZg" name="arg" type="_cCZaR-t5EeWJPLZ6WCwSZg"/>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_wF8qQO69EeWYutRXvdXDPQ" name="clone">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_yecysO69EeWYutRXvdXDPQ" type="_cCVv4Ot5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_cCVv4ut5EeWJPLZ6WCwSZg" name="User" visibility="public" isAbstract="true">
       <ownedComment xmi:type="uml:Comment" xmi:id="_cC9a9-t5EeWJPLZ6WCwSZg">
@@ -662,6 +676,7 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_GmaI8O0dEeWJuvmt5_wpUA" name="restaurant" type="_cCmOlOt5EeWJPLZ6WCwSZg" aggregation="shared" association="_GmZh4O0dEeWJuvmt5_wpUA"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_8wCEQu0dEeWJuvmt5_wpUA" name="customer" type="_cCVv4Ot5EeWJPLZ6WCwSZg" aggregation="shared" association="_8wA2IO0dEeWJuvmt5_wpUA"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_kAMQ8-0eEeWJuvmt5_wpUA" name="ordercreator" type="_cCs8QOt5EeWJPLZ6WCwSZg" aggregation="shared" association="_kAMQ8O0eEeWJuvmt5_wpUA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_6ZLGMO7AEeWYutRXvdXDPQ" name="order" type="_cCPCMOt5EeWJPLZ6WCwSZg" aggregation="shared" association="_6ZHb0O7AEeWYutRXvdXDPQ"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_cCikNut5EeWJPLZ6WCwSZg" name="toString" visibility="public">
         <ownedComment xmi:type="uml:Comment" xmi:id="_cCikN-t5EeWJPLZ6WCwSZg">
           <body>
@@ -850,6 +865,9 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCmOkOt5EeWJPLZ6WCwSZg" name="ingredientName" type="_cCSFget5EeWJPLZ6WCwSZg"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCmOket5EeWJPLZ6WCwSZg" name="personalization" type="_cCcdk-t5EeWJPLZ6WCwSZg"/>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_-mNEIO68EeWYutRXvdXDPQ" name="clone">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Dc9XsO69EeWYutRXvdXDPQ" type="_cCYMJut5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_cCaBU-t5EeWJPLZ6WCwSZg" name="DateChangedNotifier" visibility="public">
       <generalization xmi:type="uml:Generalization" xmi:id="_cCaoYOt5EeWJPLZ6WCwSZg" general="_cCZaRut5EeWJPLZ6WCwSZg"/>
@@ -1009,6 +1027,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCgvA-t5EeWJPLZ6WCwSZg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCgvBOt5EeWJPLZ6WCwSZg" value="*"/>
         </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_-h3EwO6-EeWYutRXvdXDPQ" name="meals" type="_cCWW8ut5EeWJPLZ6WCwSZg"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_cCgvBet5EeWJPLZ6WCwSZg" name="LotteryCard" visibility="public">
@@ -1041,6 +1060,9 @@
         </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cChWF-t5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cChWGOt5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_iIURwO69EeWYutRXvdXDPQ" name="clone">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kzPm8O69EeWYutRXvdXDPQ" type="_cCQQUOt5EeWJPLZ6WCwSZg" direction="return"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_cCmOlOt5EeWJPLZ6WCwSZg" name="Restaurant" visibility="public">
@@ -1260,6 +1282,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cCpR6et5EeWJPLZ6WCwSZg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCpR6ut5EeWJPLZ6WCwSZg" value="*"/>
         </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_AWPMcO6_EeWYutRXvdXDPQ" name="meals" type="_cCWW8ut5EeWJPLZ6WCwSZg"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_cCs8QOt5EeWJPLZ6WCwSZg" name="OrderCreator" visibility="public">
@@ -1376,6 +1399,14 @@
         </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCv_kOt5EeWJPLZ6WCwSZg" type="_cCQ3Y-t5EeWJPLZ6WCwSZg" direction="return"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cCv_ket5EeWJPLZ6WCwSZg" name="o" type="_cCPCMOt5EeWJPLZ6WCwSZg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_bS7uUO69EeWYutRXvdXDPQ" name="clone">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_dOp0IO69EeWYutRXvdXDPQ" type="_cCQQUOt5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_3z50cO69EeWYutRXvdXDPQ" name="setPoint">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_5i5s4O69EeWYutRXvdXDPQ">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EFloat"/>
+        </ownedParameter>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_cCxNsOt5EeWJPLZ6WCwSZg" name="Program" visibility="public">
@@ -1713,6 +1744,20 @@
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC3UW-t5EeWJPLZ6WCwSZg" name="orderingCriteria" type="_cCSFget5EeWJPLZ6WCwSZg"/>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_FFQ80O6-EeWYutRXvdXDPQ" name="addContactInfo">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_IplYIO6-EeWYutRXvdXDPQ" name="userName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_JLSXAO6-EeWYutRXvdXDPQ" name="contact">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_MojIEO6-EeWYutRXvdXDPQ" name="contactType">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_PW0sMO6-EeWYutRXvdXDPQ" name="showMeal">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_XY66YO6-EeWYutRXvdXDPQ" type="_cCWW8ut5EeWJPLZ6WCwSZg" direction="return"/>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_cC6-sOt5EeWJPLZ6WCwSZg" name="Number"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_cC6-uOt5EeWJPLZ6WCwSZg" name="SorterFactory" visibility="public">
@@ -1831,15 +1876,6 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_V-288uuZEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_V-3kAeuZEeWi5-MO0eyMKw" name="mealcreator" type="_cCoDwOt5EeWJPLZ6WCwSZg" association="_V-288OuZEeWi5-MO0eyMKw"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_f4_DwOuZEeWi5-MO0eyMKw" name="contains" memberEnd="_f4_Dw-uZEeWi5-MO0eyMKw _f5A48OuZEeWi5-MO0eyMKw">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_f4_DweuZEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_f4_DwuuZEeWi5-MO0eyMKw" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_f5A48OuZEeWi5-MO0eyMKw" name="order" type="_cCPCMOt5EeWJPLZ6WCwSZg" association="_f4_DwOuZEeWi5-MO0eyMKw">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_if734OuZEeWi5-MO0eyMKw"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_if9GAOuZEeWi5-MO0eyMKw" value="*"/>
-    </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_VBDmAOubEeWi5-MO0eyMKw" name="creates" memberEnd="_VBENEuubEeWi5-MO0eyMKw _VBFbMOubEeWi5-MO0eyMKw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VBENEOubEeWi5-MO0eyMKw" source="org.eclipse.papyrus">
@@ -1976,5 +2012,12 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Mi7DUe0gEeWJuvmt5_wpUA" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_Mi7DU-0gEeWJuvmt5_wpUA" name="restaurant" type="_cCmOlOt5EeWJPLZ6WCwSZg" association="_Mi6cQO0gEeWJuvmt5_wpUA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_emmzoO6_EeWYutRXvdXDPQ" name="Comparable"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_6ZHb0O7AEeWYutRXvdXDPQ" memberEnd="_6ZLGMO7AEeWYutRXvdXDPQ _6ZLtQO7AEeWYutRXvdXDPQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6ZJ4EO7AEeWYutRXvdXDPQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6ZJ4Ee7AEeWYutRXvdXDPQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_6ZLtQO7AEeWYutRXvdXDPQ" name="meal" type="_cCYMJut5EeWJPLZ6WCwSZg" association="_6ZHb0O7AEeWYutRXvdXDPQ"/>
   </packagedElement>
 </uml:Model>
