@@ -2,11 +2,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-
+/**
+ * Test class for MealCreator
+ */
 public class MealCreatorTest {
 	MealCreator mc = new MealCreator();
 	/**
-	 * Test method for {@link MealCreator#createMeal(java.lang.String, float)}.
+	 * Test method for creating a meal from MealCreator
 	 */
 	@Test
 	public void testCreateMeal() {
@@ -17,7 +19,7 @@ public class MealCreatorTest {
 	}
 
 	/**
-	 * Test method for {@link MealCreator#addIngredient(java.lang.String, java.lang.Integer)}.
+	 * Test method for adding an ingredient to a meal
 	 */
 	@Test
 	public void testAddIngredient() {
@@ -32,7 +34,7 @@ public class MealCreatorTest {
 	}
 
 	/**
-	 * Test method for {@link MealCreator#saveMeal()}.
+	 * Test method for saving a meal
 	 */
 	@Test
 	public void testSaveMeal() {		
