@@ -35,6 +35,16 @@ public class Customer extends User implements Observer{
 		this.birthDay = null;
 	}
 
+	/**
+	 * This function return a hard copy of the current customer, in order to log user actions
+	 * We only copy FirstName, LastName, UserName, and a copy of the current FidelityCard
+	 * @return Partial Copy of the object
+	 */
+	public Customer clone(){
+		Customer c = new Customer(this.getFirstName(), this.getLastName(), this.getUserName(), "");
+		c.setFidelityCard(c.getFidelityCard().clone());
+		return c;
+	}
 	
 	/**
 	 * To know if a customer accepts spam

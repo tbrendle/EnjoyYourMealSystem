@@ -11,7 +11,8 @@ public class MealCreator {
 	 * @param price the price to set for the meal
 	 */
 	public void createMeal(String mealName, float price){
-		//TODO: check if not existing ?
+		if(meal!=null)
+			throw new IllegalStateException("A meal is already in creation, save it to create an other meal");
 		// By default, the special price is the same as the real price (avoids a special price of 0)
 		meal = new Meal(mealName);
 		meal.setPrice(price);

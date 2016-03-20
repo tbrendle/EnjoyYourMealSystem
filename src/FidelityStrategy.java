@@ -16,4 +16,9 @@ public interface FidelityStrategy {
 	 * @return the price of the order having this fidelity card
 	 */
 	public float getPrice(Order o);
+	
+	/**
+	 * @return Hard Copy of the object
+	 */
+	public FidelityStrategy clone();
 }

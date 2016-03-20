@@ -315,7 +315,6 @@ public class Program {
 		registerUser(false, firstName, lastName, userName, password);
 	}
 	
-	//TODO: Contact type ??
 	/**
 	 * Add a contact info to a customer
 	 * @param contact the contact to be added

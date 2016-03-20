@@ -33,4 +33,11 @@ public class LotteryCard implements FidelityStrategy, Serializable{
 		return price;
 	}
 	
+	/**
+	 * @return Hard Copy of the object
+	 */
+	@Override
+	public FidelityStrategy clone(){
+		return new LotteryCard();
+	}
 }

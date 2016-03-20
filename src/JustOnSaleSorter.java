@@ -19,7 +19,6 @@ public class JustOnSaleSorter extends SortingOrdersStrategy{
 		for(Order o : oList){
 			for(Meal m : o.getMeals()){
 				//We check only if the meal was ordered by a customer who cared about the promotion
-				//TODO : check if the card taken in account is the current of or the one when to meal was taken
 				if(m.isPromotion() && o.getCustomer().getFidelityCard() instanceof BasicCard)
 					if(d.get(m)==null)
 						d.put(m, 1);

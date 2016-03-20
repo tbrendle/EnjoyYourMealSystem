@@ -34,5 +34,13 @@ public class BasicCard implements FidelityStrategy, Serializable {
 		}
 		return price;
 	}
+	
+	/**
+	 * @return Hard Copy of the object
+	 */
+	@Override
+	public FidelityStrategy clone(){
+		return new BasicCard();
+	}
 
 }

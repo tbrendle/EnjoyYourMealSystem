@@ -14,6 +14,10 @@ public class PointCard implements FidelityStrategy, Serializable{
 		this.points=0;
 	}
 	
+	public void setPoint(float points){
+		this.points = points;
+	}
+	
 	/**
 	 * Pay and order using a point card
 	 * @param o order we want to pay
@@ -44,6 +48,15 @@ public class PointCard implements FidelityStrategy, Serializable{
 			price*=0.9;
 		}
 		return price;
+	}
+	/**
+	 * @return Hard Copy of the object
+	 */
+	@Override
+	public FidelityStrategy clone(){
+		PointCard p = new PointCard();
+		p.setPoint(points);
+		return p;
 	}
 	
 }

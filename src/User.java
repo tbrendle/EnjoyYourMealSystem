@@ -23,6 +23,7 @@ public abstract class User implements Serializable{
 		this.setPassword(password);
 	}
 	
+	
 	/**
 	 * @return the hashcode associated to this user
 	 */

@@ -28,7 +28,6 @@ public class Ingredient implements Serializable{
 	 * @param personalization quantity to add or remove
 	 */
 	public Ingredient(String name, Integer personalization){
-		//TODO : handle negative quantity or null quantity
 		this.name = name;
 		this.quantity = 0;
 		this.setCostPerUnit(1);
@@ -100,7 +99,7 @@ public class Ingredient implements Serializable{
 	 * @param personalization the delta between the quantity associated to this ingredient and the quantity we want
 	 */
 	public void setPersonalization(Integer personalization){
-		// TODO : check if personalization < quantity
+		// If personalization+quantity<0, we set the total to be 0
 		if(personalization+quantity<0)
 			personalization = -quantity;
 		this.personalization = personalization;
