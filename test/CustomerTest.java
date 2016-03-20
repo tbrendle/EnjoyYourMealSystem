@@ -55,7 +55,7 @@ public class CustomerTest {
 	 */
 	@Test
 	public void testFidelityCard() {
-		c.setFidelityCard(CardFactory.create("BasicCard"));
+		c.setFidelityCard(CardFactory.create("Basic"));
 		assertTrue(c.getFidelityCard() instanceof BasicCard);
 	}
 
