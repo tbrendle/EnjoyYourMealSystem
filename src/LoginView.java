@@ -7,6 +7,14 @@ public class LoginView extends AbstractView {
 	@Override
 	public void show() {
 		System.out.println("Login view");
+		User user = program.getLoggedUser();
+		if(user instanceof Admin){
+			System.out.println(user.getUserName()+ " successfully logged in as admin");
+		} else if (user instanceof Customer) {
+			System.out.println("Hello, "+ user.getFullName());
+		} else {
+			System.out.println("No user logged in");
+		}
 	}
 
 }

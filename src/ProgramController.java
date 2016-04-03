@@ -8,13 +8,8 @@ public class ProgramController {
 		this.program=p;
 		this.dispatcher = new Dispatcher(p);
 	}
-
-	private void trackRequest(String request){
-	      System.out.println("Page requested: " + request);
-	}
 	
 	public void handleRequest(String request) {
-		trackRequest(request);
 		dispatcher.dispatch(request);
 		//waitNewRequest();
 	}

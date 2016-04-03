@@ -138,6 +138,12 @@ public class Program {
 		if(!(loggedUser instanceof Admin))
 			throw new SecurityException("Operation not allowed : must be authentified administrator");
 	}
+	/**
+	 * @return current logged user
+	 */
+	public User getLoggedUser(){
+		return loggedUser;
+	}
 	
 	/**
 	 * Authenticate a user being given its name and password

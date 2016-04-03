@@ -8,6 +8,7 @@ import java.util.HashMap;
 public class Dispatcher {
    private OrderView orderView;
    private MealView mealView;
+   private CreateMealView createMealView;
    private LoginView loginView;
    private LandingView landingView;
    private ExceptionView exceptionView;
@@ -23,6 +24,7 @@ public class Dispatcher {
       loginView = new LoginView(p);
       landingView = new LandingView(p); 
       exceptionView = new ExceptionView(p);
+      createMealView = new CreateMealView(p);
       pageNotFoundView = new PageNotFoundView(p);
       availableMethods = program.getClass().getDeclaredMethods();
       routes = new HashMap<String, AbstractView>();
@@ -30,10 +32,11 @@ public class Dispatcher {
       routes.put("login", loginView);
       routes.put("logout", loginView);
       //add routes here
-      routes.put("createmeal", mealView);
-      routes.put("landing", landingView);
-      routes.put("landing", landingView);
-      routes.put("landing", landingView);
+      routes.put("createmeal", createMealView);
+      routes.put("addingredient", createMealView);
+      routes.put("currentmeal", createMealView);
+      routes.put("savemeal", landingView);
+      routes.put("insertchef", landingView);
       routes.put("landing", landingView);
       routes.put("landing", landingView);
       routes.put("landing", landingView);
@@ -80,10 +83,8 @@ public class Dispatcher {
 							} else {
 								validMethod = false;
 							}
-							System.out.println(param);
 							args.add(param);
 						}
-						System.out.println(validMethod);
 						if(validMethod){
 							m.invoke(program, args.toArray());
 							invoked = true;
@@ -110,6 +111,7 @@ public class Dispatcher {
 	   if(args.length>0){
 		   String method = args[0].toLowerCase();
 		   AbstractView currentView = routes.get(method);
+		   System.out.println("Page requested: " + method);
 		   if(currentView == null)
 			   pageNotFoundView.show();
 		   else
@@ -118,12 +120,14 @@ public class Dispatcher {
 				   currentView.show();
 			   } catch(InvocationTargetException e){
 				   exceptionView.show(e.getCause().getMessage());
-				} catch (Exception e){
+			   } catch(InvalidParameterException e){
+				   exceptionView.show(e.getMessage());
+			   } catch (Exception e){
+				   //Should never happen
 				   System.out.println("EXCEPTION CATCHED");
 				   exceptionView.show(e.getMessage());
 				   e.printStackTrace();
 			   }
-		   
 	   }
 	   
    }
