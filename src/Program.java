@@ -145,7 +145,7 @@ public class Program {
 	 * @param password the password of the user we try to authenticate
 	 * @throws SecurityException if used not found or if the password is incorrect
 	 */
-	public void authenticateUser(String userName, String password){
+	public void login(String userName, String password){
 		User candidate = restaurant.getAdmins().get(userName);
 		if(candidate == null){
 			candidate = restaurant.getUsers().get(userName);

@@ -17,7 +17,7 @@ public class ProgramTest {
 	@Test
 	public void test1(){
 		//execute the login<‘‘bobred’’, ‘‘123456’’> operation for “Bob Red”
-		program.authenticateUser("bobred", "123456");
+		program.login("bobred", "123456");
 		//execute the createMeal<‘‘Raclette’’> to create a meal named “Raclette”, costing 20euros
 		program.createMeal("Raclette", 20);
 		// execute addIngredient <ingredientName, quantity> to add 3 ingredients
@@ -69,7 +69,7 @@ public class ProgramTest {
 		//operation
 		program.associateCard("Mario", "Basic");
 		// execute the login<‘‘mario’’, ‘‘345678’’’> operation for “Mario Rossi”
-		program.authenticateUser("Mario", "345678");
+		program.login("Mario", "345678");
 		// check the ingredients of the “Raclette” using the listIngredients < ‘‘Raclette’’>
 		assertTrue(program.listIngredients("Raclette").get("cheese").getQuantity()==80);
 		assertTrue(program.listIngredients("Raclette").get("ham").getQuantity()==40);
@@ -92,7 +92,7 @@ public class ProgramTest {
 		//The meal cost 3*20 + 10 because we added 10g of cheese to the first Raclette
 		assertTrue(o.getPrice()==70);
 		//execute the login<‘‘bobred’’, ‘‘123456’’> operation for “Bob Red”
-		program.authenticateUser("bobred", "123456");
+		program.login("bobred", "123456");
 		//send a message to a user that has his birthday in the same day using the
 		//notifyBirthday <> operation (for this operation it is not needed that the
 		//email is sent, just that the system correctly recognizes the set of user to whom
