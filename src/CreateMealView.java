@@ -14,6 +14,16 @@ public class CreateMealView extends AbstractView {
 		for(Ingredient i : m.getIngredients().values()){
 			System.out.println("Name : "+i.getName()+" --- Quantity: "+i.getQuantity());
 		}
+		System.out.println("addIngredient<Name, Quantity in grams>");
+		System.out.println("saveMeal: to save meal");
+	}
+	
+	@Override
+	public void show(Object o){
+		if(o instanceof Meal){
+			System.out.println(((Meal) o).getName()+" successfully saved");
+		} else 
+			show();
 	}
 
 }

@@ -265,9 +265,9 @@ public class Program {
 	 * Getting the current state of the order being made
 	 * @return the current state of the order being made
 	 */
-	public Order currentOrder() {
+	public OrderCreator currentOrder() {
 		checkCustomer();
-		return orderCreator.currentOrder();
+		return orderCreator;
 	}
 
 	/**
@@ -337,7 +337,7 @@ public class Program {
 	 * @param userName the user name of the customer
 	 * @param password the password of the customer
 	 */
-	public void registerCustomer(String firstName, String lastName, String userName, String password){
+	public void registerClient(String firstName, String lastName, String userName, String password){
 		registerUser(false, firstName, lastName, userName, password);
 	}
 	

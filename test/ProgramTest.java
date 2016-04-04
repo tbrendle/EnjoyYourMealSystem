@@ -60,7 +60,7 @@ public class ProgramTest {
 		assertTrue(program.listIngredients("Raclette").get("potatoes").getQuantity()==50);
 		//execute the registerClient <firstName, lastName, username, password>
 		//to register a cliend “Mario Rossi” with username “Mario” and password “345678”
-		program.registerCustomer("Mario", "Rossi", "Mario", "345678");
+		program.registerClient("Mario", "Rossi", "Mario", "345678");
 		//add the email address and the phone number for the client performing the
 		//addContactInfo<contactInfo> operation
 		program.addContactInfo("Mario", "mario@rossi.net", "email");

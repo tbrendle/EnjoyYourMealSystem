@@ -36,8 +36,12 @@ public class OrderCreator {
 		currentMeal = meal;
 		currentMealQuantity = quantity;
 	}
-	
-	
+	/**
+	 * @return current meal
+	 */
+	public Meal getCurrentMeal(){
+		return currentMeal;
+	}
 	/**
 	 * Flush current(s) meal(s) and add them to order
 	 */
@@ -112,7 +116,8 @@ public class OrderCreator {
 			throw new IllegalArgumentException("Order not found :/");
 		}
 		flushCurrentMeal();
-		return customer.getFidelityCard().getPrice(order);
+		order.setPrice(customer.getFidelityCard().getPrice(order));
+		return order.getPrice();
 	}
 
 }

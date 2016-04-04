@@ -6,4 +6,8 @@ public abstract class AbstractView {
 	}
 	
 	public abstract void show();
+	
+	public void show(Object result){
+		show();
+	}
 }

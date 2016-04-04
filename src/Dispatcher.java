@@ -16,6 +16,7 @@ public class Dispatcher {
    private HashMap<String, AbstractView> routes;
    private Program program;
    private Method[] availableMethods;
+   
    public Dispatcher(Program p){
 	   
 	  program = p;
@@ -31,21 +32,21 @@ public class Dispatcher {
       routes.put("landing", landingView);
       routes.put("login", loginView);
       routes.put("logout", loginView);
-      //add routes here
       routes.put("createmeal", createMealView);
       routes.put("addingredient", createMealView);
       routes.put("currentmeal", createMealView);
-      routes.put("savemeal", landingView);
+      routes.put("savemeal", createMealView);
       routes.put("insertchef", landingView);
-      routes.put("landing", landingView);
-      routes.put("landing", landingView);
-      routes.put("landing", landingView);
+      routes.put("registerclient", landingView);
+      routes.put("selectmeal", orderView);
+      routes.put("personalizemeal", orderView);
+      routes.put("saveorder", orderView);
+      //add routes here
       
    }
    
-   private void handleMethod(String method, String[] params) throws InvocationTargetException {
+   private Object handleMethod(String method, String[] params) throws InvocationTargetException {
 	   boolean foundOne = false;
-	   boolean invoked = false;
        for (Method m : availableMethods){
     	   if(m.getName().toLowerCase().equals(method)){
     		   foundOne = true;
@@ -86,8 +87,7 @@ public class Dispatcher {
 							args.add(param);
 						}
 						if(validMethod){
-							m.invoke(program, args.toArray());
-							invoked = true;
+							return m.invoke(program, args.toArray());
 						}
 							
 					} catch(InvocationTargetException e){
@@ -101,9 +101,10 @@ public class Dispatcher {
     		   }
     	   }
        }
-       if(foundOne && !invoked ){
+       if(foundOne){
     	   throw new InvalidParameterException("Invalid parameters");
        }
+	return null;
    }
 
    public void dispatch(String request){
@@ -116,8 +117,11 @@ public class Dispatcher {
 			   pageNotFoundView.show();
 		   else
 			   try{
-				   handleMethod(method, args);
-				   currentView.show();
+				   Object result = handleMethod(method, args);
+				   if(result == null)
+					   currentView.show();
+				   else
+					   currentView.show(result);
 			   } catch(InvocationTargetException e){
 				   exceptionView.show(e.getCause().getMessage());
 			   } catch(InvalidParameterException e){
