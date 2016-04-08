@@ -2,6 +2,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import core.BasicCard;
+import core.CardFactory;
+import core.FidelityStrategy;
+import core.LotteryCard;
+import core.PointCard;
+
 /**
  * Test class for CardFactory
  */

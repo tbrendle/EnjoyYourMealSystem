@@ -2,6 +2,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import core.Meal;
+import core.MealCreator;
+
 /**
  * Test class for MealCreator
  */

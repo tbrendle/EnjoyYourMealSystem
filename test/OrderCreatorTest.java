@@ -2,6 +2,14 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import core.CardFactory;
+import core.Customer;
+import core.Ingredient;
+import core.Meal;
+import core.Order;
+import core.OrderCreator;
+import core.Restaurant;
+
 /**
  * Test class for OrderCreator and Order (every Order is born from an order creator)
  */

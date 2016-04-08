@@ -4,6 +4,10 @@ import java.util.Date;
 
 import org.junit.Test;
 
+import core.BasicCard;
+import core.CardFactory;
+import core.Customer;
+
 /**
  * Test class for customer
  */

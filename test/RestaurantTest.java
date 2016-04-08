@@ -2,6 +2,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import core.Admin;
+import core.Customer;
+import core.Meal;
+import core.Order;
+import core.Restaurant;
+
 /**
  * Test class for Restaurant
  */

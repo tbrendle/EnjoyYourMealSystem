@@ -2,6 +2,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import core.Meal;
+import core.Order;
+import core.Program;
+import core.ScorableMeal;
+
 /**
  * Test class for Program
  * This is the test scenario of our program
