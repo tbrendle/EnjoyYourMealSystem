@@ -1,10 +1,8 @@
 public class MealView extends AbstractView{
-	public MealView(Program p) {
-		super(p);
-	}
+
 
 	@Override
-	public void show() {
+	public void show(Object o) {
 		//Order o = program.currentOrder();
 		System.out.println("MEal VIEW");
 	}

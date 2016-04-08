@@ -1,17 +1,12 @@
 
 public class LoginView extends AbstractView {
-	public LoginView(Program p) {
-		super(p);
-	}
-
+	
 	@Override
-	public void show() {
-		System.out.println("Login view");
-		User user = program.getLoggedUser();
+	public void show(Object user) {
 		if(user instanceof Admin){
-			System.out.println(user.getUserName()+ " successfully logged in as admin");
+			System.out.println(((User) user).getUserName()+ " successfully logged in as admin");
 		} else if (user instanceof Customer) {
-			System.out.println("Hello, "+ user.getFullName());
+			System.out.println("Hello, "+ ((User) user).getFullName());
 			System.out.println("You can type : ");
 			System.out.println("showMeals<> to see the available meals");
 			System.out.println("selectMeal <mealName, quantity> to add a meal to your order");

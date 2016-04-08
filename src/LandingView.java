@@ -1,11 +1,7 @@
 
 public class LandingView extends AbstractView{
 
-	public LandingView(Program p) {
-		super(p);
-	}
-
-	public void show(){
+	public void show(Object o){
 		System.out.println("Welcome to the EYMS software landing page");
 		System.out.println("Here you can type :");
 		System.out.println("login <username, password>  : to login in");
