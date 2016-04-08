@@ -1,7 +1,7 @@
-package core;
+package clui;
 import java.util.Scanner;
 
-import clui.ProgramController;
+import core.Program;
 
 public class Main {
 	public static void main(String[] args) {

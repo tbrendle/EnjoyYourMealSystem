@@ -403,7 +403,7 @@ public class Program {
 	 * @param customer the customer 
 	 * @param agreement true if the current user accepts spam, false otherwise
 	 */
-	public void associateAgreement(Customer customer, boolean agreement){
+	public Customer associateAgreement(Customer customer, boolean agreement){
 		//Update notifiers
 		if(customer.isSpam() && !agreement){
 			generalNotifier.deleteObserver(customer);
@@ -416,15 +416,16 @@ public class Program {
 		customer.setSpam(agreement);
 		restaurant.putUser(customer);
 		saveData();
+		return customer;
 	}
 	
 	/**
 	 * Associate an agreement (for spam) to the current user
 	 * @param agreement true if the current user accepts spam, false otherwise
 	 */
-	public void associateAgreement(boolean agreement){
+	public Customer associateAgreement(boolean agreement){
 		checkCustomer();
-		associateAgreement((Customer) loggedUser, agreement);
+		return associateAgreement((Customer) loggedUser, agreement);
 	}
 	
 	/**
@@ -432,12 +433,12 @@ public class Program {
 	 * @param userName the name of the user to associated the agreemnt to
 	 * @param agreement true if the current user accepts spam, false otherwise
 	 */
-	public void associateAgreement(String userName, boolean agreement){
+	public Customer associateAgreement(String userName, boolean agreement){
 		checkAdmin();
 		Customer customer = restaurant.getUsers().get(userName);
 		if(customer==null)
 			throw new IllegalArgumentException("User not found...");
-		associateAgreement(customer, agreement);
+		return associateAgreement(customer, agreement);
 	}
 	
 	/**

@@ -4,7 +4,6 @@ import java.lang.reflect.Method;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 
 import core.Program;
 
@@ -12,7 +11,6 @@ public class ProgramController {
 	private Program program;
 	private Dispatcher dispatcher;
 	private Method[] availableMethods;
-	private Scanner input = new Scanner(System.in);
 	
 	public ProgramController(Program p){
 		this.program=p;
@@ -101,10 +99,4 @@ public class ProgramController {
        }
 	return null;
    }
-
-
-	
-	private void waitNewRequest() {
-		handleRequest(input.nextLine());
-	}
 }
