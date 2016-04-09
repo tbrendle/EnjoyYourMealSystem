@@ -14,15 +14,12 @@ public class OrderView extends AbstractView {
 			if(oc.currentOrder() == null)
 				System.out.println("No order is currently selected");
 			if(oc.getCurrentMeal()!=null){
-				System.out.println("You have selected "+oc.getCurrentMeal().getName()+ " costing "+oc.evalPrice());
-				for(Ingredient i : oc.getCurrentMeal().getIngredients().values()){
-					System.out.println(i.getName()+"---"+i.getQuantity()+i.getPersonalization()+"g");
-				}
-				System.out.println("You can personalize your meal typing");
-				System.out.println("personalizeMeal<ingredient, quantity>");
+				printMeal(oc.getCurrentMeal());
 			}
 			System.out.println("You can add a meal to your order typing");
 			System.out.println("selectMeal<mealName, quantity>");
+		} else if (o instanceof Meal){
+			printMeal((Meal) o);
 		} else if (o instanceof Order){
 			System.out.println("Your order will be ready soon");
 			printOrder((Order) o);
@@ -38,6 +35,15 @@ public class OrderView extends AbstractView {
 		System.out.println("Promotions : --- " + (o.getPrice()-noReductionPrice) +"$");
 		System.out.println("It will cost " + o.getPrice()+"$");
 	}
+	
+	public void printMeal(Meal m){
+		System.out.println("You have selected "+m.getName()+ " costing "+(m.getPrice()+m.getExtraPrice()));
+		for(Ingredient i : m.getIngredients().values()){
+			System.out.println(i.getName()+"---"+(i.getQuantity()+i.getPersonalization())+"g");
+		}
+		System.out.println("You can personalize your meal typing");
+		System.out.println("personalizeMeal<ingredient, quantity>");
+	}	
 	
 
 }
