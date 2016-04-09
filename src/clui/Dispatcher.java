@@ -18,6 +18,8 @@ public class Dispatcher {
       addRoute("currentMeal", "createMeal");
       addRoute("saveMeal", "saveMeal");
       addRoute("insertOffer", "saveMeal");
+      addRoute("putInSpecialOffer", "saveMeal");
+      addRoute("removeFromSpecialOffer", "saveMeal");
       addRoute("insertChef", "confirmSub");
       addRoute("registerclient", "confirmSub");
       addRoute("associateCard", "customerData");

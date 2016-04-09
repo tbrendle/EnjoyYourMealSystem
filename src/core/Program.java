@@ -303,6 +303,24 @@ public class Program {
 		saveData();
 		return meal;
 	}
+	
+	public Meal putInSpecialOffer(String mealName, float mealPrice){
+		return insertOffer(mealName, mealPrice);
+	}
+	
+	public Meal removeFromSpecialOffer(String mealName){
+		checkAdmin();
+		Meal meal = restaurant.getMeal(mealName);
+		if(meal==null){
+			throw new IllegalStateException("No meal...");
+		}
+		meal.setPromotion(false);
+		//This meal will erase itself because it is the same
+		restaurant.addMeal(meal);
+		saveData();
+		return meal;
+	}
+	
 	/**
 	 * Add a user to the restaurant
 	 * @param admin boolean to specify if the user is an admin or not
