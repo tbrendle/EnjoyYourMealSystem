@@ -18,7 +18,7 @@ public class CluiTest {
 
 	@Test
 	public void testFidelityCard() {
-		File file = new File("test1.txt");
+		File file = new File("test1_input.txt");
 		Scanner input = new Scanner(System.in);
         try {
 			input = new Scanner(file);
