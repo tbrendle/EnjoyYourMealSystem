@@ -71,10 +71,6 @@ public class Program {
 		      final FileInputStream fichier = new FileInputStream(this.inputName+".ser");
 		      ois = new ObjectInputStream(fichier);
 		      this.restaurant = (Restaurant) ois.readObject();
-		      System.out.println("Restaurant : ");
-		      System.out.println("Users : " + this.restaurant.getUsers());
-		      System.out.println("Admins : " + this.restaurant.getAdmins());
-		      System.out.println("Meals : " + this.restaurant.getMeals());
 		    } catch (final java.io.IOException e) {
 		    	this.restaurant = new Restaurant();
 		    } catch (final ClassNotFoundException e) {
