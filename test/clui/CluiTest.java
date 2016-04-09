@@ -1,3 +1,4 @@
+package clui;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -41,7 +42,7 @@ public class CluiTest {
   		assertTrue(raclette.getSpecialPrice()==2);
   		assertTrue(raclette.getPrice()==20);
   		assertEquals(verifProgram.showMeal("AS IT IS").get(0).getName(), "Raclette");
-  		assertTrue(verifProgram.showMeal("AS IT IS").size() == 1);
+  		assertTrue(verifProgram.showMeal("AS IT IS").size() == 21);
   		assertTrue(verifProgram.showMeal("AS IT IS").get(0).getScore()==3);
   		assertEquals(verifProgram.showMeal("MOSTLY MODIFIED").get(0).getName(), "Raclette");
   		assertTrue(verifProgram.showMeal("MOSTLY MODIFIED").get(0).getScore()==1);

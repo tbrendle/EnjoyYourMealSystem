@@ -1,3 +1,4 @@
+package clui;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
