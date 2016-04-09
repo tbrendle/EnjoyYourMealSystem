@@ -13,6 +13,7 @@ public class LoginView extends AbstractView {
 			System.out.println("You can type : ");
 			System.out.println("createMeal<MealName, price>: to create a meal");
 			System.out.println("insertOffer<mealName, price> : to insert offer");
+			System.out.println("removeFromSpecialOffer<mealName, price> : to insert offer");
 			System.out.println("showMeal<> to see the available meals");
 			System.out.println("showMeal<Sorting Strategy> to see stats about meal");
 			System.out.println("associateCard <username, cardType> to associate a fidelity card to an user account");
