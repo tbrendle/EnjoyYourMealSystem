@@ -67,4 +67,9 @@ public class PointCard implements FidelityStrategy, Serializable{
 		return p;
 	}
 	
+	@Override
+	public String getName() {
+		return "Point Card";
+	}
+	
 }

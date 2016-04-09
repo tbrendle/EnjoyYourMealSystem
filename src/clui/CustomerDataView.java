@@ -13,7 +13,7 @@ public class CustomerDataView extends AbstractView {
 			Customer c = (Customer) result;
 			System.out.println("Name : "+c.getFullName());
 			System.out.println("Username : "+c.getUserName());
-			System.out.println("Your preferences are : ");
+			System.out.println("Card : "+c.getFidelityCard().getName());
 			System.out.println("accept advertizing : "+ (c.isSpam() ? "Y" : "N"));
 			System.out.println("prefered way of communication : "+c.getPreferredContactType());
 			for(String key : c.getContacts().keySet())

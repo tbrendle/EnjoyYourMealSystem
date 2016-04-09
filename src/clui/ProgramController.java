@@ -40,8 +40,6 @@ public class ProgramController {
 	
 	public void handleRequest(String request) {
 		String[] args = parse(request);
-		for(String s : args)
-		System.out.println(s);
 		if(args.length>0){
 			String method = args[0].toLowerCase();
 			try{

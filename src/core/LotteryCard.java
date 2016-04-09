@@ -41,4 +41,9 @@ public class LotteryCard implements FidelityStrategy, Serializable{
 	public FidelityStrategy clone(){
 		return new LotteryCard();
 	}
+
+	@Override
+	public String getName() {
+		return "Lottery Card";
+	}
 }

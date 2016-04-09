@@ -22,4 +22,6 @@ public interface FidelityStrategy {
 	 * @return Hard Copy of the object
 	 */
 	public FidelityStrategy clone();
+	
+	public String getName();
 }

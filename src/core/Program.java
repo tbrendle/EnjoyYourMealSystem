@@ -336,10 +336,11 @@ public class Program {
 	 * @param contact the contact to be added
 	 * @param contactType the type of the contact to be added
 	 */
-	public void addContactInfo(String contact, String contactType){
+	public Customer addContactInfo(String contact, String contactType){
 		checkCustomer();		
 		((Customer) this.loggedUser).putContact(contactType, contact);
 		saveData();
+		return ((Customer) this.loggedUser);
 	}
 	
 	/**
@@ -348,13 +349,14 @@ public class Program {
 	 * @param contact the contact to be added
 	 * @param contactType the type of the contact to be added
 	 */
-	public void addContactInfo(String userName, String contact, String contactType){
+	public Customer addContactInfo(String userName, String contact, String contactType){
 		checkAdmin();		
 		Customer customer = restaurant.getUsers().get(userName);
 		if(customer==null)
 			throw new IllegalArgumentException("User not found...");
 		customer.putContact(contactType, contact);
 		saveData();
+		return customer;
 	}
 	
 	/**
@@ -362,7 +364,7 @@ public class Program {
 	 * @param cardType the card type to associate to the current user
 	 * @throws IllegalArgumentException if the card type is invalid
 	 */
-	public void associateCard(String cardType){
+	public Customer associateCard(String cardType){
 		checkCustomer();
 		try {
 			((Customer) loggedUser).setFidelityCard(CardFactory.create(cardType));
@@ -370,6 +372,7 @@ public class Program {
 			throw new IllegalArgumentException("Invalid card type");
 		}
 		saveData();
+		return (Customer) loggedUser;
 	}
 	
 	/**
@@ -378,7 +381,7 @@ public class Program {
 	 * @param cardType the card type to associate to the current user
 	 * @throws IllegalArgumentException if the user was not found or the card type was invalid
 	 */
-	public void associateCard(String userName, String cardType){
+	public Customer associateCard(String userName, String cardType){
 		checkAdmin();
 		Customer customer = restaurant.getUsers().get(userName);
 		if(customer==null)
@@ -389,6 +392,7 @@ public class Program {
 			throw new IllegalArgumentException("Invalid card type");
 		}
 		saveData();
+		return customer;
 	}
 	
 	

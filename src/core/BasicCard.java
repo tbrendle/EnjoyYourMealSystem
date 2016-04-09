@@ -44,4 +44,8 @@ public class BasicCard implements FidelityStrategy, Serializable {
 		return new BasicCard();
 	}
 
+	@Override
+	public String getName() {
+		return "Basic Card";
+	}
 }
