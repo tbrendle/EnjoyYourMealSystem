@@ -114,13 +114,6 @@ public class Program {
 	   }
 	}
 	
-	/**
-	 * Get the available meals for this instance of the program
-	 * @return the available meals for this instance of the program
-	 */
-	public HashMap<String, Meal> getAvailableMeals(){
-		return this.restaurant.getMeals();
-	}
 	
 	/**
 	 * Check if the current user of the system is a customer
@@ -293,7 +286,7 @@ public class Program {
 	 * @param mealPrice the price of the meal under promotion
 	 * @throws IllegalStateException if the meal was not found
 	 */
-	public void insertOffer(String mealName, float mealPrice){
+	public Meal insertOffer(String mealName, float mealPrice){
 		checkAdmin();
 		Meal meal = restaurant.getMeal(mealName);
 		if(meal==null){
@@ -304,6 +297,7 @@ public class Program {
 		//This meal will erase itself because it is the same
 		restaurant.addMeal(meal);
 		saveData();
+		return meal;
 	}
 	/**
 	 * Add a user to the restaurant

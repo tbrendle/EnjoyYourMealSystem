@@ -17,6 +17,7 @@ public class Dispatcher {
       addRoute("addIngredient", "createMeal");
       addRoute("currentMeal", "createMeal");
       addRoute("saveMeal", "saveMeal");
+      addRoute("insertOffer", "saveMeal");
       addRoute("insertChef", "confirmSub");
       addRoute("registerclient", "confirmSub");
       addRoute("associateCard", "customerData");
@@ -26,6 +27,7 @@ public class Dispatcher {
       addRoute("selectmeal", "order");
       addRoute("personalizemeal", "order");
       addRoute("saveorder", "order");
+      addRoute("listIngredients");
       addRoute("exception");
    }
    
