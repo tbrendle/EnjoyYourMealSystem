@@ -29,7 +29,8 @@ public class LoginView extends AbstractView {
 			System.out.println("associateAgreement <(y/n)> to set your contact agreement");
 			System.out.println("addContactInfo<contactInfo, contactType> to add a contact info type to your account"); 
 		} else {
-			System.out.println("No user logged in");
+			//Only happens at logout
+			System.out.println("User successfully logged out.");
 		}
 	}
 
