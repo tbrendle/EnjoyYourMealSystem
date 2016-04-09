@@ -1,0 +1,23 @@
+login "bobred" "123456"
+createMeal "Raclette" 20
+addIngredient "cheese" 80
+addIngredient "ham" 40
+addIngredient "potatoes" 50
+saveMeal
+listIngredients "Raclette"
+registerClient "Mario" "Rossi" "Mario" "345678"
+addContactInfo "Mario" "mario@rossi.net" "email"
+addContactInfo "Mario" "+33645623142" "phone"
+associateCard "Mario" "Basic"
+login "Mario" "345678"
+selectMeal "Raclette" 1
+personalizeMeal "cheese" 10
+personalizeMeal "ham" -50
+selectMeal "Raclette" 2
+saveOrder
+login "bobred" "123456"
+notifyBirthday
+insertOffer Raclette 2
+notifyAd "New offer on Raclette : It costs only 2$ this week end" "Raclette" 2
+showMeal "AS IT IS"
+showMeal "MOSTLY MODIFIED"

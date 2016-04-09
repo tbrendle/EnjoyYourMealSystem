@@ -28,6 +28,8 @@ public class Dispatcher {
       addRoute("personalizemeal", "order");
       addRoute("saveorder", "order");
       addRoute("listIngredients");
+      addRoute("notifyBirthday", "notify");
+      addRoute("notifyAd", "notify");
       addRoute("exception");
    }
    

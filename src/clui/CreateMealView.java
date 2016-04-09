@@ -19,12 +19,5 @@ public class CreateMealView extends AbstractView {
 			System.out.println("saveMeal: to save meal");
 		}
 	}
-	/*
-	public void show(Object o){
-		if(o instanceof Meal){
-			System.out.println(((Meal) o).getName()+" successfully saved");
-		} else 
-			show();
-	}*/
 
 }

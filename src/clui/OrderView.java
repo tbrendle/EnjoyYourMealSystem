@@ -30,11 +30,13 @@ public class OrderView extends AbstractView {
 	}
 	
 	public void printOrder(Order o){
-		o.getPrice();
+		float noReductionPrice = 0;
 		for(Meal m : o.getMeals()){	
-			System.out.println(m.getName());
+			System.out.println(m.getName() + " --- "+(m.getPrice()+m.getExtraPrice())+ "$");
+			noReductionPrice +=m.getPrice()+m.getExtraPrice();
 		}
-		System.out.println("It will cost " + o.getPrice());
+		System.out.println("Promotions : --- " + (o.getPrice()-noReductionPrice) +"$");
+		System.out.println("It will cost " + o.getPrice()+"$");
 	}
 	
 

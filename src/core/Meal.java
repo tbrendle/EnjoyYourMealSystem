@@ -223,7 +223,7 @@ public class Meal implements Serializable{
 				this.ingredients.put(ingredientName, ingredient);
 			}
 		} else {
-			throw new IllegalArgumentException("Ingredient not found.");
+			throw new IllegalArgumentException("Ingredient "+ ingredientName +" not found.");
 		}
 	}
 }

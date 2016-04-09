@@ -183,9 +183,10 @@ public class Program {
 	 * @param mealName the name of the meal we want to create 
 	 * @param price the price associated to the meal we're creating
 	 */
-	public void createMeal(String mealName, float price) {
+	public Meal createMeal(String mealName, float price) {
 		checkAdmin();
 		this.mealCreator.createMeal(mealName, price);
+		return currentMeal();
 	}
 
 	/**
@@ -193,9 +194,10 @@ public class Program {
 	 * @param ingredientName the name of the ingredient we're adding
 	 * @param quantity the quantity of the ingredien we're adding
 	 */
-	public void addIngredient(String ingredientName, Integer quantity) {
+	public Meal addIngredient(String ingredientName, Integer quantity) {
 		checkAdmin();
 		this.mealCreator.addIngredient(ingredientName, quantity);
+		return currentMeal();
 	}
 
 	/**
@@ -224,9 +226,10 @@ public class Program {
 	 * @param mealName the name of the meal to select
 	 * @param quantity the quantity of the meal to select
 	 */
-	public void selectMeal(String mealName, Integer quantity) {
+	public Meal selectMeal(String mealName, Integer quantity) {
 		checkCustomer();
 		orderCreator.selectMeal(mealName, quantity);
+		return orderCreator.getCurrentMeal();
 	}
 	
 	/**
@@ -234,9 +237,10 @@ public class Program {
 	 * @param ingredientName the name of the ingredient from the meal we want to personalize
 	 * @param quantity the quantity we want to personalize it from
 	 */
-	public void personalizeMeal(String ingredientName, Integer quantity) {
+	public Meal personalizeMeal(String ingredientName, Integer quantity) {
 		checkCustomer();
 		orderCreator.personalizeMeal(ingredientName, quantity);
+		return orderCreator.getCurrentMeal();
 	}
 	
 	/**

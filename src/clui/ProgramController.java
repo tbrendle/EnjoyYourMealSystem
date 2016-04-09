@@ -34,7 +34,8 @@ public class ProgramController {
 				word+=request.charAt(i);
 			}
 		}
-		argList.add(word);
+		if(word.length()>0)
+			argList.add(word);
 		return argList.toArray(new String[0]);
 	}
 	

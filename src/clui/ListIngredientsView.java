@@ -12,7 +12,7 @@ public class ListIngredientsView extends AbstractView {
 		if(result instanceof HashMap){
 			HashMap<String,  Ingredient> ingredients = (HashMap<String, Ingredient>) result;
 			for(Ingredient i : ingredients.values()){
-				System.out.println(i.getName()+"---"+i.getQuantity()+i.getPersonalization()+"g");
+				System.out.println(i.getName()+"--- "+i.getQuantity()+"g");
 			}
 		}
 		
