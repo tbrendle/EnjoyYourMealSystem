@@ -18,8 +18,30 @@ public class ProgramController {
 		availableMethods = program.getClass().getDeclaredMethods();
 	}
 	
+	public String[] parse(String request){
+		ArrayList<String> argList = new ArrayList<String>();
+		String word = "";
+		boolean block = false;
+		for(int i = 0; i<request.length(); i++){
+			if(request.charAt(i)==" ".charAt(0) && !block){
+				if(word.length()>0){
+					argList.add(word);
+					word = "";
+				}
+			} else if (request.charAt(i)=="\"".charAt(0)){
+				block = !block;
+			} else {
+				word+=request.charAt(i);
+			}
+		}
+		argList.add(word);
+		return argList.toArray(new String[0]);
+	}
+	
 	public void handleRequest(String request) {
-		String[] args = request.split(" ");
+		String[] args = parse(request);
+		for(String s : args)
+		System.out.println(s);
 		if(args.length>0){
 			String method = args[0].toLowerCase();
 			try{

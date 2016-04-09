@@ -1,9 +1,11 @@
 
 package clui;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import core.Meal;
+import core.ScorableMeal;
 
 public class ShowMealView extends AbstractView {
 
@@ -13,12 +15,26 @@ public class ShowMealView extends AbstractView {
 		if(result instanceof HashMap){
 			HashMap<String, Meal> meals = (HashMap<String, Meal>) result;
 			for(Meal m : meals.values()){
-				System.out.println(m.getName() + " : " + m.getPrice() +"$"+ (m.isPromotion() ? " --- " + m.getSpecialPrice()+"$": ""));
+				displayMeal(m);
 			}
 			System.out.println("Enjoy your meal !");
+		} else if (result instanceof ArrayList){
+			ArrayList<ScorableMeal> meals = (ArrayList<ScorableMeal>) result;
+			for(ScorableMeal m : meals){
+				displayMeal(m);
+			}
 		}
 		
 	}
 
+	public void displayMeal(Meal m){
+		System.out.println(m.getName() + " : " + m.getPrice() +"$"+ (m.isPromotion() ? " --- " + m.getSpecialPrice()+"$": ""));
+	}
+	
+	public void displayMeal(ScorableMeal m){
+		if(m instanceof ScorableMeal){
+			System.out.println(m.getName() + " : " + m.getScore());
+		}
+	}
 
 }
