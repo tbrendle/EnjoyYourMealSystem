@@ -4,6 +4,84 @@ addIngredient "cheese" 80
 addIngredient "ham" 40
 addIngredient "potatoes" 50
 saveMeal
+createMeal "Soupe" 10
+saveMeal
+addIngredient carotte 10
+createMeal "Croque-Monsieur" 10
+addIngredient fromage 10
+saveMeal
+createMeal "Pates Carbonara" 10
+addIngredient pates 300
+saveMeal
+createMeal "Pates Bolognaise" 10
+addIngredient pates 200
+saveMeal
+createMeal "Saumon" 10
+addIngredient saumon 200
+addIngredient fenouil 2
+saveMeal
+createMeal "Saucisse purée" 10
+addIngredient "pommes de terre" 200
+addIngredient saucisse 200
+saveMeal
+createMeal "Steak" 10
+addIngredient steak 300
+addIngredient 
+saveMeal
+createMeal "Omelette" 10
+addIngredient oeuf 100
+addIngredient 
+saveMeal
+createMeal "Quiche" 10
+addIngredient oeuf 50
+addIngredient pates 50
+addIngredient creme 100
+saveMeal
+createMeal "Hamburger" 10
+addIngredient pain 100
+addIngredient cornichon 10
+addIngredient steak 100
+saveMeal
+createMeal "Côtes de porc" 10
+addIngredient porc 200
+saveMeal
+createMeal "Canard aux olives" 10
+addIngredient canard 200
+saveMeal
+createMeal "Tarte au fromage" 10
+addIngredient fromage 100
+saveMeal
+createMeal "Lasagnes" 10
+addIngredient pates 100
+addIngredient viande 100
+saveMeal
+createMeal "Pizza" 10
+addIngredient tomate 100
+addIngredient pain 100
+saveMeal
+createMeal "Pasta Boulettes" 10
+addIngredient pates 100
+addIngredient boulettes 100
+saveMeal
+createMeal "Rillettes de porc" 10
+addIngredient rillettes 100
+addIngredient porc 100
+saveMeal
+createMeal "Eclair" 10
+addIngredient sugar 50
+addIngredient vanille 50
+addIngredient "pate a choux" 50
+saveMeal
+createMeal "Gateau au chocolat" 10
+addIngredient sugar 100
+addIngredient farine 100
+addIngredient oeuf 100
+addIngredient chocolat 100
+saveMeal
+createMeal "Brownie" 10
+addIngredient sugar 70
+addIngredient chocolat 100
+saveMeal
 listIngredients "Raclette"
 registerClient "Mario" "Rossi" "Mario" "345678"
 addContactInfo "Mario" "mario@rossi.net" "email"
