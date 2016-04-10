@@ -4,6 +4,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -478,7 +481,15 @@ public class Program {
 	}
 	
 	public Customer setBirthday(Customer customer, String date){
-		Date birthday = new Date(date);
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		Date birthday = new Date();
+		try {
+			birthday = df.parse(date);
+			if(birthday.getTime()>new Date().getTime())
+				throw new IllegalArgumentException("Format must be MM/dd/yyyy");
+		} catch (ParseException e) {
+			throw new IllegalArgumentException("Format must be MM/dd/yyyy");
+		}
 		customer.setBirthDay(birthday);
 		restaurant.putUser(customer);
 		saveData();

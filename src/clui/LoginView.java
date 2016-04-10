@@ -23,6 +23,7 @@ public class LoginView extends AbstractView {
 			System.out.println("showMeal<> to see the available meals");
 			System.out.println("showMeal<Sorting Strategy> to see stats about meal");
 			System.out.println("listIngredients<mealName> to show all the ingredients of a meal");
+			System.out.println("setBirthday <username, date> to associate a birthday to an user account");
 			System.out.println("associateCard <username, cardType> to associate a fidelity card to an user account");
 			System.out.println("associateAgreement <username, (y/n)> to set a user contact agreement");
 			System.out.println("addContactInfo<username, contactInfo, contactType> to add a contact info type to your account"); 
@@ -35,6 +36,7 @@ public class LoginView extends AbstractView {
 			System.out.println("listIngredients<mealName> to show all the ingredients of a meal");
 			System.out.println("selectMeal <mealName, quantity> to add a meal to your order");
 			System.out.println("associateCard <cardType> to associate a fidelity card to your account");
+			System.out.println("setBirthday <date> to associate a birthday to your account");
 			System.out.println("associateAgreement <(y/n)> to set your contact agreement");
 			System.out.println("addContactInfo<contactInfo, contactType> to add a contact info type to your account"); 
 		} else {

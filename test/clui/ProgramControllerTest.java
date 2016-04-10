@@ -132,6 +132,7 @@ public class ProgramControllerTest {
 		pc.handleRequest("addContactInfo \"Mario\" \"mario@rossi.net\" \"email\"");
 		pc.handleRequest("addContactInfo \"Mario\" \"+33645623142\" \"phone\"");
 		pc.handleRequest("associateCard \"Mario\" \"Basic\"");
+		pc.handleRequest("setBirthday \"Mario\" 21/2/2012");
 		pc.handleRequest("login \"Mario\" \"345678\"");
 		pc.handleRequest("selectMeal \"Raclette\" 1");
 		pc.handleRequest("personalizeMeal \"cheese\" 10");

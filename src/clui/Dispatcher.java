@@ -29,6 +29,7 @@ public class Dispatcher {
       addRoute("insertChef", "confirmSub");
       addRoute("registerclient", "confirmSub");
       addRoute("associateCard", "customerData");
+      addRoute("setBirthday", "customerData");
       addRoute("associateAgreement", "customerData");
       addRoute("addContactInfo", "customerData");
       addRoute("showMeal");
