@@ -11,9 +11,9 @@ public class ContactFactory {
 	 * @return an instance of a module to contact the user
 	 */
 	public static ContactSenderInterface create(String s){
-		if(s=="email"){
+		if(s.equals("email")){
 			return new ContactEmailer();
-		} else if(s=="phone") {
+		} else if(s.equals("phone")) {
 			return new ContactSMS();
 		} else 
 			return null;
