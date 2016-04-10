@@ -133,6 +133,7 @@ public class Program {
 	 * Authenticate a user being given its name and password
 	 * @param userName the name of the user we try to authenticate
 	 * @param password the password of the user we try to authenticate
+	 * @return the user logged in
 	 * @throws SecurityException if used not found or if the password is incorrect
 	 */
 	public User login(String userName, String password){
@@ -178,6 +179,7 @@ public class Program {
 	 * Create a meal given a name and a price
 	 * @param mealName the name of the meal we want to create 
 	 * @param price the price associated to the meal we're creating
+	 * @return the Meal created
 	 */
 	public Meal createMeal(String mealName, float price) {
 		checkAdmin();
@@ -188,7 +190,8 @@ public class Program {
 	/**
 	 * Add an ingredient to the meal currently being created
 	 * @param ingredientName the name of the ingredient we're adding
-	 * @param quantity the quantity of the ingredien we're adding
+	 * @param quantity the quantity of the ingredient we're adding
+	 * @return the current Meal to which the ingredient was added
 	 */
 	public Meal addIngredient(String ingredientName, Integer quantity) {
 		checkAdmin();
@@ -221,6 +224,7 @@ public class Program {
 	 * Select a meal from its name and associate a quantity to this meal selected
 	 * @param mealName the name of the meal to select
 	 * @param quantity the quantity of the meal to select
+	 * @return the Meal (from the orderCreator) the user has selected
 	 */
 	public Meal selectMeal(String mealName, Integer quantity) {
 		checkCustomer();
@@ -232,6 +236,7 @@ public class Program {
 	 * Personalize the currentMeal, that is to say an ingredient of this meal
 	 * @param ingredientName the name of the ingredient from the meal we want to personalize
 	 * @param quantity the quantity we want to personalize it from
+	 * @return the current Meal as personalized
 	 */
 	public Meal personalizeMeal(String ingredientName, Integer quantity) {
 		checkCustomer();
@@ -284,6 +289,7 @@ public class Program {
 	 * Add on offer to a given meal
 	 * @param mealName the name of the meal we want to associated an offer to
 	 * @param mealPrice the price of the meal under promotion
+	 * @return the Meal to which the offer was inserted
 	 * @throws IllegalStateException if the meal was not found
 	 */
 	public Meal insertOffer(String mealName, float mealPrice){
@@ -353,6 +359,7 @@ public class Program {
 	 * Add a contact info to a customer
 	 * @param contact the contact to be added
 	 * @param contactType the type of the contact to be added
+	 * @return the Customer to whom the contact info was added
 	 */
 	public Customer addContactInfo(String contact, String contactType){
 		checkCustomer();		
@@ -366,6 +373,7 @@ public class Program {
 	 * @param userName the username of the User we want to add a contact to
 	 * @param contact the contact to be added
 	 * @param contactType the type of the contact to be added
+	 * @return the Customer to whom the contact info was added
 	 */
 	public Customer addContactInfo(String userName, String contact, String contactType){
 		checkAdmin();		
@@ -380,6 +388,7 @@ public class Program {
 	/**
 	 * Associate a card to the current user
 	 * @param cardType the card type to associate to the current user
+	 * @return the Customer the card was associated to
 	 * @throws IllegalArgumentException if the card type is invalid
 	 */
 	public Customer associateCard(String cardType){
@@ -397,6 +406,7 @@ public class Program {
 	 * Association a card to a given user
 	 * @param userName the name of the user to associated the card to
 	 * @param cardType the card type to associate to the current user
+	 * @return the Customer the card was associated to
 	 * @throws IllegalArgumentException if the user was not found or the card type was invalid
 	 */
 	public Customer associateCard(String userName, String cardType){
@@ -416,8 +426,9 @@ public class Program {
 	
 	/**
 	 * Associate an agreement (for spam) to an user
-	 * @param customer the customer 
+	 * @param customer the customer
 	 * @param agreement true if the current user accepts spam, false otherwise
+	 * @return the Customer for whom the agreement was signed (or not)
 	 */
 	public Customer associateAgreement(Customer customer, boolean agreement){
 		//Update notifiers
@@ -438,6 +449,7 @@ public class Program {
 	/**
 	 * Associate an agreement (for spam) to the current user
 	 * @param agreement true if the current user accepts spam, false otherwise
+	 * @return the Customer for whom the agreement was signed (or not)
 	 */
 	public Customer associateAgreement(boolean agreement){
 		checkCustomer();
@@ -446,8 +458,9 @@ public class Program {
 	
 	/**
 	 * Associate an agreement (for spam) to a given user
-	 * @param userName the name of the user to associated the agreemnt to
+	 * @param userName the name of the user to associated the agreement to
 	 * @param agreement true if the current user accepts spam, false otherwise
+	 * @return the Customer for whom the agreement was signed (or not)
 	 */
 	public Customer associateAgreement(String userName, boolean agreement){
 		checkAdmin();

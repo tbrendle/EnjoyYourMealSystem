@@ -80,7 +80,7 @@ public class ProgramController {
 	 * @param method the name of the method
 	 * @param params the parameters to give to this method
 	 * @return the object return by the program for this method with this arguments
-	 * @throws InvocationTargetException
+	 * @throws InvocationTargetException if the method hasn't been found among existing methods
 	 */
 	private Object handleMethod(String method, String[] params) throws InvocationTargetException {
 	   boolean foundOne = false;
