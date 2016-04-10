@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -475,6 +476,28 @@ public class Program {
 			throw new IllegalArgumentException("User not found...");
 		return associateAgreement(customer, agreement);
 	}
+	
+	public Customer setBirthday(Customer customer, String date){
+		Date birthday = new Date(date);
+		customer.setBirthDay(birthday);
+		restaurant.putUser(customer);
+		saveData();
+		return customer;
+	}
+	
+	public Customer setBirthday(String name, String date){
+		checkAdmin();
+		Customer customer = restaurant.getUsers().get(name);
+		if(customer==null)
+			throw new IllegalArgumentException("User not found...");
+		return setBirthday(customer, date);
+	}
+	
+	public Customer setBirthday(String date){
+		checkCustomer();
+		return setBirthday((Customer) loggedUser, date);
+	}
+	
 	
 	/**
 	 * Add a chef to the restaurant of this instance of the program
