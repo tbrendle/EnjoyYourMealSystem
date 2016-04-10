@@ -8,6 +8,7 @@ public class GeneralNotifier extends Observable{
 	 * @param message the message to send to the customers
 	 */
 	public void notifyAll(String message){
+		setChanged();
 		notifyObservers(message);
 	}
 }

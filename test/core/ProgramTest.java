@@ -68,6 +68,7 @@ public class ProgramTest {
 		//addContactInfo<contactInfo> operation
 		program.addContactInfo("Mario", "mario@rossi.net", "email");
 		program.addContactInfo("Mario", "+33645623142", "phone");
+		program.associateAgreement("Mario", true);
 		//select a card for the client using the associateCard<userName, cardType>
 		//operation
 		program.associateCard("Mario", "Basic");

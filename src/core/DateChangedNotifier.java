@@ -16,6 +16,7 @@ public class DateChangedNotifier extends Observable implements Runnable{
 	@Override
 	public void run() {
 		//initialization
+		setChanged();
 		notifyObservers();
 		while(true){
 			Date newDate = new Date();
@@ -28,6 +29,7 @@ public class DateChangedNotifier extends Observable implements Runnable{
 				}
 			} else {
 				oldDate = newDate;
+				setChanged();
 				notifyObservers();
 			}
 		}

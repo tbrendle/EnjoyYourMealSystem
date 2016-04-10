@@ -94,6 +94,7 @@ public class OrderCreator {
 		}
 		flushCurrentMeal();
 		order.setPrice(customer.getFidelityCard().pay(order));
+		order.setCustomer(order.getCustomer().clone());
 		Order finalizedOrder = order;
 		// We reinitialize the buffer order for creation being hold in the creator
 		order = null;
