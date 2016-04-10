@@ -3,11 +3,18 @@ package clui;
 import core.Ingredient;
 import core.Meal;
 
+/**
+ * Displaying view when a meal is being created
+ */
 public class CreateMealView extends AbstractView {
+	/**
+	 * Display view when a meal is being created or edited : show the informations and ask for new ones
+	 * @param result the meal being created or modified
+	 */
 	@Override
-	public void show(Object o) {
-		if(o instanceof Meal){
-			Meal m = (Meal) o;
+	public void show(Object result) {
+		if(result instanceof Meal){
+			Meal m = (Meal) result;
 			System.out.println("You are editing a meal");
 			System.out.println("Name :" + m.getName());
 			System.out.println("Price :" + m.getPrice());

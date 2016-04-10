@@ -1,5 +1,14 @@
 package clui;
+
+/**
+ * Factory that creates our views
+ */
 public class ViewFactory {
+	/**
+	 * Creates a view given its name
+	 * @param name the name of the view to create
+	 * @return the View created by the factory
+	 */
     public static AbstractView create(String name)
     {
     	AbstractView view = null;

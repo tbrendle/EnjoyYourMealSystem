@@ -1,8 +1,14 @@
 package clui;
 
+/**
+ * Displaying view when the user starts the program
+ */
 public class LandingView extends AbstractView{
-
-	public void show(Object o){
+	/**
+	 * Show available commands when a user starts the program : add a user or login
+	 * @param result not used here
+	 */
+	public void show(Object result){
 		System.out.println("Welcome to the EYMS software landing page");
 		System.out.println("Here you can type :");
 		System.out.println("login <username, password>  : to login in");
