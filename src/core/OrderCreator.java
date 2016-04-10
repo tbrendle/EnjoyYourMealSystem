@@ -30,10 +30,10 @@ public class OrderCreator {
 		if(this.order == null)
 			this.order = new Order(customer);
 		flushCurrentMeal();
-		Meal meal = restaurant.getMeal(mealName).clone();
-		if(meal==null){
+		if(restaurant.getMeal(mealName)==null){
 			throw new IllegalArgumentException(mealName+" not found :/");
 		}
+		Meal meal = restaurant.getMeal(mealName).clone();
 		currentMeal = meal;
 		currentMealQuantity = quantity;
 	}
