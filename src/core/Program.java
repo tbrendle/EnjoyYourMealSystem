@@ -340,8 +340,14 @@ public class Program {
 			throw new IllegalArgumentException("A customer already own this username");
 		if(admin)
 			restaurant.putAdmin(new Admin(firstName, lastName, userName, password));
-		else
-			restaurant.putUser(new Customer(firstName, lastName, userName, password));
+		else{
+			Customer customer = new Customer(firstName, lastName, userName, password);
+			if(customer.isSpam()){
+				generalNotifier.addObserver(customer);
+				dateChangedNotifier.addObserver(customer);
+			}
+			restaurant.putUser(customer);
+		}
 		saveData();
 	}
 	/**
