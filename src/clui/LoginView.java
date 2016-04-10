@@ -4,8 +4,14 @@ import core.Admin;
 import core.Customer;
 import core.User;
 
+/**
+ * Displaying a view when a user has logged in
+ */
 public class LoginView extends AbstractView {
-	
+	/**
+	 * Display the available commands for the logged in user, depending on its rights
+	 * @param user the user logged in
+	 */
 	@Override
 	public void show(Object user) {
 		if(user instanceof Admin){
@@ -34,6 +40,10 @@ public class LoginView extends AbstractView {
 		} else {
 			//Only happens at logout
 			System.out.println("User successfully logged out.");
+			System.out.println("You can now log in again or create a new user :");
+			System.out.println("login <username, password>  : to login in");
+			System.out.println("registerClient <firstName, lastName, username, password> : to add auser to the system");
+			System.out.println("insertChef <firstName, lastName, username, password> : to add a chef to the system");
 		}
 	}
 

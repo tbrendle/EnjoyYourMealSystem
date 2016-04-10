@@ -7,17 +7,29 @@ import java.util.Arrays;
 
 import core.Program;
 
+/**
+ * Controller of our program : retrieves the user commands and executes them
+ */
 public class ProgramController {
 	private Program program;
 	private Dispatcher dispatcher;
 	private Method[] availableMethods;
 	
+	/**
+	 * ProgramController constructor
+	 * @param p the instance of Program the controller will manage
+	 */
 	public ProgramController(Program p){
 		this.program=p;
 		this.dispatcher = new Dispatcher();
 		availableMethods = program.getClass().getDeclaredMethods();
 	}
 	
+	/**
+	 * Parses the request of the user given in command line
+	 * @param request the raw request given by the user
+	 * @return the name of the command and the list of arguments passed by the user
+	 */
 	public String[] parse(String request){
 		ArrayList<String> argList = new ArrayList<String>();
 		String word = "";
@@ -39,6 +51,10 @@ public class ProgramController {
 		return argList.toArray(new String[0]);
 	}
 	
+	/**
+	 * Handles a request given by a user in the console
+	 * @param request the raw request as given by the user
+	 */
 	public void handleRequest(String request) {
 		String[] args = parse(request);
 		if(args.length>0){
@@ -59,6 +75,13 @@ public class ProgramController {
 		}
 	}
 		
+	/**
+	 * Handles a method that should exist in the program as interpreted by handleRequest
+	 * @param method the name of the method
+	 * @param params the parameters to give to this method
+	 * @return the object return by the program for this method with this arguments
+	 * @throws InvocationTargetException if the method hasn't been found among existing methods
+	 */
 	private Object handleMethod(String method, String[] params) throws InvocationTargetException {
 	   boolean foundOne = false;
        for (Method m : availableMethods){

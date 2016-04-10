@@ -9,10 +9,16 @@ import core.Meal;
 import core.Program;
 
 
+/**
+ * Test class for the controller
+ */
 public class ProgramControllerTest {
 	private Program program=  new Program("testScenario_1_input", "testScenario_1_output");	
 	private ProgramController pc = new ProgramController(program);
 	
+	/**
+	 * Test the parsing of a command given by the user
+	 */
 	@Test
 	public void testParsing(){
 		String args[] = pc.parse("method arg1 \"arg 2\" arg 3");
@@ -24,6 +30,9 @@ public class ProgramControllerTest {
 		assertTrue(args[4].equals("3"));
 	}
 	
+	/**
+	 * Full test, with the scenario given in the specifications, testing all controller possibilities
+	 */
 	@Test
 	public void testFull() {
 		pc.handleRequest("login \"bobred\" \"123456\"");
