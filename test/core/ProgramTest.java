@@ -57,9 +57,6 @@ public class ProgramTest {
 			program.addIngredient(ingredientNames[(2*i)%ingredientNames.length], 2+i*11);
 			program.saveMeal();
 		}
-		//TODO: When we will have CLUI
-		//execute the listIngredients<‘‘Raclette’’> CLUI command to display the
-		//content of the “Raclette” meal
 		program.listIngredients("Raclette");
 		assertTrue(program.listIngredients("Raclette").get("cheese").getQuantity()==80);
 		assertTrue(program.listIngredients("Raclette").get("ham").getQuantity()==40);
